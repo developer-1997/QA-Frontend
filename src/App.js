@@ -44,7 +44,7 @@ const App = () => {
   }))
 
   const Layout = getLayout(layoutType)
-  console.log("Layout");
+  console.log("Layout11");
   return (
     <React.Fragment>
       <Routes>
