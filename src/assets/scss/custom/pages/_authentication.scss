@@ -1,0 +1,245 @@
+//
+// authentication.scss
+//
+
+// authentication home icon
+.home-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+}
+
+// auth 2
+
+.auth-logo {
+  .auth-logo-dark {
+    display: $display-block;
+  }
+  .auth-logo-light {
+    display: $display-none;
+  }
+}
+
+.auth-body-bg {
+  background-color: $card-bg;
+}
+
+// auth-pass-inputgroup
+
+.auth-pass-inputgroup {
+  input[type="input"] + .btn .mdi-eye-outline {
+    &:before {
+      content: "\F06D1";
+    }
+  }
+}
+
+// authentication full page
+
+.auth-full-bg {
+  background-color: rgba($primary, 0.25);
+  display: flex;
+
+  @media (max-width: 767px) {
+    display: block;
+    height: 100vh;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+
+  .bg-overlay {
+    background: url("../../../images/bg-auth-overlay.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.auth-full-page-content {
+  display: flex;
+
+  @media (min-width: 1200px) {
+    min-height: 100vh;
+  }
+}
+
+.auth-review-carousel {
+  &.owl-theme {
+    .owl-dots {
+      .owl-dot {
+        span {
+          background-color: rgba($primary, 0.25);
+        }
+        &.active,
+        &:hover {
+          span {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* AUTHENTICATION PAGE STYLE BEGINS */
+
+.page_title {
+  font-size: 36px;
+  color: #252f6a !important;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+.page_description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6a7187 !important;
+}
+
+.auth-logo img {
+  max-width: 270px;
+  width: 100%;
+  height: auto;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins";
+  color: #686868;
+}
+
+.input_field {
+  font-size: 16px;
+  font-weight: 500;
+  color: #323133;
+  font-family: "Poppins";
+  background: #fff !important;
+  border: 1.5px solid #ced4da;
+  border-radius: 4px;
+  padding: 9px 20px;
+}
+
+.input_field::placeholder {
+  color: #adb5bd;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.custom_btn {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  font-family: "Poppins";
+  height: 45px;
+  background-color: #252f6a;
+  border-radius: 10px;
+}
+
+.txt_forgot_psd a {
+  color: #f89752 !important;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-decoration: underline !important;
+}
+
+.auth_content_container {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+
+  @media (max-width: 767px) {
+    height: 100vh;
+    max-width: 600px;
+  }
+}
+
+.txt_noAccount {
+  font-size: 16px;
+  font-weight: 500;
+  color: #495057;
+  font-family: "Poppins";
+  text-align: left;
+}
+
+.txt_terms_condition {
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  font-family: "Poppins";
+}
+
+.txt_noAccount a,
+.txt_terms_condition a {
+  color: #f9974e !important;
+  text-decoration: underline !important;
+}
+
+.form-check-label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.form-check-input {
+  border-color: #ced4da;
+}
+
+.auth-full-page-content {
+  background-color: #fff;
+
+  @media (max-width: 767px) {
+    height: 100vh !important;
+  }
+}
+
+.login_banner {
+  background: linear-gradient(180deg, #ceece9 0%, #edf5f9 100%);
+}
+
+.banner_content h1 {
+  font-size: 55px;
+  font-weight: 700;
+  color: #1e1e1e;
+  font-family: "Inter";
+}
+
+.banner_content .txt_hltd {
+  color: #f89752;
+}
+
+.banner_content ul li {
+  font-size: 20px;
+  font-weight: 500;
+  color: #7e7c7c;
+  font-family: "Inter";
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.banner_content ul li div p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #7e7c7c;
+}
+
+.banner_content p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #3d3d3d;
+  font-family: "Inter";
+  margin: 20px 0;
+  line-height: 24px;
+}
+
+.invalid-feedback {
+  font-size: 15px;
+}
+
+/* AUTHENTICATION PAGE STYLE END */

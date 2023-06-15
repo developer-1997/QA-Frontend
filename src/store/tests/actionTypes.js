@@ -1,0 +1,32 @@
+/* TESTS */
+export const GET_TESTS = "GET_TESTS"
+export const GET_TESTS_SUCCESS = "GET_TESTS_SUCCESS"
+export const GET_TESTS_FAIL = "GET_TESTS_FAIL"
+
+/* TESTS DETAIL*/
+export const GET_TEST_DETAIL = "GET_TEST_DETAIL"
+export const GET_TEST_DETAIL_SUCCESS = "GET_TEST_DETAIL_SUCCESS"
+export const GET_TEST_DETAIL_FAIL = "GET_TEST_DETAIL_FAIL"
+
+/**
+ * add test
+ */
+export const ADD_NEW_TEST = "ADD_NEW_TEST"
+export const ADD_TEST_SUCCESS = "ADD_TEST_SUCCESS"
+export const ADD_TEST_FAIL = "ADD_TEST_FAIL"
+
+/**
+ * Edit test
+ */
+export const UPDATE_TEST = "UPDATE_TEST"
+export const UPDATE_TEST_SUCCESS = "UPDATE_TEST_SUCCESS"
+export const UPDATE_TEST_FAIL = "UPDATE_TEST_FAIL"
+
+/**
+ * Delete test
+ */
+export const DELETE_TEST = "DELETE_TEST"
+export const DELETE_TEST_SUCCESS = "DELETE_TEST_SUCCESS"
+export const DELETE_TEST_FAIL = "DELETE_TEST_FAIL"
+
+export const UPDATE_TEST_LOADING_STATE = "UPDATE_TEST_LOADING_STATE"

@@ -1,0 +1,1237 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.home_container{
+	max-width: 1170px;
+    /* max-width: 1240px; */
+    width: 100%;
+	margin: 0 auto;
+	/* overflow: hidden; */
+}
+
+.header{
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("./../images/home/banner.png") no-repeat;
+    background-position: left center;
+    background-size: cover;
+}
+
+.header_content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 40%;
+}
+
+.header_content h1{
+    font-size: 50px;
+    font-weight: 700;
+    color: #181818;
+    text-align: center;
+    line-height: 55px;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.header_content p{
+    font-size: 18px;
+    font-weight: 400;
+    color: #181818;
+    text-align: center;
+}
+
+.header_content a{
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    font-family: 'League Spartan', sans-serif;
+    background: #252F6A;
+    border-radius: 5px;
+    padding: 15px 30px;
+    text-transform: capitalize;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.img_header_left{
+    position: absolute;
+    left: 20px;
+    top: 8%;
+    z-index: 2;
+}
+
+.img_header_right{
+    position: absolute;
+    right: 20px;
+    top: 8%;
+    z-index: 2;
+}
+
+.online_support, .enroll_learners {
+    background-color: #fff;
+    padding: 30px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 50px;
+    position: absolute;
+    top: 90%;
+    right: 70%;
+    width: 306px;
+    box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.3);
+}
+
+.enroll_learners{
+    margin-top: -50px;
+    z-index: 999;
+}
+
+.online_support .txt_online_support{
+    font-size: 11px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    opacity: 43%;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.online_support .txt_mobile{
+    font-size: 20px;
+    font-weight: 400;
+    color: #181818;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.about_us{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+.lbl_about_us{
+    font-size: 14px;
+    font-weight: 600;
+    color: #808080;
+    text-transform: uppercase;
+}
+
+.section_heading{
+    font-size: 36px;
+    font-weight: 700;
+    font-family: 'League Spartan', sans-serif;
+    color: #181818;
+    line-height: 45px;
+}
+
+.section_desc{
+    font-size: 15px;
+    font-weight: 500;
+    color: #808080;
+    line-height: 25px;
+}
+
+.bout_us_content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about_us_content .aboutus_list{
+    font-size: 16px;
+    font-weight: 500;
+    color: #808080;
+}
+
+.about_banner_container img{
+    position: relative;
+    z-index: 995;
+}
+
+.about_banner_container::before{
+    content: "";
+    background-image: url("./../images/home/about_shape2.png");
+    position: absolute;
+    right: 75%;
+    bottom: 55%;
+    height: 266px;
+    width: 269px;
+    z-index: 1;
+}
+
+.about_banner_container::after{
+    content: "";
+    background-image: url("./../images/home/about_shape1.png");
+    position: absolute;
+    left: 65%;
+    top: 55%;
+    height: 259px;
+    width: 273px;
+    z-index: 1;
+}
+
+.lbl_learners_count{
+    color: #F89752;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.lbl_learners{
+    color: #181818;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.small_heading_title{
+    font-size: 14px;
+    color: #808080;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.online_test_cat{
+    padding: 34px;
+    border-radius: 5px;
+    background: rgb(26 182 157 / 7%);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.online_test_cat .cat_title{
+    color: #808080;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'League Spartan', sans-serif;
+    line-height: 26px;
+}
+
+.online_test_cat .cat_desc, .membership_plan .plan_desc{
+    color: #808080;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 26px;
+    margin: 20px;
+}
+
+.online_test_cat .num_of_courses{
+    color: #1AB69D;
+    font-size: 14px;
+    font-weight: 600;
+    background: #DAF4EF;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.online_test_cat img{
+    max-width: 80px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.non_degree{
+    background: rgb(238 74 98 / 7%);
+}
+
+.non_degree .num_of_courses{
+    color: #EE4A62;
+    background: #FCE1E5;
+}
+
+.off_campus{
+    background: rgb(70 100 228 / 7%);
+}
+
+.off_campus .num_of_courses{
+    color: #4664E4;
+    background: #E0E5FA;
+}
+
+.hybrid_distance{
+    background: rgb(248 148 31 / 7%);
+}
+
+.hybrid_distance .num_of_courses{
+    color: #F8941F;
+    background: #FEEDDA;
+}
+
+
+.plan_container{
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px 40px;
+    box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.plan_container .plan_amount{
+    color: #181818;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.plan_name{
+    color: #F89752;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'League Spartan', sans-serif;
+    text-transform: uppercase;
+}
+
+.lbl_per_month, .choose_desc, .testi_desc{
+    color: #808080;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+.list_item{
+    font-size: 14px;
+    font-weight: 600;
+    color: #181818;
+}
+
+.plan_benefits{
+    border-top: 1px solid #E7E7E7;
+    padding-top: 25px;
+}
+
+.btn_select_plan{
+    font-size: 14px;
+    color: #181818;
+    font-weight: 600;
+    font-family: 'League Spartan', sans-serif;
+    border: 1px solid #E5E5E5;
+    background: #fff;
+    padding: 10px 35px;
+    border-radius: 5px;
+    margin-top: 35px;
+}
+
+.our_partners{
+    background: #FAF6F3;
+}
+
+.our_partners .partners_container{
+    gap: 15px;
+}
+
+.our_partners .partners_container img{
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+}
+
+.home_input_field{
+    outline: none !important;
+    border: 0 !important;
+    border-bottom: 1px solid #EBEBEB !important;
+    color: #808080 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.button{
+    border-radius: 5px;
+    color: #fff;
+    background-color: #252F6A !important;
+    border-color: #252F6A !important;
+    padding: 10px 30px !important;
+}
+
+.contact_us .contact_us_banner img{
+    max-width: 781px;
+    width: 100%;
+    height: auto;
+}
+
+.our_features{
+    background: url("./../images/home/features_bg.png")  no-repeat;
+    /* background-position: left center; */
+    background-position: left top;
+    background-size: cover;
+    padding: 100px 0;
+}
+
+/* .our_features{
+    position: relative;
+} */
+
+/* .features_inner{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+/* .our_features::before{
+    content: "";
+    background-image: url(../images/features_bg.png);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1105px;
+    width: 100%;
+} */
+
+.feature_img{
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.feature_img img{
+    max-width: 370px;
+    width: 100%;
+}
+
+.feature_content{
+    background: #fff;
+    padding: 30px 45px;
+    border-radius: 10px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: left;
+}
+
+.feature_content .feature_title{
+    color: #181818;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'League Spartan', sans-serif;
+    line-height: 26px;
+}
+
+.feature_content .feature_desc {
+    color: #808080;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.features_item{
+    max-width: 370px;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 200px;
+}
+
+/* #carouselExampleIndicators{
+    height: 500px;
+    width: 500px;
+} */
+
+.carousel-inner .carousel-item img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* .carousel-inner .carousel-item{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+} */
+
+.choose_title{
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'League Spartan', sans-serif;
+    color: #181818;
+}
+
+.why_us{
+    position: relative;
+    height: 790px;
+}
+
+.why_us::before{
+    content: "";
+    background-image: url("./../images/home/why_us_bg.png");
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.why_us .why_us_content{
+    max-width: 590px;
+    width: 100%;
+    padding: 65px;
+    border-radius: 5px;
+    background: #fff;
+    text-align: start;
+    box-shadow: 0 10px 40px 0px rgb(26 46 85 / 16%);
+}
+
+.why_us_banner{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+}
+
+.why_us_inner{
+    position: relative;
+}
+
+.why_us_banner img{
+    max-width: 850px;
+    width: 100% !important;
+    height: 100%;
+}
+
+.why_us_content{
+    position: absolute;
+    right: 0;
+    top: 70px;
+    z-index: 50;
+}
+
+/* FOOTER STYLE BEGINS */
+.main_footer, .bottom_bar {
+    background: #121212;
+}
+
+.main_footer .footer_logo img {
+    max-width: 293px;
+    width: 100%;
+    height: auto;
+}
+
+.main_footer .footer_text{
+    font-size: 14px;
+    font-weight: 600;
+    color: #BABABA;
+    line-height: 26px;
+}
+
+.main_footer ul li a{
+    font-size: 14px;
+    font-weight: 600;
+    color: #BABABA;
+    text-decoration: none;
+    padding: 2px 0;
+    display: block;
+}
+
+.foot_section_headting{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.bottom_bar{
+    border-top: 1px solid #1F2020;
+}
+
+.bottom_bar p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #BABABA;
+}
+
+.bottom_bar a{
+    color: #F89752;
+    text-decoration: none;
+}
+
+/* FOOTER STYLE END */
+
+
+/* TOP BAR STYLING BEGINS */
+.top_bar{
+    padding: 18px 0;
+    background: #fff;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; */
+}
+
+.top_bar_container{
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.top_bar_inner{
+    padding: 0 20px;
+}
+
+.top_bar_inner ul{
+    border-right: 2px solid #181818;
+}
+
+.top_bar_inner ul li a{
+    font-size: 16px;
+    color: #181818;
+    font-weight: 600;
+}
+
+.active_menu {
+    color: #F89752 !important;
+}
+
+.top_bar_inner ul li a:focus{
+    color: #F89752;
+}
+
+/* .top_bar .home_global_btn{
+    background-color: #252F6A;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #181818;
+    font-weight: 600;
+} */
+
+
+.home_global_btn{
+    background: #fff !important;
+    border: 1px solid #fff !important;
+    color: #181818 !important;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: 'Poppins';
+}
+
+.home_global_btn:focus, .home_global_btn:hover, .home_global_btn:active{
+    background: #252F6A !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+/* TOP BAR STYLING END */
+
+/* our_features_carousel CSS BEGINS */
+.swiper {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+.swiper-wrapper{
+    padding-bottom: 30px !important;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+    background: #F9F5F2;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* our_features_carousel CSS END */
+
+
+/* TESTIMONIALS STYLE BEGINS */
+
+.testimonials .testi_container{
+    max-width: 338px;
+    width: 100%;
+    padding: 40px 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.testimonials .testi_container .testi_shape {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    overflow: hidden;
+}
+
+.testimonials .testi_container .testi_shape img{
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+}
+
+.testimonials .testi_container .quotes_circle{
+    position: absolute;
+    bottom: 10px;
+    left: 51px;
+}
+
+.testimonials .testi_user_img{
+    max-width: 70px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.testimonials .user_name{
+    color: #181818;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'League Spartan', sans-serif;
+    line-height: 26px;
+}
+
+.testimonials .user_profile{
+    color: #808080;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.testimonials .slick-slide{
+	transform: scale(0.9);
+	transition: transform 300ms;
+	opacity: 0.5;
+}
+
+.testimonials .slick-active{
+	transform: scale(1);
+	opacity: 1;
+}
+
+.slick-dots li{
+    margin: 0 !important;
+}
+
+
+/* TESTIMONIALS STYLE END */
+
+
+
+
+
+
+@media (max-width: 575.98px) {
+
+    .header{
+        height: 100vh;
+        position: unset;
+        background-position: center;
+        /* display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("./../images/home/banner.png") no-repeat;
+        background-position: left center;
+        background-size: cover; */
+    }
+    
+    .header_content{
+        position: unset;
+        /* top: 50%;
+        left: 50%; */
+        transform: unset;
+        display: block;
+        width: 100%;
+        /* z-index: 10;
+        width: 40%; */
+    }
+    
+    .header_content h1{
+        font-size: 50px;
+        font-weight: 700;
+        color: #181818;
+        text-align: center;
+        line-height: 55px;
+        font-family: 'League Spartan', sans-serif;
+    }
+    
+    .header_content p{
+        font-size: 18px;
+        font-weight: 400;
+        color: #181818;
+        text-align: center;
+    }
+    
+    .header_content a{
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        text-align: center;
+        font-family: 'League Spartan', sans-serif;
+        background: #252F6A;
+        border-radius: 5px;
+        padding: 15px 30px;
+        text-transform: capitalize;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .img_header_left{
+        display: none;
+        /* position: absolute;
+        left: 20px;
+        top: 8%;
+        z-index: 2; */
+    }
+    
+    .img_header_right{
+        display: none;
+        /* position: absolute;
+        right: 20px;
+        top: 8%;
+        z-index: 2; */
+    }
+    
+    .online_support {
+        position: unset;
+        margin: 0 auto 35px;
+        /* background-color: #fff;
+        padding: 30px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 50px;
+        position: absolute;
+        top: 90%;
+        right: 70%;
+        width: 306px;
+        box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.3); */
+    }
+    
+    .enroll_learners{
+        margin: 20px auto 0;
+        position: unset;
+        /* margin-top: -50px;
+        z-index: 999; */
+    }
+    
+    .online_support .txt_online_support{
+        font-size: 11px;
+        font-weight: 700;
+        color: #000;
+        text-transform: uppercase;
+        opacity: 43%;
+        font-family: 'League Spartan', sans-serif;
+    }
+    
+    .online_support .txt_mobile{
+        font-size: 20px;
+        font-weight: 400;
+        color: #181818;
+        font-family: 'League Spartan', sans-serif;
+    }
+
+    .about_us_content{
+        display: block !important;
+        width: 100%;
+    }
+
+    .about_banner_container::after {
+        display: none;
+        /* content: "";
+        background-image: url(data:image/png;base64,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);
+        position: absolute;
+        left: 65%;
+        top: 55%;
+        height: 259px;
+        width: 273px;
+        z-index: 1; */
+    }
+
+
+    .why_us_content{
+        top: 250px;
+    }
+
+    .about_banner_container img {
+        max-width: 570px;
+        width: 100%;
+        height: auto;
+        margin: 0 15px;
+    }
+
+    .online_test .online_test_container{
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 767.98px) { 
+
+    .header{
+        height: 100vh;
+        position: unset;
+        background-position: center;
+        /* display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("./../images/home/banner.png") no-repeat;
+        background-position: left center;
+        background-size: cover; */
+    }
+    
+    .header_content{
+        position: unset;
+        /* top: 50%;
+        left: 50%; */
+        transform: unset;
+        display: block;
+        width: 100%;
+        padding: 0 15px;
+        /* z-index: 10;
+        width: 40%; */
+    }
+    
+    .header_content h1{
+        font-size: 50px;
+        font-weight: 700;
+        color: #181818;
+        text-align: center;
+        line-height: 55px;
+        font-family: 'League Spartan', sans-serif;
+    }
+    
+    .header_content p{
+        font-size: 18px;
+        font-weight: 400;
+        color: #181818;
+        text-align: center;
+    }
+    
+    .header_content a{
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        text-align: center;
+        font-family: 'League Spartan', sans-serif;
+        background: #252F6A;
+        border-radius: 5px;
+        padding: 15px 30px;
+        text-transform: capitalize;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .img_header_left{
+        display: none;
+        /* position: absolute;
+        left: 20px;
+        top: 8%;
+        z-index: 2; */
+    }
+    
+    .img_header_right{
+        display: none;
+        /* position: absolute;
+        right: 20px;
+        top: 8%;
+        z-index: 2; */
+    }
+    
+    .online_support {
+        /* background-color: #fff;
+        padding: 30px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 50px; */
+        position: unset;
+        margin: 0 auto 35px;
+        /* top: 90%;
+        right: 70%;
+        width: 306px;
+        box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.3); */
+    }
+    
+    .enroll_learners{
+        margin: 20px auto 0;
+        position: unset;
+        /* margin-top: -50px;
+        z-index: 999; */
+    }
+    
+    .online_support .txt_online_support{
+        font-size: 11px;
+        font-weight: 700;
+        color: #000;
+        text-transform: uppercase;
+        opacity: 43%;
+        font-family: 'League Spartan', sans-serif;
+    }
+    
+    .online_support .txt_mobile{
+        font-size: 20px;
+        font-weight: 400;
+        color: #181818;
+        font-family: 'League Spartan', sans-serif;
+    }
+
+    .about_us_content{
+        display: block !important;
+        width: 100%;
+    }
+
+    .about_banner_container::after {
+        display: none;
+        /* content: "";
+        background-image: url(data:image/png;base64,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);
+        position: absolute;
+        left: 65%;
+        top: 55%;
+        height: 259px;
+        width: 273px;
+        z-index: 1; */
+    }
+
+    .why_us_content{
+        top: 250px;
+    }
+
+    .about_banner_container img {
+        max-width: 570px;
+        width: 100%;
+        height: auto;
+        margin: 0 15px;
+    }
+
+    .online_test .online_test_container{
+        padding: 0 15px;
+    }
+
+    .why_us{
+        position: unset;
+        height: 790px;
+    }
+    
+    .why_us::before{
+        /* content: "";
+        background-image: url("./../images/home/why_us_bg.png");
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center; */
+        display: none;
+    }
+    
+    /* .why_us .why_us_content{
+        max-width: 590px;
+        width: 100%;
+        padding: 65px;
+        border-radius: 5px;
+        background: #fff;
+        text-align: start;
+        box-shadow: 0 10px 40px 0px rgb(26 46 85 / 16%);
+    } */
+    
+    .why_us_banner{
+        position: unset;
+        display: block;
+        padding: 0 15px;
+        /* left: 0;
+        top: 0; */
+        /* z-index: 5; */
+    }
+
+    .why_us_inner{
+        position: unset;
+    }
+    
+    /* .why_us_banner img{
+        max-width: 850px;
+        width: 100% !important;
+        height: 100%;
+    } */
+    
+    .why_us_content{
+        position: unset;
+        right: 0;
+        top: 70px;
+        z-index: 50;
+    }
+    
+}
+
+@media (max-width: 991.98px) { 
+    .header{
+        height: 100vh;
+        position: unset;
+        background-position: center;
+        /* display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("./../images/home/banner.png") no-repeat;
+        background-position: left center;
+        background-size: cover; */
+    }
+    
+    .header_content{
+        position: unset;
+        /* top: 50%;
+        left: 50%; */
+        transform: unset;
+        display: block;
+        width: 100%;
+        /* z-index: 10;
+        width: 40%; */
+    }
+    
+    .header_content h1{
+        font-size: 50px;
+        font-weight: 700;
+        color: #181818;
+        text-align: center;
+        line-height: 55px;
+        font-family: 'League Spartan', sans-serif;
+    }
+    
+    .header_content p{
+        font-size: 18px;
+        font-weight: 400;
+        color: #181818;
+        text-align: center;
+    }
+    
+    .header_content a{
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        text-align: center;
+        font-family: 'League Spartan', sans-serif;
+        background: #252F6A;
+        border-radius: 5px;
+        padding: 15px 30px;
+        text-transform: capitalize;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .img_header_left{
+        display: none;
+        /* position: absolute;
+        left: 20px;
+        top: 8%;
+        z-index: 2; */
+    }
+    
+    .img_header_right{
+        display: none;
+        /* position: absolute;
+        right: 20px;
+        top: 8%;
+        z-index: 2; */
+    }
+    
+    .online_support {
+        position: unset;
+        margin: 0 auto 35px;
+        /* background-color: #fff;
+        padding: 30px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 50px;
+        position: absolute;
+        top: 90%;
+        right: 70%;
+        width: 306px;
+        box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.3); */
+    }
+    
+    .enroll_learners{
+        margin: 20px auto 0;
+        position: unset;
+        /* margin-top: -50px;
+        z-index: 999; */
+    }
+    
+    .online_support .txt_online_support{
+        font-size: 11px;
+        font-weight: 700;
+        color: #000;
+        text-transform: uppercase;
+        opacity: 43%;
+        font-family: 'League Spartan', sans-serif;
+    }
+    
+    .online_support .txt_mobile{
+        font-size: 20px;
+        font-weight: 400;
+        color: #181818;
+        font-family: 'League Spartan', sans-serif;
+    }
+
+    .about_us_content{
+        display: block !important;
+        width: 100%;
+    }
+
+    .about_banner_container::after {
+        display: none;
+        /* content: "";
+        background-image: url(data:image/png;base64,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);
+        position: absolute;
+        left: 65%;
+        top: 55%;
+        height: 259px;
+        width: 273px;
+        z-index: 1; */
+    }
+
+
+    .why_us_content{
+        top: 250px;
+    }
+
+    .about_banner_container img {
+        max-width: 570px;
+        width: 100%;
+        height: auto;
+        margin: 0 15px;
+    }
+
+    .online_test .online_test_container{
+        padding: 0 15px;
+    }
+}
+
+
+@media (max-width: 1199.98px) { 
+
+}
+
+
+@media (max-width: 1399.98px) { 
+
+}

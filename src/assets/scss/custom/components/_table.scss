@@ -1,0 +1,59 @@
+// 
+// _table.scss
+// 
+
+.table {
+  th {
+      background-color: #fff;
+      font-weight: 500;
+      font-size: 13px;
+      color: #495057;
+      font-family: 'Poppins';
+  }
+
+  td{
+    background-color: #fff;
+    h5{
+        a{
+            font-weight: 400;
+            font-size: 14px;
+            color: #495057;
+            font-family: 'Poppins';
+        }
+    }
+    .list_name{
+        a{
+            font-weight: 500;
+            font-size: 16px;
+            color: #252F6A;
+            font-family: 'Poppins';
+        }
+    }
+  }
+}
+
+.table-dark>:not(:last-child)>:last-child>*{
+  border-bottom-color:  $table-dark-border-color;
+}
+
+
+.table-bordered {
+  border: $table-border-width solid $table-border-color;
+}
+
+.table-nowrap {
+  th, td {
+    white-space: nowrap;
+  }
+}
+
+.table>:not(:first-child) {
+    border-top: 0;
+}
+
+.list_title_name{
+    font-weight: 500;
+    font-size: 16px;
+    color: #252F6A;
+    font-family: 'Poppins';
+}
