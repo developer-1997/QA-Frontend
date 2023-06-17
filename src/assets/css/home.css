@@ -12,10 +12,8 @@ body{
 
 .home_container{
 	max-width: 1170px;
-    /* max-width: 1240px; */
     width: 100%;
 	margin: 0 auto;
-	/* overflow: hidden; */
 }
 
 .header{
@@ -220,6 +218,7 @@ body{
     font-weight: 500;
     font-family: 'League Spartan', sans-serif;
     line-height: 26px;
+    padding: 0 20px;
 }
 
 .online_test_cat .cat_desc, .membership_plan .plan_desc{
@@ -365,33 +364,10 @@ body{
 
 .our_features{
     background: url("./../images/home/features_bg.png")  no-repeat;
-    /* background-position: left center; */
     background-position: left top;
     background-size: cover;
     padding: 100px 0;
 }
-
-/* .our_features{
-    position: relative;
-} */
-
-/* .features_inner{
-    position: absolute;
-    top: 100px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-} */
-
-/* .our_features::before{
-    content: "";
-    background-image: url(../images/features_bg.png);
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 1105px;
-    width: 100%;
-} */
 
 .feature_img{
     border-radius: 10px;
@@ -436,21 +412,10 @@ body{
     padding-bottom: 200px;
 }
 
-/* #carouselExampleIndicators{
-    height: 500px;
-    width: 500px;
-} */
-
 .carousel-inner .carousel-item img{
     max-width: 100%;
     height: auto;
 }
-
-/* .carousel-inner .carousel-item{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-} */
 
 .choose_title{
     font-size: 20px;
@@ -460,20 +425,10 @@ body{
 }
 
 .why_us{
-    position: relative;
     height: 790px;
-}
-
-.why_us::before{
-    content: "";
-    background-image: url("./../images/home/why_us_bg.png");
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
+    background: url("./../images/home/why_us_bg.png") no-repeat;
+    background-position: top center;
     background-size: cover;
-    background-position: center;
 }
 
 .why_us .why_us_content{
@@ -506,7 +461,7 @@ body{
 .why_us_content{
     position: absolute;
     right: 0;
-    top: 70px;
+    top: 120px;
     z-index: 50;
 }
 
@@ -573,13 +528,7 @@ body{
 
 /* TOP BAR STYLING BEGINS */
 .top_bar{
-    padding: 18px 0;
     background: #fff;
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999; */
 }
 
 .top_bar_container{
@@ -592,8 +541,26 @@ body{
     padding: 0 20px;
 }
 
+.top_bar_inner .menu_list{
+    display: flex;
+    align-items: center;
+}
+
+.top_bar_inner .menu_inner{
+    display: flex;
+    align-items: center;
+}
+
 .top_bar_inner ul{
     border-right: 2px solid #181818;
+}
+
+.top_bar_inner ul li{
+    display: inline-block;
+}
+
+.hamburger_icon{
+    display: none;
 }
 
 .top_bar_inner ul li a{
@@ -609,15 +576,6 @@ body{
 .top_bar_inner ul li a:focus{
     color: #F89752;
 }
-
-/* .top_bar .home_global_btn{
-    background-color: #252F6A;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #181818;
-    font-weight: 600;
-} */
-
 
 .home_global_btn{
     background: #fff !important;
@@ -652,10 +610,7 @@ body{
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    /* background: #fff; */
     background: #F9F5F2;
-  
-    /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -666,6 +621,11 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.features_container {
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 /* our_features_carousel CSS END */
@@ -741,12 +701,28 @@ body{
     margin: 0 !important;
 }
 
-
 /* TESTIMONIALS STYLE END */
 
 
+/* BOOTSTRAP NAVBAR CSS BEGINS */
 
+.navbar-expand-lg .navbar-collapse{
+    justify-content: flex-end;
+}
 
+.navbar-nav{
+    align-items: center;
+}
+
+.top_bar_inner ul li a {
+    font-size: 16px;
+    color: #181818;
+    font-weight: 600;
+    padding: 5px 10px;
+    display: block;
+}
+
+/* BOOTSTRAP NAVBAR CSS END */
 
 
 @media (max-width: 575.98px) {
@@ -807,7 +783,6 @@ body{
         display: none;
     }
 
-
     .why_us_content{
         top: 250px;
     }
@@ -822,11 +797,6 @@ body{
     .online_test .online_test_container{
         padding: 0 15px;
     }
-
-
-
-
-
 
     .our_features{
         background: unset;
@@ -850,14 +820,6 @@ body{
         position: unset !important;
         margin: 0 0 25px;
     }
-
-    /* .why_us_content{
-        position: unset !important;
-        max-width: unset;
-        width: 100%;
-        padding: 50px 32px;
-        margin: 0 15px;
-    } */
 
     .about_us {
         padding-top: 0;
@@ -944,6 +906,12 @@ body{
         justify-content: flex-start;
         gap: 2rem;
     }
+
+    .navbar-brand img{
+        max-width: 170px !important;
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media (max-width: 767.98px) { 
@@ -962,36 +930,6 @@ body{
         padding: 0 15px;
     }
     
-    /* .header_content h1{
-        font-size: 50px;
-        font-weight: 700;
-        color: #181818;
-        text-align: center;
-        line-height: 55px;
-        font-family: 'League Spartan', sans-serif;
-    }
-    
-    .header_content p{
-        font-size: 18px;
-        font-weight: 400;
-        color: #181818;
-        text-align: center;
-    }
-    
-    .header_content a{
-        font-size: 16px;
-        font-weight: 500;
-        color: #fff;
-        text-align: center;
-        font-family: 'League Spartan', sans-serif;
-        background: #252F6A;
-        border-radius: 5px;
-        padding: 15px 30px;
-        text-transform: capitalize;
-        text-decoration: none;
-        display: inline-block;
-    } */
-    
     .img_header_left{
         display: none;
     }
@@ -999,34 +937,6 @@ body{
     .img_header_right{
         display: none;
     }
-    
-    /* .online_support {
-        position: unset;
-        margin: 0 auto 35px;
-    } */
-    
-    /* .enroll_learners{
-        margin: 20px auto 0;
-        position: unset;
-        margin-top: -50px;
-        z-index: 999;
-    } */
-    
-    /* .online_support .txt_online_support{
-        font-size: 11px;
-        font-weight: 700;
-        color: #000;
-        text-transform: uppercase;
-        opacity: 43%;
-        font-family: 'League Spartan', sans-serif;
-    }
-    
-    .online_support .txt_mobile{
-        font-size: 20px;
-        font-weight: 400;
-        color: #181818;
-        font-family: 'League Spartan', sans-serif;
-    } */
 
     .about_us_content{
         display: block !important;
@@ -1048,23 +958,6 @@ body{
         display: none;
     }
     
-
-
-
-    
-    
-    
-
-
-
-
-
-
-
-
-
-
-
     .our_features{
         background: unset;
         padding: 0 !important;
@@ -1090,20 +983,11 @@ body{
         margin: 0 0 25px;
     }
 
-    /* .why_us_content{
-        position: unset !important;
-        max-width: unset;
-        width: 100%;
-        padding: 50px 32px;
-        margin: 0 15px;
-    } */
-
     .why_us .why_us_content{
         position: unset !important;
         max-width: 100% !important;
         width: 100%;
         padding: 50px 32px;
-        /* margin: 0 15px; */
     }
 
     .about_us {
@@ -1200,31 +1084,114 @@ body{
         justify-content: flex-start;
         gap: 2rem;
     }
+
+    .hamburger_icon{
+        display: block;
+    }
+
+    .top_bar{
+        padding: 18px 0;
+        background: #fff;
+    }
+    
+    .top_bar_container{
+        max-width: 1300px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .login_and_signUp{
+        display: block;
+        text-align: left;
+    }
+
+    .login_and_signUp .btn{
+        display: block;
+    }
+    
+    .navbar-brand img{
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+    }
+
+    .contact_us_header{
+        margin: 0 15px;
+        text-align: center !important;
+        margin-top: 20px;
+    }
     
 }
 
 @media (max-width: 991.98px) { 
+
+    /* BOOTSTRAP NAVBAR CSS BEGINS */
+
+    .top_bar{
+        padding: 15px 0;
+    }
+
+    .top_bar_inner{
+        padding: 0 10px;
+    }
+
+    .menu_list{
+        display: block !important;
+        width: 100%;
+    }
+
+    .navbar{
+        background: rgba(239, 242, 247, 1) !important;
+        padding: 0 10px !important;
+    }
+
+    .navbar-collapse{
+        height: 100vh !important;
+    }
+
+    .navbar-nav{
+        display: block !important;
+        width: 100%;
+    }
+
+    .navbar_menu{
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: #fff;
+        margin: 10px 0;
+        padding: 5px 0;
+    }
+
+    .top_bar_inner ul{
+        border-right: 0;
+    }
+
+    .navbar_menu li{
+        display: block;
+        width: 100%;
+    }
+
+    .login_and_signUp .btn{
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+        padding: 10px 0;
+    }
+
+    /* BOOTSTRAP NAVBAR CSS END */
+
     .header{
         height: 100vh;
         position: unset;
         background-position: center;
-        /* display: flex;
-        justify-content: center;
-        align-items: center;
-        background: url("./../images/home/banner.png") no-repeat;
-        background-position: left center;
-        background-size: cover; */
     }
     
     .header_content{
         position: unset;
-        /* top: 50%;
-        left: 50%; */
         transform: unset;
         display: block;
         width: 100%;
-        /* z-index: 10;
-        width: 40%; */
     }
     
     .our_features{
@@ -1252,20 +1219,11 @@ body{
         margin: 0 0 25px;
     }
 
-    /* .why_us_content{
-        position: unset !important;
-        max-width: unset;
-        width: 100%;
-        padding: 50px 32px;
-        margin: 0 15px;
-    } */
-
     .why_us .why_us_content{
         position: unset !important;
         max-width: 100% !important;
         width: 100%;
         padding: 50px 32px;
-        /* margin: 0 15px; */
     }
 
     .about_us {
@@ -1288,7 +1246,7 @@ body{
     }
 
     .plan_container{
-        margin: 10px 15px;
+        margin: 10px 0;
     }
 
     .testimonials_header{
@@ -1312,7 +1270,6 @@ body{
     .contact_us_header{
         margin: 0 15px;
         text-align: center !important;
-        margin-top: 20px;
     }
 
     .contact_us_form{
@@ -1330,10 +1287,6 @@ body{
 
     .online_test_header{
         margin: 0 15px;
-    }
-
-    .online_test_cat{
-        margin: 0 15px 20px;
     }
 
     .about_us .about_us_header{
@@ -1355,6 +1308,7 @@ body{
     .online_support{
         width: 275px;
         padding: 18px;
+        margin: 0 auto 20px;
     }
 
     .social_icons_container{
@@ -1391,11 +1345,22 @@ body{
     .contact_us .contact_us_banner img{
         max-width: 1200px;
     }
+
+    .swiper-wrapper{
+        margin-bottom: 80px;
+    }
+
+    .swiper-slide{
+        background: unset !important;
+    }
 }
 
 
 
-@media (max-width: 1199.98px) { 
+@media (max-width: 1199.98px) {
+    .swiper-wrapper{
+        margin-bottom: 30px;
+    } 
     .footer_inner, .contact_us_inner, .testimonials_inner, .plan_list, .test_list_container{
         padding: 0 20px;
     }
@@ -1405,7 +1370,7 @@ body{
     }
 
     .why_us_banner img {
-        max-width: 550px;
+        max-width: 100% !important;
         width: 100% !important;
         height: auto;
     }

@@ -51,6 +51,7 @@ import signupIcon from "../../assets/images/home/signup.svg"
 import star from "../../assets/images/home/star.svg"
 import testimonial_shap from "../../assets/images/home/testimonial_shap.png"
 import quotes_circle from "../../assets/images/home/quotes_circle.svg"
+import hamburger from "../../assets/images/home/hamburger.png"
 
 
 import "../../assets/css/home.css"
@@ -80,94 +81,76 @@ const Home = () => {
     centerPadding: '25%'
   };
 
-  if (window.innerWidth < 768) { // Adjust the breakpoint as per your needs
+  if (window.innerWidth < 768) {
     settings.centerPadding = '0';
-    // Modify other settings as needed for mobile view
   }
+
 
   return (
     <React.Fragment>
       <div>
-        <div id="top_bar" className="top_bar ">
+        <div id="top_bar" className="top_bar">
             <div className="top_bar_container">
-                <div className="top_bar_inner d-flex align-items-center justify-content-between px-3">
-                    <div>
-                        <img src={logo} width={235} height={55} />
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <ul className="list-unstyled mb-0 me-2">
-                        <li className="d-inline-block px-2">
-                            {/* <a href="#" className="px-2">
-                            Home
-                            </a> */}
+                <div className="top_bar_inner">
+                <nav className="navbar navbar-expand-lg navbar-light">
+                    <div className="container-fluid">
+                        <div className="navbar-brand">
+                            <img src={logo} width={235} height={55} />
+                        </div>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div className="navbar-nav">
+                            <ul className="list-unstyled mb-0">
+                                <li className="px-2 navbar_menu">
+                                    <ScrollLink to="top_bar" activeClass="active_menu" spy={true} smooth={true} duration={500}>
+                                        Home
+                                    </ScrollLink>
+                                </li>
+                                <li className="navbar_menu px-2">
+                                    <ScrollLink to="section_about_us" activeClass="active_menu" spy={true} smooth={true} duration={500}>
+                                        About
+                                    </ScrollLink>
+                                </li>
+                                <li className="navbar_menu px-2">
+                                    <ScrollLink to="section_online_test" activeClass="active_menu" spy={true} smooth={true} duration={500}>
+                                        Test
+                                    </ScrollLink>
+                                </li>
+                                <li className="navbar_menu px-2">
+                                    <ScrollLink to="section_membership_plan" activeClass="active_menu" spy={true} smooth={true} duration={500}>
+                                        Pricing
+                                    </ScrollLink>
+                                </li>
+                                <li className="navbar_menu px-2">
+                                    <ScrollLink to="section_contact_us" activeClass="active_menu" spy={true} smooth={true} duration={500}>
+                                        Contact
+                                    </ScrollLink>
+                                </li>
+                            </ul>
+                            <div className="login_and_signUp">
+                                <Link
+                                    className="btn btn-primary home_global_btn me-1"
+                                    to="/login"
+                                >
+                                    <img src={loginIcon} height="22" width="22" /> &nbsp;
+                                    Login
+                                </Link>
 
-                            <ScrollLink to="top_bar" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                Home
-                            </ScrollLink>
-                        </li>
-                        <li className="d-inline-block px-2">
-                            {/* <a href="#" className="px-2">
-                            About
-                            </a> */}
-
-                            <ScrollLink to="section_about_us" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                About
-                            </ScrollLink>
-                        </li>
-                        <li className="d-inline-block px-2">
-                            {/* <a href="#" className="px-2">
-                            Test
-                            </a> */}
-
-                            <ScrollLink to="section_online_test" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                Test
-                            </ScrollLink>
-                        </li>
-                        <li className="d-inline-block px-2">
-                            {/* <a href="#" className="px-2">
-                            Pricing
-                            </a> */}
-
-                            <ScrollLink to="section_membership_plan" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                Pricing
-                            </ScrollLink>
-                        </li>
-                        <li className="d-inline-block px-2">
-                            {/* <a href="#" className="px-2">
-                            Contact
-                            </a> */}
-
-                            <ScrollLink to="section_contact_us" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                Contact
-                            </ScrollLink>
-                        </li>
-                        </ul>
-                        <div>
-                        <Link
-                            className="btn btn-primary home_global_btn me-1"
-                            to="/login"
-                        >
-                            {/* <i className="fas fa-user font-size-15 align-middle me-2"></i> */}
-                            <img src={loginIcon} height="22" width="22" /> &nbsp;
-                            {/* <i className="mdi mdi-account-outline user_icon font-size-18" id="usertooltip"></i> */}
-                            Login
-                        </Link>
-
-                        <Link
-                            className="btn btn-primary home_global_btn me-1"
-                            to="register"
-                        >
-                            {/* <i className="fas fa-user font-size-15 align-middle me-1"></i>   */}
-                            <img src={signupIcon} height="22" width="22" /> &nbsp;
-
-                            {/* <i className="fas fa-user font-size-15 align-middle me-1">
-                            <i className="fas fa-plus font-size-5 fa-xs align-top"></i>
-                            </i> */}
-                            Sign Up
-                        </Link>
+                                <Link
+                                    className="btn btn-primary home_global_btn me-1"
+                                    to="register"
+                                >
+                                    <img src={signupIcon} height="22" width="22" /> &nbsp;
+                                    Sign Up
+                                </Link>
+                            </div>
+                        </div>
                         </div>
                     </div>
-                    </div>
+                </nav>
+                </div>
             </div>
         </div>
 
@@ -194,8 +177,6 @@ const Home = () => {
               <img src={arrow_right} width="19" height="15" />
               </a>
             </div>
-
-            
           </div>
 
           <div className="img_header_left">
@@ -206,81 +187,6 @@ const Home = () => {
             <img src={header_right_two} height="486" width="408" />
           </div>
         </div>
-
-        {/* <div className="about_us">
-          <div className="row">
-            <div className="col-md-8 d-flex justify-content-center align-items-center py-5">
-              <div className="about_banner_container position-relative py-5">
-                <img src={about_banner} width="520" height="370" />
-
-                <div className="enroll_learners d-flex justify-content-center align-items-center px-3 py-4">
-                  <div className="me-3">
-                    <img src={about_icon} height="50" width="50" />
-                  </div>
-                  <div>
-                    <p className="lbl_learners_count mb-0">20K+</p>
-                    <p className="lbl_learners mb-0">Enrolled Learners</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 about_us_content d-flex justify-content-center flex-md-column">
-              <p className="lbl_about_us mx-4 px-4">About Us</p>
-              <div className=" mx-4 px-4 mb-2">
-                <h2 className="aboutus_heading mb-0">
-                  Over 10 Years in{" "}
-                  <span style={{ color: "#F89752" }}>Distant learning</span> for
-                  Skill Development
-                </h2>
-                <img
-                  src={title_bottom_shape}
-                  height="15"
-                  width="103"
-                />
-              </div>
-
-              <p className="section_desc mx-4 px-4">
-                Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod
-                ex tempor incididunt labore dolore magna aliquaenim ad minim.
-              </p>
-
-              <ul className="list-unstyled  mx-4 px-4">
-                <li>
-                  <div className="d-flex align-items-center mb-3">
-                    <img
-                      src={rightIcon}
-                      height="22"
-                      width="22"
-                    />
-                    <p className="mx-3 my-0 aboutus_list">Expert trainers</p>
-                  </div>
-                </li>
-                <li>
-                  <div className="d-flex align-items-center mb-3">
-                    <img
-                      src={rightIcon}
-                      height="22"
-                      width="22"
-                    />
-                    <p className="mx-3 my-0 aboutus_list">
-                      Online remote learning
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div className="d-flex align-items-center mb-3">
-                    <img
-                      src={rightIcon}
-                      height="22"
-                      width="22"
-                    />
-                    <p className="mx-3 my-0 aboutus_list">Lifetime access</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div> */}
 
         <div id="section_about_us" className="about_us">
           <div className="row">
@@ -364,10 +270,10 @@ const Home = () => {
 
             <div className="test_list_container">
                 <div className="row my-5">
-                <div className="col-lg-3">
+                <div className="col-lg-3 col-md-6 online_test_container">
                     <div className="online_test_cat">
                     <img src={degree_program} height="80" width="80" />
-                    <h3 className="cat_title mt-4 px-lg-3">
+                    <h3 className="cat_title mt-4">
                         Online Degree Programs
                     </h3>
                     <p className="cat_desc">
@@ -377,10 +283,10 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-3 online_test_container">
+                <div className="col-lg-3 col-md-6 online_test_container">
                     <div className="online_test_cat non_degree">
                     <img src={non_degree_program} height="80" width="80" />
-                    <h3 className="cat_title mt-4 px-lg-3">
+                    <h3 className="cat_title mt-4">
                         Non-Degree Programs
                     </h3>
                     <p className="cat_desc">
@@ -390,10 +296,10 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-3">
+                <div className="col-lg-3 col-md-6 online_test_container">
                     <div className="online_test_cat off_campus">
                     <img src={off_campus} height="80" width="80" />
-                    <h3 className="cat_title mt-4 px-lg-3">
+                    <h3 className="cat_title mt-4">
                         Off-Campus Programs
                     </h3>
                     <p className="cat_desc">
@@ -403,10 +309,10 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-3">
+                <div className="col-lg-3 col-md-6 online_test_container">
                     <div className="online_test_cat hybrid_distance">
                     <img src={hybrid_program} height="80" width="80" />
-                    <h3 className="cat_title mt-4 px-lg-3">
+                    <h3 className="cat_title mt-4">
                         Hybrid Distance Programs
                     </h3>
                     <p className="cat_desc">
@@ -492,13 +398,17 @@ const Home = () => {
                 spaceBetween={30}
 
                 breakpoints={{
-                    // For screens smaller than 640px (mobile devices)
                     320: {
-                    slidesPerView: 1,
-                    spaceBetween: 10, // Adjust as needed
+                        slidesPerView: 1,
+                        spaceBetween: 10,
                     },
-                    // For screens larger than 640px
-                    1024: {
+
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+
+                    1100: {
                     slidesPerView: 3,
                     spaceBetween: 30,
                     },
@@ -537,7 +447,7 @@ const Home = () => {
                     </div>
                     <div className="feature_content">
                       <h3 className="feature_heading small_heading_title">
-                        Online
+                        Lecture
                       </h3>
                       <h2 className="feature_title">
                         Become a Better Blogger: Content Planning
@@ -557,7 +467,7 @@ const Home = () => {
                     </div>
                     <div className="feature_content">
                       <h3 className="feature_heading small_heading_title">
-                        Online
+                        Business
                       </h3>
                       <h2 className="feature_title">
                         Become a Better Blogger: Content Planning
@@ -597,7 +507,7 @@ const Home = () => {
                     </div>
                     <div className="feature_content">
                       <h3 className="feature_heading small_heading_title">
-                        Online
+                        Lecture
                       </h3>
                       <h2 className="feature_title">
                         Become a Better Blogger: Content Planning
@@ -617,7 +527,7 @@ const Home = () => {
                     </div>
                     <div className="feature_content">
                       <h3 className="feature_heading small_heading_title">
-                        Online
+                        Business
                       </h3>
                       <h2 className="feature_title">
                         Become a Better Blogger: Content Planning
@@ -652,60 +562,6 @@ const Home = () => {
                 </SwiperSlide>
                 
               </Swiper>
-
-              {/* <div className="row">
-                        <div className="col-md-3">
-                            <div className="features_item position-relative">
-                                <div className="feature_img">
-                                    <img src={our_features1} height="370" width="370" />
-                                </div>
-                                <div className="feature_content">
-                                    <h3 className="feature_heading small_heading_title">Online</h3>
-                                    <h2 className="feature_title">Become a Better Blogger: Content Planning</h2>
-                                    <p className="feature_desc">Lorem ipsum dolor sit amet cons tetur adipisicing sed do eiusmod ux tempor incid idunt labore dol oremagna aliqua.</p>    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-3">
-                            <div className="features_item position-relative">
-                                <div className="feature_img">
-                                    <img src={our_features1} height="370" width="370" />
-                                </div>
-                                <div className="feature_content">
-                                    <h3 className="feature_heading small_heading_title">Online</h3>
-                                    <h2 className="feature_title">Become a Better Blogger: Content Planning</h2>
-                                    <p className="feature_desc">Lorem ipsum dolor sit amet cons tetur adipisicing sed do eiusmod ux tempor incid idunt labore dol oremagna aliqua.</p>    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-3">
-                            <div className="features_item position-relative">
-                                <div className="feature_img">
-                                    <img src={our_features1} height="370" width="370" />
-                                </div>
-                                <div className="feature_content">
-                                    <h3 className="feature_heading small_heading_title">Online</h3>
-                                    <h2 className="feature_title">Become a Better Blogger: Content Planning</h2>
-                                    <p className="feature_desc">Lorem ipsum dolor sit amet cons tetur adipisicing sed do eiusmod ux tempor incid idunt labore dol oremagna aliqua.</p>    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-3">
-                            <div className="features_item position-relative">
-                                <div className="feature_img">
-                                    <img src={our_features1} height="370" width="370" />
-                                </div>
-                                <div className="feature_content">
-                                    <h3 className="feature_heading small_heading_title">Online</h3>
-                                    <h2 className="feature_title">Become a Better Blogger: Content Planning</h2>
-                                    <p className="feature_desc">Lorem ipsum dolor sit amet cons tetur adipisicing sed do eiusmod ux tempor incid idunt labore dol oremagna aliqua.</p>    
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
             </div>
           </div>
         </div>
@@ -720,7 +576,7 @@ const Home = () => {
 
             <div className="plan_list">
                 <div className="row mt-5">
-                <div className="col-lg-4">
+                <div className="col-lg-4 col-md-6">
                     <div className="plan_container text-center">
                     <h5 className="plan_name">Silver Plan</h5>
                     <h3 className="plan_amount mb-0 px-lg-5">$29.00</h3>
@@ -782,7 +638,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-4">
+                <div className="col-lg-4 col-md-6">
                     <div className="plan_container text-center">
                     <h5 className="plan_name">Gold Plan</h5>
                     <h3 className="plan_amount mb-0 px-lg-5">$49.00</h3>
@@ -844,7 +700,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-4">
+                <div className="col-lg-4 col-md-6">
                     <div className="plan_container text-center">
                     <h5 className="plan_name">Diamond Plan</h5>
                     <h3 className="plan_amount mb-0 px-lg-5">$79.00</h3>
@@ -1089,71 +945,71 @@ const Home = () => {
           <div className="home_container">
             <div className="contact_us_inner">
                 <div className="row">
-                <div className="col-lg-8">
-                    <div className=" contact_us_banner">
-                        <img
-                        src={contact_us_banner}
-                        //   height="519"
-                        //   width="781"
-                        />
-                    </div>
-                </div>
-
-                <div className="col-lg-4">
-                    <div className="contact_us_header">
-                    <h5 className="small_heading_title">contact us</h5>
-                    <h2 className="section_heading">Get In Touch</h2>
-                    <img src={title_bottom_shape} height="15" width="103" />
-                    <p className="plan_desc mt-3">
-                        Lorem ipsum dolor sit amet consect adipisicing elit sed. do
-                        eilt se.
-                    </p>
+                    <div className="col-lg-8 col-md-6">
+                        <div className=" contact_us_banner">
+                            <img
+                            src={contact_us_banner}
+                            //   height="519"
+                            //   width="781"
+                            />
+                        </div>
                     </div>
 
-                    <form className="contact_us_form my-4">
-                    <div className="mb-3">
-                        <input
-                        type="text"
-                        placeholder="Your name button"
-                        className="form-control home_input_field"
-                        id="name"
-                        aria-describedby="emailHelp"
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <input
-                        type="email"
-                        placeholder="Enter your email button"
-                        className="form-control home_input_field"
-                        id="email"
-                        aria-describedby="emailHelp"
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <input
-                        type="email"
-                        placeholder="Phone number "
-                        className="form-control home_input_field"
-                        id="Phone number"
-                        aria-describedby="emailHelp"
-                        />
-                    </div>
-                    <div className="form-floating">
-                        <textarea
-                        className="form-control home_input_field"
-                        aria-placeholder="Your message"
-                        placeholder="Your message"
-                        id="floatingTextarea2"
-                        style={{ height: "100px" }}
-                        ></textarea>
-                    </div>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="contact_us_header">
+                        <h5 className="small_heading_title">contact us</h5>
+                        <h2 className="section_heading">Get In Touch</h2>
+                        <img src={title_bottom_shape} height="15" width="103" />
+                        <p className="plan_desc mt-3">
+                            Lorem ipsum dolor sit amet consect adipisicing elit sed. do
+                            eilt se.
+                        </p>
+                        </div>
 
-                    <button type="submit" className="btn btn-primary button mt-4">
-                        Submit Message &nbsp;
-                        <img src={arrow_right} width="19" height="15" />
-                    </button>
-                    </form>
-                </div>
+                        <form className="contact_us_form my-4">
+                        <div className="mb-3">
+                            <input
+                            type="text"
+                            placeholder="Your name"
+                            className="form-control home_input_field"
+                            id="name"
+                            aria-describedby="emailHelp"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <input
+                            type="email"
+                            placeholder="Enter your email"
+                            className="form-control home_input_field"
+                            id="email"
+                            aria-describedby="emailHelp"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <input
+                            type="email"
+                            placeholder="Phone number"
+                            className="form-control home_input_field"
+                            id="Phone number"
+                            aria-describedby="emailHelp"
+                            />
+                        </div>
+                        <div className="form-floating">
+                            <textarea
+                            className="home_input_field p-2 w-100"
+                            // aria-placeholder="Your message"
+                            placeholder=" Your message"
+                            id="floatingTextarea2"
+                            style={{ height: "100px" }}
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" className="btn btn-primary button mt-4">
+                            Submit Message &nbsp;
+                            <img src={arrow_right} width="19" height="15" />
+                        </button>
+                        </form>
+                    </div>
                 </div>
             </div>
           </div>
@@ -1183,42 +1039,31 @@ const Home = () => {
                     <h3 className="foot_section_headting mb-4">Quick link</h3>
                     <ul className="list-unstyled">
                       <li className="footer_text py-1">
-                        {/* <a href="#">Home</a> */}
-
                         <ScrollLink to="section_home" smooth={true} duration={500}>
                             Home
                         </ScrollLink>
                       </li>
                       <li className="footer_text py-1">
-                        {/* <a href="#">About</a> */}
-
                         <ScrollLink to="section_about_us" smooth={true} duration={500}>
                             About
                         </ScrollLink>
                       </li>
                       <li className="footer_text py-1">
-                        {/* <a href="#">Test</a> */}
-
                         <ScrollLink to="section_online_test" smooth={true} duration={500}>
                             Test
                         </ScrollLink>
                       </li>
                       <li className="footer_text py-1">
-                        {/* <a href="#">Price</a> */}
-
                         <ScrollLink to="section_membership_plan" smooth={true} duration={500}>
                             Price
                         </ScrollLink>
                       </li>
                       <li className="footer_text py-1">
-                        {/* <a href="#">Sign In</a> */}
-
                         <Link className="py-1" to="/login">
                             Sign In
                         </Link>
                       </li>
                       <li className="footer_text py-1">
-                        {/* <a href="#">Registration</a> */}
                         <Link className="py-1" to="register" >
                             Registration
                         </Link>
