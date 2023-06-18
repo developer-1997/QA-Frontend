@@ -8,35 +8,25 @@ import {
   Col,
   Container,
   Row,
-  Table,
   CardHeader,
-  UncontrolledTooltip
+  UncontrolledTooltip,
 } from "reactstrap"
-import { isEmpty, map } from "lodash"
 
-//Import Breadcrumb
 import Breadcrumb from "../../../components/Common/Breadcrumb"
-
-//Import Image
-import logo from "../../../assets/images/logo-dark.png"
-import logoLight from "../../../assets/images/logo-light.png"
 import { getTestDetail as onGetTestDetail } from "../../../store/tests/actions"
-//redux
 import { useSelector, useDispatch } from "react-redux"
 
 const TestDetail = props => {
-  const [isEdit, setIsEdit] = useState(false)
+  const BASE_URL = process.env.REACT_APP_STATIC_URL
   const [questions, setQuestions] = useState([])
 
-  //meta title
-  document.title = "Test Detail | Skote - React Admin & Dashboard Template"
+  document.title = "Test Detail | QAPRENEUR"
 
   const dispatch = useDispatch()
 
   const { testDetail } = useSelector(state => ({
     testDetail: state.tests.testDetail,
   }))
-  console.log(testDetail)
 
   const params = props.router.params
 
@@ -58,13 +48,13 @@ const TestDetail = props => {
     if (params && params.id) {
       dispatch(onGetTestDetail(params.id))
     } else {
-      dispatch(onGetTestDetail(1)) //remove this after full integration
+      dispatch(onGetTestDetail(1))
     }
   }, [dispatch, onGetTestDetail])
 
-  //Print the Test
-  const printTest = () => {
-    window.print()
+  const handleDeleteButton = id => {
+    dispatch(onDeleteQuestion(id, testDetail._id, props.router.navigate))
+    dispatch(onGetTestDetail(testDetail._id))
   }
 
   return (
@@ -85,7 +75,7 @@ const TestDetail = props => {
                   <div className="position-relative">
                     <div className="profile_pic">
                       <img
-                        src={`http://54.166.60.45:8000${testDetail.image}`}
+                        src={`${BASE_URL}${testDetail.image}`}
                         height={150}
                         width={150}
                       />
@@ -93,10 +83,6 @@ const TestDetail = props => {
                     <div className="row">
                       <div className="col-xl-12 mt-3">
                         <div className="profile_info">
-                          {/* <div className="profile_pic">
-                          <img src="" height={150} width={150} />
-                        </div> */}
-
                           <div>
                             <div>
                               <h4 className="profile_name">
@@ -159,42 +145,6 @@ const TestDetail = props => {
                                 excepturi sint occaecati cupiditate non
                                 provident, similique sunt
                               </p>
-
-                              {/* <div className="mt-4">
-                                <h5 className="mb-3">Title: </h5>
-
-                                <div>
-                                  <div className="row">
-                                    <div className="col-lg-4 col-sm-6">
-                                      <div>
-                                        <ul className="ps-4">
-                                          <li className="py-1">
-                                            Donec sodales sagittis
-                                          </li>
-                                          <li className="py-1">
-                                            Sed consequat leo eget
-                                          </li>
-                                          <li className="py-1">
-                                            Aliquam lorem ante
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-4 col-sm-6">
-                                      <div>
-                                        <ul className="ps-4">
-                                          <li className="py-1">
-                                            Aenean ligula eget
-                                          </li>
-                                          <li className="py-1">
-                                            Cum sociis natoque
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div> */}
                             </div>
                           </div>
                         </div>
@@ -370,20 +320,36 @@ const TestDetail = props => {
                                   <Link
                                     to={`/questions-edit/test/${question.questionId}`}
                                     className="text-muted font-weight-bold px-2 ms-3"
-                                    >
+                                  >
                                     {/* <i className="bx bx-pencil font-size-16 align-middle ml-2"></i> */}
-                                    <i className="mdi mdi-pencil edit_blue_icon font-size-15" id="edittooltip" />
-                                    <UncontrolledTooltip placement="top" target="edittooltip">
-                                        Edit
-                                        </UncontrolledTooltip>
-                                    </Link>
+                                    <i
+                                      className="mdi mdi-pencil edit_blue_icon font-size-15"
+                                      id="edittooltip"
+                                    />
+                                    <UncontrolledTooltip
+                                      placement="top"
+                                      target="edittooltip"
+                                    >
+                                      Edit
+                                    </UncontrolledTooltip>
+                                  </Link>
 
-                                    <Link to={`/questions-edit/test/${question.questionId}`}>
-                                        <i className="mdi mdi-delete delete_red_icon font-size-15" id="deletetooltip" />
-                                        <UncontrolledTooltip placement="top" target="deletetooltip">
-                                        Delete
-                                        </UncontrolledTooltip>
-                                    </Link>
+                                  <Link
+                                    onClick={() =>
+                                      handleDeleteButton(question.questionId)
+                                    }
+                                  >
+                                    <i
+                                      className="mdi mdi-delete delete_red_icon font-size-15"
+                                      id="deletetooltip"
+                                    />
+                                    <UncontrolledTooltip
+                                      placement="top"
+                                      target="deletetooltip"
+                                    >
+                                      Delete
+                                    </UncontrolledTooltip>
+                                  </Link>
                                 </Col>
                               </Row>
                             </CardBody>

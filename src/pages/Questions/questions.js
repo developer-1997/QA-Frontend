@@ -42,6 +42,7 @@ const Questions = props => {
   } | QAPRENEUR`
 
   useEffect(() => {
+    setEditQuestion({})
     const currentLocation = props.router.location.pathname
     const status = currentLocation.includes("questions-edit")
     setIsEdit(status)

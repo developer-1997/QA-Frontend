@@ -34,7 +34,6 @@ import {
 
 function* fetchQuestions({ payload: { type, chapterId } }) {
   try {
-    console.log("here", type)
     yield put(updateQuestionLoadingState(true))
     const response = yield call(getQuestions, type, chapterId)
     yield put(getQuestionsSuccess(response.data.data))
@@ -47,7 +46,6 @@ function* fetchQuestions({ payload: { type, chapterId } }) {
 
 function* fetchQuestionDetail({ questionId }) {
   try {
-    console.log("questionId", questionId)
     const response = yield call(getQuestionsDetails, questionId)
     yield put(getQuestionDetailSuccess(response.data.data))
   } catch (error) {
@@ -59,10 +57,11 @@ function* onUpdateQuestion({
   payload: { question, questionId, history, type },
 }) {
   try {
-    console.log(type)
+    yield put(updateQuestionLoadingState(true))
     const response = yield call(updateQuestion, question, questionId)
     yield put(updateQuestionSuccess(response.data.data))
     toastr.success("Question updated successfully..!!")
+    yield put(updateQuestionLoadingState(false))
 
     setTimeout(
       history(
@@ -78,11 +77,14 @@ function* onUpdateQuestion({
   }
 }
 
-function* onDeleteQuestion({ payload: questionId }) {
+function* onDeleteQuestion({ payload: { questionId, testId, history } }) {
   try {
     const response = yield call(deleteQuestion, questionId)
     toastr.success("Question deleted successfully..!!")
     yield put(deleteQuestionSuccess(response.data))
+    // setTimeout(() => {
+    //   history(`tests-edit/${testId}`)
+    // }, 1000)
   } catch (error) {
     toastr.error(error.response.data.message)
     yield put(deleteQuestionFail(error))

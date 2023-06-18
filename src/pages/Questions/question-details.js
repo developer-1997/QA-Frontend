@@ -54,11 +54,11 @@ const Questions = props => {
     testDetail: state.tests?.testDetail,
     questions: state.questions?.questions,
   }))
-
+  console.log(questions)
   const chapterQuestions = questions?.map(question => {
     const quest = {}
-    quest.question = JSON.parse(question.question)
-    quest.id = question._id
+    quest.question = JSON.parse(question?.question)
+    quest.id = question?._id
     return quest
   })
 
