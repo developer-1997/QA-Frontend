@@ -1,43 +1,56 @@
-.topLeft_img{
-    position: absolute;
-    left: -45px;
-    top: 0;
-    z-index: 1;
+.topLeft_img {
+  position: absolute;
+  left: -45px;
+  top: 0;
+  z-index: 1;
 }
 
-.banner_content_outer{
-    position: absolute;
-    z-index: 999;
-    /* height: 100%; */
+.carousel_logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 9999;
 }
 
-.topRight_img{
-    position: absolute;
-    right: -55px;
-    top: -50px;
-    z-index: 1;
+.carousel_logo a .logo-dark-element {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+.banner_content_outer {
+  position: absolute;
+  z-index: 999;
+  /* height: 100%; */
 }
 
-.bottomLeft_img{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    max-width: 200px;
-    width: 100%;
+.topRight_img {
+  position: absolute;
+  right: -55px;
+  top: -50px;
+  z-index: 1;
 }
 
-.bottomRight_img{
-    position: absolute;
-    right: 20px;
-    bottom: 11px;
-    z-index: 1;
-    /* max-width: 200px;
+.bottomLeft_img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  max-width: 200px;
+  width: 100%;
+}
+
+.bottomRight_img {
+  position: absolute;
+  right: 20px;
+  bottom: 11px;
+  z-index: 1;
+  /* max-width: 200px;
     width: 100%; */
 }
 
-.bottomLeft_img img, .bottomLeft_img img, .topRight_img img{
-    width: 100%;
-    height: auto;
+.bottomLeft_img img,
+.bottomLeft_img img,
+.topRight_img img {
+  width: 100%;
+  height: auto;
 }
-

@@ -7,14 +7,28 @@ import topRightImg from "../../assets/images/banners/topRight.svg"
 import bottomLeftImg from "../../assets/images/banners/bottomLeft.svg"
 import bottomRightImg from "../../assets/images/banners/bottomRight.svg"
 import rightIcon from "../../assets/images/rightIcon.svg"
+import logolight from "../../assets/images/qapreneur/logo-light.png"
+import { Link } from "react-router-dom"
 
 const CarouselPage = () => {
   return (
     <React.Fragment>
       <Col xl={7} lg={7} md={6} sm={12}>
         <div className="auth-full-bg pt-lg-5 p-4 login_banner vh-sm-100">
+          <div className="carousel_logo">
+            <Link to="/" className="d-block auth-logo">
+              <img
+                src={logolight}
+                alt=""
+                height="64.75px"
+                width="210.5px"
+                className="logo-dark-element"
+              />
+            </Link>
+          </div>
           <div className="w-100 h-100 banner_content_outer">
             {/* <div className="bg-overlay"></div> */}
+
             <div className="d-flex h-100 flex-column">
               <div className="p-4 m-auto">
                 <div className="row justify-content-center">
