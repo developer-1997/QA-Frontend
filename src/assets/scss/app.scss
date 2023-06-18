@@ -86,3 +86,8 @@ File: Main Css File
 @import "custom/pages/timeline";
 @import "custom/pages/extras-pages";
 @import "custom/pages/jobs";
+
+
+// Custom PageComponents
+@import "custom/pageComponents/courseDetails.scss";
+@import "custom/pageComponents/studentDashboard.scss"

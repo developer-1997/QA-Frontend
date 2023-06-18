@@ -55,6 +55,7 @@ import ForgetPwd from "../pages/Authentication/ForgetPassword"
 
 // Dashboard
 import Dashboard from "../pages/Dashboard/DashboardSetting"
+import StudentDashboard from "pages/Dashboard/StudentDashboard"
 
 const adminRoutes = [
   //TestCategories

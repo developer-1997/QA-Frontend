@@ -1,0 +1,26 @@
+.statistics_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title_for_total{
+        font-size: 14px;
+        font-weight: 400;
+        color: #74788D;
+        margin: 7px 0 20px 0;
+    }
+    
+    .btn_view_all{
+        font-size: 13px;
+        font-weight: 500;
+        color: #252F6A !important;
+        text-decoration: underline !important;
+        white-space: nowrap;
+    }
+    
+    .stat_img{
+        margin-bottom: 20px;
+    }
+}
+

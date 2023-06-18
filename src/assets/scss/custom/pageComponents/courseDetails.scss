@@ -1,0 +1,164 @@
+.course_heading {
+    padding: 14px 0;
+    border-bottom: 2px solid #CED4DA;
+
+    .course_title {
+        font-size: 20px;
+        font-weight: 500;
+        color: #252F6A;
+        line-height: 30px;
+    }
+
+    .course_time {
+        .time {
+            font-size: 12px;
+            font-weight: 500;
+            color: #6A7187;
+        }
+    }
+}
+
+.course_chapters_list {
+
+    max-height: 700px;
+    height: 100%;
+    overflow: auto;
+
+    .course_chapter {
+        border-bottom: 1px solid #E0E0E0 !important;
+        // padding-bottom: 20px;
+        padding-bottom: 20px;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        .chapter_name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #252F6A;
+            line-height: 24px;
+            margin: 0 0 5px 0;
+        }
+
+        .chapter_info {
+            font-size: 13px;
+            font-weight: 500;
+            color: #6A7187;
+            line-height: 21px;
+            margin-bottom: 0 !important;
+        }
+    }
+
+}
+
+
+
+
+
+// ------------------ CUSTOM VERTICAL STEP PROGRESS CSS BEGIN ---------------------------
+
+.chapter_list_progress {
+    padding: 20px 0;
+    font-family: 'Helvetica';
+    font-size: 14px;
+}
+
+.StepProgress {
+    position: relative;
+    padding-left: 45px;
+    list-style: none;
+
+    &::before {
+        display: inline-block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 15px;
+        width: 10px;
+        height: 100%;
+        border-left: 2px solid #CCC;
+    }
+
+    &-item {
+        position: relative;
+        counter-increment: list;
+
+        &:not(:last-child) {
+            padding-bottom: 20px;
+        }
+
+        &::before {
+            display: inline-block;
+            content: '';
+            position: absolute;
+            left: -30px;
+            height: 100%;
+            width: 10px;
+        }
+
+        &::after {
+            content: counter(list);
+            display: inline-flex;
+            position: absolute;
+            top: 0;
+            left: -42px;
+            width: 25px;
+            height: 25px;
+            border: 2px solid #CCCCCC;
+            border-radius: 50%;
+            background-color: #FFF;
+            justify-content: center;
+            align-items: center;
+            color: #CCCCCC;
+        }
+
+        &.is-done {
+            &::before {
+                border-left: 2px solid #1AB69D;
+            }
+
+            &::after {
+                content: "✔";
+                // font-size: 10px;
+                font-size: 13px;
+                color: #FFF;
+                text-align: center;
+                border: 2px solid #1AB69D;
+                background-color: #1AB69D;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                height: 24px;
+                width: 24px;
+            }
+        }
+
+        &.current {
+            &::before {
+                border-left: 2px solid #1AB69D;
+            }
+
+            &::after {
+                content: counter(list);
+                padding-top: 1px;
+                width: 25px;
+                height: 25px;
+                top: -4px;
+                left: -42px;
+                font-size: 14px;
+                text-align: center;
+                color: #1AB69D;
+                border: 2px solid #1AB69D;
+                background-color: white;
+            }
+        }
+    }
+
+    strong {
+        display: block;
+    }
+}
+
+// ------------------ CUSTOM VERTICAL STEP PROGRESS CSS END ---------------------------
+
