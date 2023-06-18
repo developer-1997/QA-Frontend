@@ -103,8 +103,8 @@ const Action = ({ cellProps, onClickDelete, onClickEdit }) => {
         }}
       >
         <Link to={`/test-details/${cellProps.row.original._id}`}>
-          <i className="mdi mdi-eye-outline font-size-18" id="edittooltip" />
-          <UncontrolledTooltip placement="top" target="edittooltip">
+          <i className="mdi mdi-eye-outline font-size-18" id="deletetooltip" />
+          <UncontrolledTooltip placement="top" target="deletetooltip">
             View
           </UncontrolledTooltip>
         </Link>

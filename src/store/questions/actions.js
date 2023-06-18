@@ -65,9 +65,9 @@ export const updateQuestionFail = error => ({
   payload: error,
 })
 
-export const deleteQuestion = questionId => ({
+export const deleteQuestion = (questionId, testId, history) => ({
   type: DELETE_QUESTION,
-  payload: questionId,
+  payload: { questionId, testId, history },
 })
 
 export const deleteQuestionSuccess = question => ({
