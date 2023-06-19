@@ -53,23 +53,39 @@ import testimonial_shap from "../../assets/images/home/testimonial_shap.png"
 import quotes_circle from "../../assets/images/home/quotes_circle.svg"
 import hamburger from "../../assets/images/home/hamburger.png"
 
-
 import "../../assets/css/home.css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
 import { Pagination } from "swiper"
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink } from "react-scroll"
 
-
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const Home = () => {
   //meta title
   document.title = "Home | QAPRENEUR"
 
+  const [isHovered, setIsHovered] = useState(true)
+  const [isHoveredLogin, setIsHoveredLogin] = useState(false)
+
+  const handleHoverLogin = () => {
+    setIsHoveredLogin(true)
+  }
+
+  const handleLeaveLogin = () => {
+    setIsHoveredLogin(false)
+  }
+
+  const handleHover = () => {
+    setIsHovered(true)
+  }
+
+  const handleLeave = () => {
+    setIsHovered(false)
+  }
 
   let settings = {
     dots: true,
@@ -78,80 +94,137 @@ const Home = () => {
     speed: 200,
     slidesToShow: 1,
     slidesToScroll: 1,
-    centerPadding: '25%'
-  };
-
-  if (window.innerWidth < 768) {
-    settings.centerPadding = '0';
+    centerPadding: "25%",
   }
 
+  if (window.innerWidth < 768) {
+    settings.centerPadding = "0"
+  }
 
   return (
     <React.Fragment>
       <div>
         <div id="top_bar" className="top_bar">
-            <div className="top_bar_container">
-                <div className="top_bar_inner">
-                <nav className="navbar navbar-expand-lg navbar-light">
-                    <div className="container-fluid">
-                        <div className="navbar-brand">
-                            <img src={logo} width={235} height={55} />
-                        </div>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div className="navbar-nav">
-                            <ul className="list-unstyled mb-0">
-                                <li className="px-2 navbar_menu">
-                                    <ScrollLink to="top_bar" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                        Home
-                                    </ScrollLink>
-                                </li>
-                                <li className="navbar_menu px-2">
-                                    <ScrollLink to="section_about_us" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                        About
-                                    </ScrollLink>
-                                </li>
-                                <li className="navbar_menu px-2">
-                                    <ScrollLink to="section_online_test" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                        Test
-                                    </ScrollLink>
-                                </li>
-                                <li className="navbar_menu px-2">
-                                    <ScrollLink to="section_membership_plan" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                        Pricing
-                                    </ScrollLink>
-                                </li>
-                                <li className="navbar_menu px-2">
-                                    <ScrollLink to="section_contact_us" activeClass="active_menu" spy={true} smooth={true} duration={500}>
-                                        Contact
-                                    </ScrollLink>
-                                </li>
-                            </ul>
-                            <div className="login_and_signUp">
-                                <Link
-                                    className="btn btn-primary home_global_btn me-1"
-                                    to="/login"
-                                >
-                                    <img src={loginIcon} height="22" width="22" /> &nbsp;
-                                    Login
-                                </Link>
+          <div className="top_bar_container">
+            <div className="top_bar_inner">
+              <nav className="navbar navbar-expand-lg navbar-light">
+                <div className="container-fluid">
+                  <div className="navbar-brand">
+                    <img src={logo} width={235} height={55} />
+                  </div>
+                  <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
+                  <div
+                    className="collapse navbar-collapse"
+                    id="navbarNavAltMarkup"
+                  >
+                    <div className="navbar-nav">
+                      <ul className="list-unstyled mb-0">
+                        <li className="px-2 navbar_menu">
+                          <ScrollLink
+                            to="top_bar"
+                            activeClass="active_menu"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                          >
+                            Home
+                          </ScrollLink>
+                        </li>
+                        <li className="navbar_menu px-2">
+                          <ScrollLink
+                            to="section_about_us"
+                            activeClass="active_menu"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                          >
+                            About
+                          </ScrollLink>
+                        </li>
+                        <li className="navbar_menu px-2">
+                          <ScrollLink
+                            to="section_online_test"
+                            activeClass="active_menu"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                          >
+                            Test
+                          </ScrollLink>
+                        </li>
+                        <li className="navbar_menu px-2">
+                          <ScrollLink
+                            to="section_membership_plan"
+                            activeClass="active_menu"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                          >
+                            Pricing
+                          </ScrollLink>
+                        </li>
+                        <li className="navbar_menu px-2">
+                          <ScrollLink
+                            to="section_contact_us"
+                            activeClass="active_menu"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                          >
+                            Contact
+                          </ScrollLink>
+                        </li>
+                      </ul>
+                      <div className="login_and_signUp">
+                        <Link
+                          className={`home_global_btn me-1 btn_login ${
+                            isHoveredLogin ? "hovered" : ""
+                          }`}
+                          to="/login"
+                          onMouseEnter={handleHoverLogin}
+                          onMouseLeave={handleLeaveLogin}
+                          onFocus={handleHoverLogin}
+                          onBlur={handleLeaveLogin}
+                        >
+                          <i
+                            className={`display-2 text-muted bx bx-user ${
+                              isHoveredLogin ? "hoveredIcon" : ""
+                            } `}
+                          ></i>{" "}
+                          &nbsp;Login
+                        </Link>
 
-                                <Link
-                                    className="btn btn-primary home_global_btn me-1"
-                                    to="register"
-                                >
-                                    <img src={signupIcon} height="22" width="22" /> &nbsp;
-                                    Sign Up
-                                </Link>
-                            </div>
-                        </div>
-                        </div>
+                        <Link
+                          className={`home_global_btn me-1 signup_btn ${
+                            isHovered ? "hovered" : ""
+                          }`}
+                          to="register"
+                          onMouseEnter={handleHover}
+                          onMouseLeave={handleLeave}
+                          onFocus={handleHover}
+                          onBlur={handleLeave}
+                        >
+                          <img src={signupIcon} height="22" width="22" /> &nbsp;
+                          Signup
+                          {/* <i className={`display-2 text-muted bx bx-user-plus user-icon i_plus ${isHovered  ? 'hoveredIcon' : ''}`}></i>&nbsp;Sign Up */}
+                        </Link>
+                      </div>
                     </div>
-                </nav>
+                  </div>
                 </div>
+              </nav>
             </div>
+          </div>
         </div>
 
         <div id="section_home" className="header">
@@ -171,10 +244,11 @@ const Home = () => {
                 <p className="txt_mobile mb-0">+012 (345) 6789</p>
               </div>
             </div>
-            
+
             <div className="d-flex justify-content-center mt-2">
-              <a href="#">Find courses &nbsp;
-              <img src={arrow_right} width="19" height="15" />
+              <a href="#">
+                Find courses &nbsp;
+                <img src={arrow_right} width="19" height="15" />
               </a>
             </div>
           </div>
@@ -210,21 +284,21 @@ const Home = () => {
             <div className="col-md-12 col-lg-4 col-sm-12">
               <div className=" about_us_content">
                 <div className="about_us_header">
-                    <p className="lbl_about_us mx-4 px-4">About Us</p>
-                    <div className=" mx-4 px-4 mb-2">
+                  <p className="lbl_about_us mx-4 px-4">About Us</p>
+                  <div className=" mx-4 px-4 mb-2">
                     <h2 className="aboutus_heading section_heading mb-0">
-                        Over 10 Years in{" "}
-                        <span style={{ color: "#F89752" }}>Distant learning</span>{" "}
-                        for Skill Development
+                      Over 10 Years in{" "}
+                      <span style={{ color: "#F89752" }}>Distant learning</span>{" "}
+                      for Skill Development
                     </h2>
                     <img src={title_bottom_shape} height="15" width="103" />
-                    </div>
+                  </div>
 
-                    <p className="section_desc mx-4 px-4">
+                  <p className="section_desc mx-4 px-4">
                     Lorem ipsum dolor sit amet consectur adipiscing elit sed
-                    eiusmod ex tempor incididunt labore dolore magna aliquaenim ad
-                    minim.
-                    </p>
+                    eiusmod ex tempor incididunt labore dolore magna aliquaenim
+                    ad minim.
+                  </p>
                 </div>
 
                 <ul className="list-unstyled  mx-4 px-4">
@@ -269,62 +343,52 @@ const Home = () => {
             </p>
 
             <div className="test_list_container">
-                <div className="row my-5">
+              <div className="row my-5">
                 <div className="col-lg-3 col-md-6 online_test_container">
-                    <div className="online_test_cat">
+                  <div className="online_test_cat">
                     <img src={degree_program} height="80" width="80" />
-                    <h3 className="cat_title mt-4">
-                        Online Degree Programs
-                    </h3>
+                    <h3 className="cat_title mt-4">Online Degree Programs</h3>
                     <p className="cat_desc">
-                        Lorem ipsum dolor consec tur elit adicing sed umod tempor.
+                      Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                     </p>
                     <span className="num_of_courses">7 Courses</span>
-                    </div>
+                  </div>
                 </div>
 
                 <div className="col-lg-3 col-md-6 online_test_container">
-                    <div className="online_test_cat non_degree">
+                  <div className="online_test_cat non_degree">
                     <img src={non_degree_program} height="80" width="80" />
-                    <h3 className="cat_title mt-4">
-                        Non-Degree Programs
-                    </h3>
+                    <h3 className="cat_title mt-4">Non-Degree Programs</h3>
                     <p className="cat_desc">
-                        Lorem ipsum dolor consec tur elit adicing sed umod tempor.
+                      Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                     </p>
                     <span className="num_of_courses">4 Courses</span>
-                    </div>
+                  </div>
                 </div>
 
                 <div className="col-lg-3 col-md-6 online_test_container">
-                    <div className="online_test_cat off_campus">
+                  <div className="online_test_cat off_campus">
                     <img src={off_campus} height="80" width="80" />
-                    <h3 className="cat_title mt-4">
-                        Off-Campus Programs
-                    </h3>
+                    <h3 className="cat_title mt-4">Off-Campus Programs</h3>
                     <p className="cat_desc">
-                        Lorem ipsum dolor consec tur elit adicing sed umod tempor.
+                      Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                     </p>
                     <span className="num_of_courses">8 Courses</span>
-                    </div>
+                  </div>
                 </div>
 
                 <div className="col-lg-3 col-md-6 online_test_container">
-                    <div className="online_test_cat hybrid_distance">
+                  <div className="online_test_cat hybrid_distance">
                     <img src={hybrid_program} height="80" width="80" />
-                    <h3 className="cat_title mt-4">
-                        Hybrid Distance Programs
-                    </h3>
+                    <h3 className="cat_title mt-4">Hybrid Distance Programs</h3>
                     <p className="cat_desc">
-                        Lorem ipsum dolor consec tur elit adicing sed umod tempor.
+                      Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                     </p>
                     <span className="num_of_courses">8 Courses</span>
-                    </div>
+                  </div>
                 </div>
-                </div>
+              </div>
             </div>
-
-
           </div>
         </div>
 
@@ -396,24 +460,22 @@ const Home = () => {
               <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
-
                 breakpoints={{
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
+                  320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                  },
 
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                  },
 
-                    1100: {
+                  1100: {
                     slidesPerView: 3,
                     spaceBetween: 30,
-                    },
+                  },
                 }}
-
                 pagination={{
                   clickable: true,
                 }}
@@ -560,7 +622,6 @@ const Home = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-                
               </Swiper>
             </div>
           </div>
@@ -575,335 +636,372 @@ const Home = () => {
             </div>
 
             <div className="plan_list">
-                <div className="row mt-5">
+              <div className="row mt-5">
                 <div className="col-lg-4 col-md-6">
-                    <div className="plan_container text-center">
+                  <div className="plan_container text-center">
                     <h5 className="plan_name">Silver Plan</h5>
                     <h3 className="plan_amount mb-0 px-lg-5">$29.00</h3>
                     <p className="lbl_per_month">per month</p>
                     <p className="plan_desc mx-2">
-                        Lorem ipsum dolor sit amet consect adipisicing elit sed. do
-                        eilt se.
+                      Lorem ipsum dolor sit amet consect adipisicing elit sed.
+                      do eilt se.
                     </p>
 
                     <div className="plan_benefits">
-                        <ul className="list-unstyled text-center">
+                      <ul className="list-unstyled text-center">
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Courses included: 1
+                              Courses included: 1
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Individual Course
+                              Individual Course
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Course learning checks
+                              Course learning checks
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Course discussions
+                              Course discussions
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Offline learning
+                              Offline learning
                             </p>
-                            </div>
+                          </div>
                         </li>
-                        </ul>
+                      </ul>
                     </div>
 
                     <button className="btn_select_plan">
-                        Select Plan &nbsp;
-                        <img src={black_arrow} height="14" width="14" />
+                      Select Plan &nbsp;
+                      <img src={black_arrow} height="14" width="14" />
                     </button>
-                    </div>
+                  </div>
                 </div>
 
                 <div className="col-lg-4 col-md-6">
-                    <div className="plan_container text-center">
+                  <div className="plan_container text-center">
                     <h5 className="plan_name">Gold Plan</h5>
                     <h3 className="plan_amount mb-0 px-lg-5">$49.00</h3>
                     <p className="lbl_per_month">per month</p>
                     <p className="plan_desc mx-2">
-                        Lorem ipsum dolor sit amet consect adipisicing elit sed. do
-                        eilt se.
+                      Lorem ipsum dolor sit amet consect adipisicing elit sed.
+                      do eilt se.
                     </p>
 
                     <div className="plan_benefits">
-                        <ul className="list-unstyled text-center">
+                      <ul className="list-unstyled text-center">
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Courses included: 1
+                              Courses included: 1
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Individual Course
+                              Individual Course
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Course learning checks
+                              Course learning checks
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Course discussions
+                              Course discussions
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Offline learning
+                              Offline learning
                             </p>
-                            </div>
+                          </div>
                         </li>
-                        </ul>
+                      </ul>
                     </div>
 
                     <button className="btn_select_plan">
-                        Select Plan &nbsp;
-                        <img src={black_arrow} height="14" width="14" />
+                      Select Plan &nbsp;
+                      <img src={black_arrow} height="14" width="14" />
                     </button>
-                    </div>
+                  </div>
                 </div>
 
                 <div className="col-lg-4 col-md-6">
-                    <div className="plan_container text-center">
+                  <div className="plan_container text-center">
                     <h5 className="plan_name">Diamond Plan</h5>
                     <h3 className="plan_amount mb-0 px-lg-5">$79.00</h3>
                     <p className="lbl_per_month">per month</p>
                     <p className="plan_desc mx-2">
-                        Lorem ipsum dolor sit amet consect adipisicing elit sed. do
-                        eilt se.
+                      Lorem ipsum dolor sit amet consect adipisicing elit sed.
+                      do eilt se.
                     </p>
 
                     <div className="plan_benefits">
-                        <ul className="list-unstyled text-center">
+                      <ul className="list-unstyled text-center">
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Courses included: 1
+                              Courses included: 1
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Individual Course
+                              Individual Course
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Course learning checks
+                              Course learning checks
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Course discussions
+                              Course discussions
                             </p>
-                            </div>
+                          </div>
                         </li>
                         <li>
-                            <div className="d-flex align-items-center justify-content-center mb-3">
+                          <div className="d-flex align-items-center justify-content-center mb-3">
                             <img src={right_arrow} height="15" width="15" />
                             <p className="mx-2 my-0 list_item">
-                                Offline learning
+                              Offline learning
                             </p>
-                            </div>
+                          </div>
                         </li>
-                        </ul>
+                      </ul>
                     </div>
 
                     <button className="btn_select_plan">
-                        Select Plan &nbsp;
-                        <img src={black_arrow} height="14" width="14" />
+                      Select Plan &nbsp;
+                      <img src={black_arrow} height="14" width="14" />
                     </button>
-                    </div>
+                  </div>
                 </div>
-                </div>
+              </div>
             </div>
-
           </div>
         </div>
 
         <div className="testimonials py-5">
-            <div className="home_container">
-                <div className="testimonials_inner">
-                    <div className="row">
-                        <div className="col-lg-4">
-                            <div className="testimonials_header">
-                                <h5 className="small_heading_title">Testimonials</h5>
-                                <h2 className="section_heading">What Our Students Have To Say</h2>
-                                <img src={title_bottom_shape} height="15" width="103" />
-                                <p className="testi_desc mt-3">
-                                    Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod tempor incididunt labore dolore magna aliquaenim ad minim.
-                                </p>
+          <div className="home_container">
+            <div className="testimonials_inner">
+              <div className="row">
+                <div className="col-lg-4">
+                  <div className="testimonials_header">
+                    <h5 className="small_heading_title">Testimonials</h5>
+                    <h2 className="section_heading">
+                      What Our Students Have To Say
+                    </h2>
+                    <img src={title_bottom_shape} height="15" width="103" />
+                    <p className="testi_desc mt-3">
+                      Lorem ipsum dolor sit amet consectur adipiscing elit sed
+                      eiusmod tempor incididunt labore dolore magna aliquaenim
+                      ad minim.
+                    </p>
 
-                                <button type="button" className="btn btn-primary button mt-4">
-                                    View All &nbsp;
-                                    <img src={arrow_right} width="19" height="15" />
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-8">
-                            <Slider {...settings}>
-                                <div className="p-3">
-                                    <div className="testi_container position-relative">
-                                        <div className="testi_shape">
-                                            <img src={testimonial_shap} width="123" height="121" />
-                                        </div>
-                                        <div className="position-relative">
-                                            <div className="testi_user_img my-3">
-                                                <img src={about_banner} width="70" height="70" />
-                                            </div>
-                                            <div className="quotes_circle">
-                                                <img src={quotes_circle} width="28" height="25" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p className="testi_desc">Lorem ipsum dolor amet consec tur elit adicing sed do usmod zx tempor enim minim veniam quis nostrud exer citation.</p>
-                                            <div className="user_ratings d-flex align-items-center justify-content-start gap-1 mb-3">
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                            </div>
-                                            <h3 className="user_name">Thomas Lopez</h3>
-                                            <p className="user_profile">Designer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="p-3">
-                                    <div className="testi_container position-relative">
-                                        <div className="testi_shape">
-                                            <img src={testimonial_shap} width="123" height="121" />
-                                        </div>
-                                        <div className="position-relative">
-                                            <div className="testi_user_img my-3">
-                                                <img src={about_banner} width="70" height="70" />
-                                            </div>
-                                            <div className="quotes_circle">
-                                                <img src={quotes_circle} width="28" height="25" />
-                                            </div>
-                                        </div>
-                                        
-                                        <div>
-                                            <p className="testi_desc">Lorem ipsum dolor amet consec tur elit adicing sed do usmod zx tempor enim minim veniam quis nostrud exer citation.</p>
-                                            <div className="user_ratings d-flex align-items-center justify-content-start gap-1 mb-3">
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                            </div>
-                                            <h3 className="user_name">Thomas Lopez</h3>
-                                            <p className="user_profile">Designer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="p-3">
-                                    <div className="testi_container position-relative">
-                                        <div className="testi_shape">
-                                            <img src={testimonial_shap} width="123" height="121" />
-                                        </div>
-                                        <div className="position-relative">
-                                            <div className="testi_user_img my-3">
-                                                <img src={about_banner} width="70" height="70" />
-                                            </div>
-                                            <div className="quotes_circle">
-                                                <img src={quotes_circle} width="28" height="25" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p className="testi_desc">Lorem ipsum dolor amet consec tur elit adicing sed do usmod zx tempor enim minim veniam quis nostrud exer citation.</p>
-                                            <div className="user_ratings d-flex align-items-center justify-content-start gap-1 mb-3">
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                            </div>
-                                            <h3 className="user_name">Thomas Lopez</h3>
-                                            <p className="user_profile">Designer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="p-3">
-                                    <div className="testi_container position-relative">
-                                        <div className="testi_shape">
-                                            <img src={testimonial_shap} width="123" height="121" />
-                                        </div>
-                                        <div className="position-relative">
-                                            <div className="testi_user_img my-3">
-                                                <img src={about_banner} width="70" height="70" />
-                                            </div>
-                                            <div className="quotes_circle">
-                                                <img src={quotes_circle} width="28" height="25" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p className="testi_desc">Lorem ipsum dolor amet consec tur elit adicing sed do usmod zx tempor enim minim veniam quis nostrud exer citation.</p>
-                                            <div className="user_ratings d-flex align-items-center justify-content-start gap-1 mb-3">
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                                <img src={star} width="17" height="14" />
-                                            </div>
-                                            <h3 className="user_name">Thomas Lopez</h3>
-                                            <p className="user_profile">Designer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </Slider>
-                        </div>
-                    </div>
+                    <button
+                      type="button"
+                      className="btn btn-primary button mt-4"
+                    >
+                      View All &nbsp;
+                      <img src={arrow_right} width="19" height="15" />
+                    </button>
+                  </div>
                 </div>
+
+                <div className="col-lg-8">
+                  <Slider {...settings}>
+                    <div className="p-3">
+                      <div className="testi_container position-relative">
+                        <div className="testi_shape">
+                          <img
+                            src={testimonial_shap}
+                            width="123"
+                            height="121"
+                          />
+                        </div>
+                        <div className="position-relative">
+                          <div className="testi_user_img my-3">
+                            <img src={about_banner} width="70" height="70" />
+                          </div>
+                          <div className="quotes_circle">
+                            <img src={quotes_circle} width="28" height="25" />
+                          </div>
+                        </div>
+                        <div>
+                          <p className="testi_desc">
+                            Lorem ipsum dolor amet consec tur elit adicing sed
+                            do usmod zx tempor enim minim veniam quis nostrud
+                            exer citation.
+                          </p>
+                          <div className="user_ratings d-flex align-items-center justify-content-start gap-1 mb-3">
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                          </div>
+                          <h3 className="user_name">Thomas Lopez</h3>
+                          <p className="user_profile">Designer</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <div className="testi_container position-relative">
+                        <div className="testi_shape">
+                          <img
+                            src={testimonial_shap}
+                            width="123"
+                            height="121"
+                          />
+                        </div>
+                        <div className="position-relative">
+                          <div className="testi_user_img my-3">
+                            <img src={about_banner} width="70" height="70" />
+                          </div>
+                          <div className="quotes_circle">
+                            <img src={quotes_circle} width="28" height="25" />
+                          </div>
+                        </div>
+
+                        <div>
+                          <p className="testi_desc">
+                            Lorem ipsum dolor amet consec tur elit adicing sed
+                            do usmod zx tempor enim minim veniam quis nostrud
+                            exer citation.
+                          </p>
+                          <div className="user_ratings d-flex align-items-center justify-content-start gap-1 mb-3">
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                          </div>
+                          <h3 className="user_name">Thomas Lopez</h3>
+                          <p className="user_profile">Designer</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <div className="testi_container position-relative">
+                        <div className="testi_shape">
+                          <img
+                            src={testimonial_shap}
+                            width="123"
+                            height="121"
+                          />
+                        </div>
+                        <div className="position-relative">
+                          <div className="testi_user_img my-3">
+                            <img src={about_banner} width="70" height="70" />
+                          </div>
+                          <div className="quotes_circle">
+                            <img src={quotes_circle} width="28" height="25" />
+                          </div>
+                        </div>
+                        <div>
+                          <p className="testi_desc">
+                            Lorem ipsum dolor amet consec tur elit adicing sed
+                            do usmod zx tempor enim minim veniam quis nostrud
+                            exer citation.
+                          </p>
+                          <div className="user_ratings d-flex align-items-center justify-content-start gap-1 mb-3">
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                          </div>
+                          <h3 className="user_name">Thomas Lopez</h3>
+                          <p className="user_profile">Designer</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <div className="testi_container position-relative">
+                        <div className="testi_shape">
+                          <img
+                            src={testimonial_shap}
+                            width="123"
+                            height="121"
+                          />
+                        </div>
+                        <div className="position-relative">
+                          <div className="testi_user_img my-3">
+                            <img src={about_banner} width="70" height="70" />
+                          </div>
+                          <div className="quotes_circle">
+                            <img src={quotes_circle} width="28" height="25" />
+                          </div>
+                        </div>
+                        <div>
+                          <p className="testi_desc">
+                            Lorem ipsum dolor amet consec tur elit adicing sed
+                            do usmod zx tempor enim minim veniam quis nostrud
+                            exer citation.
+                          </p>
+                          <div className="user_ratings d-flex align-items-center justify-content-start gap-1 mb-3">
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                            <img src={star} width="17" height="14" />
+                          </div>
+                          <h3 className="user_name">Thomas Lopez</h3>
+                          <p className="user_profile">Designer</p>
+                        </div>
+                      </div>
+                    </div>
+                  </Slider>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
         <div id="section_our_partners" className="our_partners py-5">
@@ -944,73 +1042,76 @@ const Home = () => {
         <div id="section_contact_us" className="contact_us py-5">
           <div className="home_container">
             <div className="contact_us_inner">
-                <div className="row">
-                    <div className="col-lg-8 col-md-6">
-                        <div className=" contact_us_banner">
-                            <img
-                            src={contact_us_banner}
-                            //   height="519"
-                            //   width="781"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="col-lg-4 col-md-6">
-                        <div className="contact_us_header">
-                        <h5 className="small_heading_title">contact us</h5>
-                        <h2 className="section_heading">Get In Touch</h2>
-                        <img src={title_bottom_shape} height="15" width="103" />
-                        <p className="plan_desc mt-3">
-                            Lorem ipsum dolor sit amet consect adipisicing elit sed. do
-                            eilt se.
-                        </p>
-                        </div>
-
-                        <form className="contact_us_form my-4">
-                        <div className="mb-3">
-                            <input
-                            type="text"
-                            placeholder="Your name"
-                            className="form-control home_input_field"
-                            id="name"
-                            aria-describedby="emailHelp"
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="form-control home_input_field"
-                            id="email"
-                            aria-describedby="emailHelp"
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <input
-                            type="email"
-                            placeholder="Phone number"
-                            className="form-control home_input_field"
-                            id="Phone number"
-                            aria-describedby="emailHelp"
-                            />
-                        </div>
-                        <div className="form-floating">
-                            <textarea
-                            className="home_input_field p-2 w-100"
-                            // aria-placeholder="Your message"
-                            placeholder=" Your message"
-                            id="floatingTextarea2"
-                            style={{ height: "100px" }}
-                            ></textarea>
-                        </div>
-
-                        <button type="submit" className="btn btn-primary button mt-4">
-                            Submit Message &nbsp;
-                            <img src={arrow_right} width="19" height="15" />
-                        </button>
-                        </form>
-                    </div>
+              <div className="row">
+                <div className="col-lg-8 col-md-6">
+                  <div className=" contact_us_banner">
+                    <img
+                      src={contact_us_banner}
+                      //   height="519"
+                      //   width="781"
+                    />
+                  </div>
                 </div>
+
+                <div className="col-lg-4 col-md-6">
+                  <div className="contact_us_header">
+                    <h5 className="small_heading_title">contact us</h5>
+                    <h2 className="section_heading">Get In Touch</h2>
+                    <img src={title_bottom_shape} height="15" width="103" />
+                    <p className="plan_desc mt-3">
+                      Lorem ipsum dolor sit amet consect adipisicing elit sed.
+                      do eilt se.
+                    </p>
+                  </div>
+
+                  <form className="contact_us_form my-4">
+                    <div className="mb-3">
+                      <input
+                        type="text"
+                        placeholder="Your name"
+                        className="form-control home_input_field"
+                        id="name"
+                        aria-describedby="emailHelp"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        className="form-control home_input_field"
+                        id="email"
+                        aria-describedby="emailHelp"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <input
+                        type="email"
+                        placeholder="Phone number"
+                        className="form-control home_input_field"
+                        id="Phone number"
+                        aria-describedby="emailHelp"
+                      />
+                    </div>
+                    <div className="form-floating">
+                      <textarea
+                        className="home_input_field p-2 w-100"
+                        // aria-placeholder="Your message"
+                        placeholder=" Your message"
+                        id="floatingTextarea2"
+                        style={{ height: "100px" }}
+                      ></textarea>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="btn btn-primary button mt-4"
+                    >
+                      Submit Message &nbsp;
+                      <img src={arrow_right} width="19" height="15" />
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1039,33 +1140,49 @@ const Home = () => {
                     <h3 className="foot_section_headting mb-4">Quick link</h3>
                     <ul className="list-unstyled">
                       <li className="footer_text py-1">
-                        <ScrollLink to="section_home" smooth={true} duration={500}>
-                            Home
+                        <ScrollLink
+                          to="section_home"
+                          smooth={true}
+                          duration={500}
+                        >
+                          Home
                         </ScrollLink>
                       </li>
                       <li className="footer_text py-1">
-                        <ScrollLink to="section_about_us" smooth={true} duration={500}>
-                            About
+                        <ScrollLink
+                          to="section_about_us"
+                          smooth={true}
+                          duration={500}
+                        >
+                          About
                         </ScrollLink>
                       </li>
                       <li className="footer_text py-1">
-                        <ScrollLink to="section_online_test" smooth={true} duration={500}>
-                            Test
+                        <ScrollLink
+                          to="section_online_test"
+                          smooth={true}
+                          duration={500}
+                        >
+                          Test
                         </ScrollLink>
                       </li>
                       <li className="footer_text py-1">
-                        <ScrollLink to="section_membership_plan" smooth={true} duration={500}>
-                            Price
+                        <ScrollLink
+                          to="section_membership_plan"
+                          smooth={true}
+                          duration={500}
+                        >
+                          Price
                         </ScrollLink>
                       </li>
                       <li className="footer_text py-1">
                         <Link className="py-1" to="/login">
-                            Sign In
+                          Sign In
                         </Link>
                       </li>
                       <li className="footer_text py-1">
-                        <Link className="py-1" to="register" >
-                            Registration
+                        <Link className="py-1" to="register">
+                          Registration
                         </Link>
                       </li>
                     </ul>

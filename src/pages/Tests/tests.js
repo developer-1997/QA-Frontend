@@ -18,7 +18,7 @@ import {
   Form,
   FormFeedback,
   Spinner,
-  UncontrolledTooltip
+  UncontrolledTooltip,
 } from "reactstrap"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { CKEditor } from "@ckeditor/ckeditor5-react"
@@ -31,6 +31,7 @@ import {
   getTestDetail as onGetTestDetail,
   addNewTest as onAddNewTest,
   updateTest as onUpdateTest,
+  deleteQuestion as onDeleteQuestion,
   getTestDetailSuccess as onGetTestDetailSuccess,
 } from "../../store/actions"
 
@@ -181,6 +182,11 @@ const Tests = props => {
     if (type === "draft") setFieldValue("status", "deactive")
     handleSubmit()
     return false
+  }
+
+  const handleDeleteButton = id => {
+    dispatch(onDeleteQuestion(id, testDetail._id, props.router.navigate))
+    dispatch(onGetTestDetail(testDetail._id))
   }
 
   return (
@@ -525,7 +531,7 @@ const Tests = props => {
                 <Row>
                   {!isEdit ? (
                     <Col className="justify-content-between d-flex">
-                        <h5 className="sub_heading mb-0">Question List</h5>
+                      <h5 className="sub_heading mb-0">Question List</h5>
                       <Link
                         onClick={e =>
                           handleButtonClick(e, "submit", validation)
@@ -542,7 +548,7 @@ const Tests = props => {
                     </Col>
                   ) : (
                     <Col className="justify-content-between d-flex">
-                        <h5 className="sub_heading mb-0">Question List</h5>
+                      <h5 className="sub_heading mb-0">Question List</h5>
                       {/* <Link className="btn btn-outline-primary">
                         <i className="bx bx-pencil   font-size-16 align-middle me-2"></i>
                         Edit
@@ -573,17 +579,33 @@ const Tests = props => {
                               className="text-muted font-weight-bold px-2 ms-3"
                             >
                               {/* <i className="bx bx-pencil font-size-16 align-middle ml-2"></i> */}
-                              <i className="mdi mdi-pencil edit_blue_icon font-size-15" id="edittooltip" />
-                              <UncontrolledTooltip placement="top" target="edittooltip">
+                              <i
+                                className="mdi mdi-pencil edit_blue_icon font-size-15"
+                                id="edittooltip"
+                              />
+                              <UncontrolledTooltip
+                                placement="top"
+                                target="edittooltip"
+                              >
                                 Edit
-                                </UncontrolledTooltip>
+                              </UncontrolledTooltip>
                             </Link>
 
-                            <Link to={`/questions-edit/test/${question.questionId}`}>
-                                <i className="mdi mdi-delete delete_red_icon font-size-15" id="deletetooltip" />
-                                <UncontrolledTooltip placement="top" target="deletetooltip">
+                            <Link
+                              onClick={() =>
+                                handleDeleteButton(question.questionId)
+                              }
+                            >
+                              <i
+                                className="mdi mdi-delete delete_red_icon font-size-15"
+                                id="deletetooltip"
+                              />
+                              <UncontrolledTooltip
+                                placement="top"
+                                target="deletetooltip"
+                              >
                                 Delete
-                                </UncontrolledTooltip>
+                              </UncontrolledTooltip>
                             </Link>
                           </Col>
                         </Row>
@@ -591,6 +613,11 @@ const Tests = props => {
                     </Card>
                   )
                 })}
+                {!questions.length && (
+                  <div className="justify-content-center align-item-center">
+                    <h4>No questions found</h4>
+                  </div>
+                )}
               </CardBody>
             </Card>
 
