@@ -1,26 +1,225 @@
-.statistics_info{
+.statistics_info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .title_for_total{
+    .title_for_total {
         font-size: 14px;
         font-weight: 400;
         color: #74788D;
         margin: 7px 0 20px 0;
     }
-    
-    .btn_view_all{
+
+    .btn_view_all {
         font-size: 13px;
         font-weight: 500;
         color: #252F6A !important;
         text-decoration: underline !important;
         white-space: nowrap;
     }
-    
-    .stat_img{
+
+    .stat_img {
         margin-bottom: 20px;
     }
 }
 
+.btn_bgwhite {
+    font-size: 13px;
+    font-weight: 500;
+    color: #252F6A !important;
+    text-decoration: underline !important;
+    white-space: nowrap;
+}
+
+.section_heading {
+    font-size: 20px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.section_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section_test_course {
+    // .section_header{
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+    // }
+
+    .tbl_student_dashboard {
+        tr {
+            border-bottom: 1px solid #EFF2F7;
+        }
+
+        th {
+            // font-size: 13px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #495057;
+            padding: 10px 0;
+        }
+
+        td {
+            padding: 12px 0;
+        }
+    }
+
+    .rw_title {
+        // font-weight: 500;
+        // font-size: 16px;
+        // font-family: 'Poppins';
+        // color: #252F6A;
+        // margin-bottom: 5px;
+        font-size: 14px;
+        font-family: 'Poppins';
+        color: #252F6A;
+        margin-bottom: 5px;
+    }
+
+    .rw_description {
+        // font-weight: 400;
+        // font-size: 12px;
+        // color: #74788D;
+        // line-height: 18px;
+        // margin-bottom: 0;
+        font-weight: 400;
+        font-size: 11px;
+        color: #74788D;
+        line-height: 18px;
+        margin-bottom: 0;
+    }
+
+    .rw_name_info {
+        display: flex;
+        align-items: center;
+    }
+
+    .rw_img_outer {
+        // height: 47px;
+        // width: 72px;
+        height: 40px;
+        width: 60px;
+        border-radius: 5px;
+        overflow: hidden;
+        // margin-right: 38px;
+        margin-right: 25px;
+    }
+
+    .rw_img_outer img {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .rw_cat_info {
+        .cat_name {
+            color: #495057;
+            font-weight: 400;
+            // font-size: 14px;
+            font-size: 12px;
+        }
+    }
+
+    .rw_dur_info {
+        .dur_val {
+            font-family: "Inter";
+            color: #685F78;
+            font-weight: 400;
+            // font-size: 14px;
+            font-size: 12px;
+        }
+    }
+}
+
+.job_full_info {
+    .job_info_inner {
+        display: flex;
+        justify-content: space-between;
+
+
+        .job_short_info {
+            display: flex;
+        }
+
+        .img_job_outer {
+            width: 72px;
+            height: 72px;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-right: 24px;
+        }
+
+        .img_job_outer img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .job_title {
+            color: #252F6A;
+            // font-size: 20px;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 30px;
+            margin-bottom: 0;
+        }
+
+        .job_company_name {
+            color: #252F6A;
+            // font-size: 14px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 21px;
+        }
+
+        .job_ad_time {
+            color: #6A7187;
+            // font-size: 14px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .btn_apply_now {
+            background: #252F6A;
+            padding: 9px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            text-transform: capitalize;
+            border-radius: 5px;
+        }
+    }
+
+    .job_description{
+        color: #323133;
+        // font-size: 14px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 21px;
+        margin: 10px 0 20px 0;
+    }
+
+    .jobs_additional_info{
+        display: flex;
+        gap: 30px;
+
+        .additional_info{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .additional_info_name{
+                color: #3D3D3D;
+                // font-size: 14px;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 21px;
+            }
+        }
+    }
+}

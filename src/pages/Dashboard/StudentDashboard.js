@@ -27,7 +27,13 @@ import imgJobs from "../../assets/images/icons/jobs.svg"
 import imgTests from "../../assets/images/icons/tests.svg"
 import imgCoachings from "../../assets/images/icons/coachings.svg"
 import arrowRight from "../../assets/images/icons/arrowRightColored.svg"
+import arrowRightWhite from "../../assets/images/icons/arrowRight.png"
+import placeholder from "../../assets/images/users/img_placeholder.png"
 
+import experienceIcon from "../../assets/images/icons/experience.svg"
+import salaryIcon from "../../assets/images/icons/salary.svg"
+import onsiteIcon from "../../assets/images/icons/onSite.svg"
+import locationIcon from "../../assets/images/icons/location.svg"
 
 
 const StudentDashboard = props => {
@@ -317,6 +323,333 @@ const StudentDashboard = props => {
                             </Card> */}
                         </Col>
                     </Row>
+
+                    <div>
+                        <Row>
+                            <Col xl="6">
+                                <Card>
+                                    <CardBody>
+                                        <div className="section_test_course">
+                                            <div className="section_header">
+                                                <h3 className="section_main_heading">Test</h3>
+                                                    <Link
+                                                        className="btn_bgwhite"
+                                                        to=""
+                                                    >
+                                                        View All Tests &nbsp;
+                                                        <img src={arrowRight} height="10" width="10" /> 
+                                                    </Link>
+                                            </div>
+
+                                            <div>
+                                                <table className="me-0 w-100 tbl_student_dashboard">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Test Name</th>
+                                                            <th>Category</th>
+                                                            <th>Duration</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div className="rw_name_info">
+                                                                    <div className="rw_img_outer">
+                                                                        <img src={placeholder} height={47} width={72} />
+                                                                    </div>
+                                                                    <div>
+                                                                        <h4 className="rw_title">Web Automation with Python Test</h4>
+                                                                        <p className="rw_description">Lorem ipsum dolor , consectetur adipiscing</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_cat_info">
+                                                                    <p className="cat_name">Automation Testing</p>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_dur_info">
+                                                                    <p className="dur_val"><span>45</span> Mins</p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div className="rw_name_info">
+                                                                    <div className="rw_img_outer">
+                                                                        <img src={placeholder} height={47} width={72} />
+                                                                    </div>
+                                                                    <div>
+                                                                        <h4 className="rw_title">SpeedCheck</h4>
+                                                                        <p className="rw_description">Lorem ipsum dolor , consectetur adipiscing</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_cat_info">
+                                                                    <p className="cat_name">Automation Testing</p>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_dur_info">
+                                                                    <p className="dur_val"><span>45</span> Mins</p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div className="rw_name_info">
+                                                                    <div className="rw_img_outer">
+                                                                        <img src={placeholder} height={47} width={72} />
+                                                                    </div>
+                                                                    <div>
+                                                                        <h4 className="rw_title">PerformanceProbe</h4>
+                                                                        <p className="rw_description">Lorem ipsum dolor , consectetur adipiscing</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_cat_info">
+                                                                    <p className="cat_name">Manual Testing</p>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_dur_info">
+                                                                    <p className="dur_val"><span>45</span> Mins</p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+
+                            <Col xl="6">
+                                <Card>
+                                    <CardBody>
+                                        <div className="section_test_course">
+                                            <div className="section_header">
+                                                <h3 className="section_main_heading">Courses</h3>
+                                                    <Link
+                                                        className="btn_bgwhite"
+                                                        to=""
+                                                    >
+                                                        View All Courses &nbsp;
+                                                        <img src={arrowRight} height="10" width="10" /> 
+                                                    </Link>
+                                            </div>
+
+                                            <div>
+                                                <table className="me-0 w-100 tbl_student_dashboard">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Course Name</th>
+                                                            <th>Duration</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div className="rw_name_info">
+                                                                    <div className="rw_img_outer">
+                                                                        <img src={placeholder} height={47} width={72} />
+                                                                    </div>
+                                                                    <div>
+                                                                        <h4 className="rw_title">Web Automation with Python Test</h4>
+                                                                        <p className="rw_description">Lorem ipsum dolor , consectetur adipiscing</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_dur_info">
+                                                                    <p className="dur_val"><span>45</span> Mins</p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div className="rw_name_info">
+                                                                    <div className="rw_img_outer">
+                                                                        <img src={placeholder} height={47} width={72} />
+                                                                    </div>
+                                                                    <div>
+                                                                        <h4 className="rw_title">SpeedCheck</h4>
+                                                                        <p className="rw_description">Lorem ipsum dolor , consectetur adipiscing</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_dur_info">
+                                                                    <p className="dur_val"><span>45</span> Mins</p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div className="rw_name_info">
+                                                                    <div className="rw_img_outer">
+                                                                        <img src={placeholder} height={47} width={72} />
+                                                                    </div>
+                                                                    <div>
+                                                                        <h4 className="rw_title">PerformanceProbe</h4>
+                                                                        <p className="rw_description">Lorem ipsum dolor , consectetur adipiscing</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div className="rw_dur_info">
+                                                                    <p className="dur_val"><span>45</span> Mins</p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+                        </Row>
+
+
+                        <div>
+                            <div className="section_header">
+                                <h3 className="section_main_heading">Latest Jobs</h3>
+                                    <Link
+                                        className="btn_bgwhite"
+                                        to=""
+                                    >
+                                        View All Jobs &nbsp;
+                                        <img src={arrowRight} height="10" width="10" /> 
+                                    </Link>
+                            </div>
+
+                            <div>
+                                <Card>
+                                    <CardBody>
+                                        <div className="job_full_info">
+                                            <div className="job_info_inner">
+                                                <div className="job_short_info">
+                                                    <div className="img_job_outer">
+                                                        <img src={placeholder} width={72} height={72} />
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="job_title">Candidates for QA Engineer - Vadodara <span className="job_ad_time"> &#x2022; 5 days ago</span> </h3>
+                                                        <p className="job_company_name">Foursis Technical Solutions </p>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <Link
+                                                        className="btn_apply_now"
+                                                        to=""
+                                                    >
+                                                        apply now &nbsp;
+                                                        <img src={arrowRightWhite} height="10" width="10" /> 
+                                                    </Link>
+                                                </div>
+                                            </div>
+
+                                            <p className="job_description">looking to hire a Quality Assurance Engineer who possesses a passion to test scalable apps, learning and growing quickly. Your work will directly impact millions of lives as you will be...</p>
+
+                                            <div className="jobs_additional_info">
+                                                <div className="additional_info">
+                                                    <img src={onsiteIcon} width={35} height={35} />
+                                                    <p className="mb-0 additional_info_name">On Site</p>
+                                                </div>
+
+                                                <div className="additional_info">
+                                                    <img src={salaryIcon} width={35} height={35} />
+                                                    <p className="mb-0 additional_info_name">6 - 12 Lac</p>
+                                                </div>
+
+                                                <div className="additional_info">
+                                                    <img src={experienceIcon} width={35} height={35} />
+                                                    <p className="mb-0 additional_info_name">5-8 Years</p>
+                                                </div>
+
+                                                <div className="additional_info">
+                                                    <img src={locationIcon} width={35} height={35} />
+                                                    <p className="mb-0 additional_info_name">Jamshedpur, Jharkhand, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                </Card>
+
+                                <Card>
+                                    <CardBody>
+                                        <div className="job_full_info">
+                                            <div className="job_info_inner">
+                                                <div className="job_short_info">
+                                                    <div className="img_job_outer">
+                                                        <img src={placeholder} width={72} height={72} />
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="job_title">Candidates for QA Engineer - Vadodara <span className="job_ad_time"> &#x2022; 5 days ago</span> </h3>
+                                                        <p className="job_company_name">Foursis Technical Solutions </p>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <Link
+                                                        className="btn_apply_now"
+                                                        to=""
+                                                    >
+                                                        apply now &nbsp;
+                                                        <img src={arrowRightWhite} height="10" width="10" /> 
+                                                    </Link>
+                                                </div>
+                                            </div>
+
+                                            <p className="job_description">looking to hire a Quality Assurance Engineer who possesses a passion to test scalable apps, learning and growing quickly. Your work will directly impact millions of lives as you will be...</p>
+
+                                            <div className="jobs_additional_info">
+                                                <div className="additional_info">
+                                                    <img src={onsiteIcon} width={35} height={35} />
+                                                    <p className="mb-0 additional_info_name">On Site</p>
+                                                </div>
+
+                                                <div className="additional_info">
+                                                    <img src={salaryIcon} width={35} height={35} />
+                                                    <p className="mb-0 additional_info_name">6 - 12 Lac</p>
+                                                </div>
+
+                                                <div className="additional_info">
+                                                    <img src={experienceIcon} width={35} height={35} />
+                                                    <p className="mb-0 additional_info_name">5-8 Years</p>
+                                                </div>
+
+                                                <div className="additional_info">
+                                                    <img src={locationIcon} width={35} height={35} />
+                                                    <p className="mb-0 additional_info_name">Jamshedpur, Jharkhand, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                </Card>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </Container>
             </div>
         </React.Fragment>

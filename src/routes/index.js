@@ -88,7 +88,8 @@ const studentsRoutes = [
 ]
 
 const authProtectedRoutes = [
-  { path: "/dashboard", component: <Dashboard /> },
+//   { path: "/dashboard", component: <Dashboard /> },
+    { path: "/dashboard", component: <StudentDashboard /> },
 
   // //calendar
   // { path: "/calendar", component: <Calendar /> },
