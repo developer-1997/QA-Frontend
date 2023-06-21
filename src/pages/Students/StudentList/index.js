@@ -240,7 +240,7 @@ const StudentsList = props => {
                   <h5 className="mb-0 card-title flex-grow-1"></h5>
                   <div className="flex-shrink-0">
                     <Link
-                      to=""
+                      to="/students-create"
                       className="btn btn-primary global_btn me-1"
                       onClick={() => handleAddStudentClick()}
                     >

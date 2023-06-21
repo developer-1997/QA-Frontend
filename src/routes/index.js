@@ -32,6 +32,7 @@ import CourseDetail from "../pages/Courses/CourseList/Courses-detail"
 // //Students
 import StudentsList from "../pages/Students/StudentList"
 import StudentDetail from "../pages/Students/StudentList/Students-detail"
+import Students from "pages/Students/students"
 
 // //Coachings
 import CoachingsList from "../pages/Coachings/CoachingList"
@@ -88,8 +89,8 @@ const studentsRoutes = [
 ]
 
 const authProtectedRoutes = [
-//   { path: "/dashboard", component: <Dashboard /> },
-    { path: "/dashboard", component: <StudentDashboard /> },
+    { path: "/dashboard", component: <Dashboard /> },
+    // { path: "/dashboard", component: <StudentDashboard /> },
 
   // //calendar
   // { path: "/calendar", component: <Calendar /> },
@@ -111,6 +112,8 @@ const authProtectedRoutes = [
   //Student
   { path: "/students-list", component: <StudentsList /> },
   { path: "/student-details/:id", component: <StudentDetail /> },
+  { path: "/students-create", component: <Students /> },
+  { path: "/students-edit/:id", component: <Students /> },
 
   //Coaching
   { path: "/coachings-list", component: <CoachingsList /> },
