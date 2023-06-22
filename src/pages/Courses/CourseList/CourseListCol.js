@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Badge, UncontrolledTooltip } from "reactstrap"
 import { Link } from "react-router-dom"
 import * as moment from "moment"
@@ -26,14 +26,13 @@ const handleValidDate = date => {
 // }
 
 const Name = cellProps => {
+  const [src, setSrc] = useState(staticURL + cellProps.image)
+
   return (
     <>
       <div className="d-flex align-items-center">
         {!cellProps.image ? (
           <div>
-            {/* <span className="avatar-title rounded-circle">
-                {cellProps?.name?.charAt(0)}
-              </span> */}
             <img
               src={Avatar}
               alt=""
@@ -46,12 +45,22 @@ const Name = cellProps => {
           <div>
             <img
               className="avatar-sm tr_img"
-              src={staticURL + cellProps.image}
+              src={src}
               alt=""
+              onError={() => setSrc(Avatar)}
             />
           </div>
         )}
-        <div className="ms-4 list_title_name">{cellProps?.courseName}</div>
+        <div className="container">
+          <div className="ms-4 list_title_name">{cellProps?.courseName}</div>
+          <div></div>
+          <div
+            className="ms-4"
+            dangerouslySetInnerHTML={{
+              __html: cellProps.description.substring(0, 50),
+            }}
+          ></div>
+        </div>
       </div>
     </>
   )

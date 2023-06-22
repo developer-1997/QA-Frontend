@@ -2,6 +2,7 @@ import React from "react"
 import { Badge, UncontrolledTooltip } from "reactstrap"
 import { Link } from "react-router-dom"
 import * as moment from "moment"
+import Avatar from "../../../assets/images/users/user_placeholder.png"
 
 const staticURL = process.env.REACT_APP_STATIC_URL
 
@@ -16,9 +17,6 @@ const Name = cellProps => {
       <div className="d-flex align-items-center">
         {!cellProps.image ? (
           <div>
-            {/* <span className="avatar-title rounded-circle">
-                {cellProps?.name?.charAt(0)}
-              </span> */}
             <img
               src={Avatar}
               alt=""

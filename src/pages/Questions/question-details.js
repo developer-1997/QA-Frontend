@@ -1,35 +1,25 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
-import Dropzone from "react-dropzone"
 import {
   Card,
   CardBody,
-  Button,
   Col,
   Container,
-  Modal,
-  ModalHeader,
-  ModalBody,
   CardHeader,
-  Input,
-  Label,
   Row,
   Form,
-  Spinner,
 } from "reactstrap"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
-import { useFormik } from "formik"
-import * as Yup from "yup"
 import "react-datepicker/dist/react-datepicker.css"
 import {
   getQuestions as onGetQuestions,
-  getQuestionDetail as onGetQuestionDetail,
-  getQuestionDetailSuccess as onGetQuestionDetailSuccess,
+  deleteQuestion as onDeleteQuestion,
 } from "../../store/actions"
 
 import { useSelector, useDispatch } from "react-redux"
 import withRouter from "components/Common/withRouter"
+import QuestionList from "components/Custom/QuestionList"
 
 const Questions = props => {
   const dispatch = useDispatch()
@@ -49,18 +39,23 @@ const Questions = props => {
     if (!moduleName) setModuleName(params.name)
   }, [])
 
-  const { loading, testDetail, questions } = useSelector(state => ({
-    loading: state.tests.loading,
-    testDetail: state.tests?.testDetail,
+  const { loading, questions } = useSelector(state => ({
+    loading: state.questions.loading,
     questions: state.questions?.questions,
   }))
-  console.log(questions)
-  const chapterQuestions = questions?.map(question => {
+  let chapterQuestions = questions?.map(question => {
     const quest = {}
-    quest.question = JSON.parse(question?.question)
+    quest.question = question ? JSON.parse(question?.question) : ""
     quest.id = question?._id
     return quest
   })
+
+  const handleDeleteButton = id => {
+    dispatch(onDeleteQuestion(id))
+    setTimeout(() => {
+      dispatch(onGetQuestions("chapters", params.id))
+    }, 1000)
+  }
 
   return (
     <React.Fragment>
@@ -97,39 +92,23 @@ const Questions = props => {
                 </Row>
               </CardHeader>
               <CardBody style={{ backgroundColor: "#F2F2F2" }}>
-                {chapterQuestions?.map((quest, index) => {
-                  const {
-                    question: { answer, question },
-                    id,
-                  } = quest
-
-                  return (
-                    <Card key={index} style={{ marginBottom: 10 }}>
-                      <CardBody style={{ padding: "12px 20px" }}>
-                        <Row>
-                          <Col
-                            lg="6"
-                            className="justify-content-left d-flex question_text"
-                          >
-                            {`${index + 1}. ${question}`}
-                          </Col>
-                          <Col
-                            lg="6"
-                            className="justify-content-end d-flex question_answer px-lg-0"
-                          >
-                            {`Answer : ${answer}`}
-                            <Link
-                              to={`/questions-edit/chapter/${id}`}
-                              className="text-muted font-weight-bold px-2 ms-3"
-                            >
-                              <i className="bx bx-pencil font-size-16 align-middle ml-2"></i>
-                            </Link>
-                          </Col>
-                        </Row>
-                      </CardBody>
-                    </Card>
-                  )
-                })}
+                {!loading &&
+                  chapterQuestions?.map((quest, index) => {
+                    if (quest.id) {
+                      const { question } = quest
+                      question.questionId = quest.id
+                      return (
+                        question.question && (
+                          <QuestionList
+                            question={question}
+                            key={index}
+                            index={index}
+                            handleDeleteButton={handleDeleteButton}
+                          />
+                        )
+                      )
+                    }
+                  })}
               </CardBody>
             </Card>
           </Form>

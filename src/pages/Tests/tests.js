@@ -8,9 +8,6 @@ import {
   Button,
   Col,
   Container,
-  Modal,
-  ModalHeader,
-  ModalBody,
   CardHeader,
   Input,
   Label,
@@ -38,26 +35,17 @@ import {
 import { useSelector, useDispatch } from "react-redux"
 import { map } from "lodash"
 import withRouter from "components/Common/withRouter"
+import QuestionList from "components/Custom/QuestionList"
 
 const Tests = props => {
   const staticURL = process.env.REACT_APP_STATIC_URL
   const dispatch = useDispatch()
   const params = useParams()
-  const [editQuestion, setEditQuestion] = useState({})
   const [isEdit, setIsEdit] = useState(false)
-  const [isQuestionEdit, setIsQuestionEdit] = useState(false)
-  const [modal, setModal] = useState(false)
   const [questions, setQuestions] = useState([])
   const [selectedFiles, setselectedFiles] = useState([])
   document.title = `${isEdit ? "Edit Test" : "Create New Test"} | QAPRENEUR`
 
-  const toggle = () => {
-    if (modal) {
-      setModal(false)
-    } else {
-      setModal(true)
-    }
-  }
   useEffect(() => {
     dispatch(onGetTestCategories())
   }, [dispatch])
@@ -141,42 +129,6 @@ const Tests = props => {
     },
   })
 
-  const questionValidation = useFormik({
-    enableReinitialize: true,
-    initialValues: {
-      question: editQuestion?.question || "",
-      A: editQuestion?.A || "",
-      B: editQuestion?.B || "",
-      C: editQuestion?.C || "",
-      D: editQuestion?.D || "",
-      answer: editQuestion?.answer || "",
-      questionId: editQuestion?.questionId,
-    },
-    validationSchema: Yup.object({
-      question: Yup.string().required("Please Enter Your Question question"),
-      A: Yup.string().required("Please Enter Question option A"),
-      B: Yup.string().required("Please Enter Question option B"),
-      C: Yup.string().required("Please Enter Question option C"),
-      D: Yup.string().required("Please Enter Question option D"),
-      answer: Yup.string().required("Please Select Question Answer"),
-    }),
-    onSubmit: (values, { resetForm }) => {
-      resetForm()
-      if (isQuestionEdit) {
-        const currentQuestions = questions.filter(
-          question => question.id !== editQuestion.id
-        )
-        setQuestions([...currentQuestions, values])
-      } else {
-        values.id = questions.length + 1
-        setQuestions([...questions, values])
-      }
-      setModal(false)
-    },
-  })
-
-  const { setFieldValue } = questionValidation
-
   const handleButtonClick = (e, type, { handleSubmit, setFieldValue }) => {
     e.preventDefault()
     if (type === "draft") setFieldValue("status", "deactive")
@@ -185,8 +137,10 @@ const Tests = props => {
   }
 
   const handleDeleteButton = id => {
-    dispatch(onDeleteQuestion(id, testDetail._id, props.router.navigate))
-    dispatch(onGetTestDetail(testDetail._id))
+    dispatch(onDeleteQuestion(id))
+    setTimeout(() => {
+      dispatch(onGetTestDetail(testDetail._id))
+    }, 1000)
   }
 
   return (
@@ -560,57 +514,12 @@ const Tests = props => {
               <CardBody style={{ backgroundColor: "#F2F2F2" }}>
                 {questions.map((question, index) => {
                   return (
-                    <Card key={index} style={{ marginBottom: 10 }}>
-                      <CardBody style={{ padding: "12px 20px" }}>
-                        <Row>
-                          <Col
-                            lg="6"
-                            className="justify-content-left d-flex question_text"
-                          >
-                            {`${index + 1}. ${question.question}`}
-                          </Col>
-                          <Col
-                            lg="6"
-                            className="justify-content-end d-flex question_answer px-lg-0"
-                          >
-                            {`Answer : ${question.answer}`}
-                            <Link
-                              to={`/questions-edit/test/${question.questionId}`}
-                              className="text-muted font-weight-bold px-2 ms-3"
-                            >
-                              {/* <i className="bx bx-pencil font-size-16 align-middle ml-2"></i> */}
-                              <i
-                                className="mdi mdi-pencil edit_blue_icon font-size-15"
-                                id="edittooltip"
-                              />
-                              <UncontrolledTooltip
-                                placement="top"
-                                target="edittooltip"
-                              >
-                                Edit
-                              </UncontrolledTooltip>
-                            </Link>
-
-                            <Link
-                              onClick={() =>
-                                handleDeleteButton(question.questionId)
-                              }
-                            >
-                              <i
-                                className="mdi mdi-delete delete_red_icon font-size-15"
-                                id="deletetooltip"
-                              />
-                              <UncontrolledTooltip
-                                placement="top"
-                                target="deletetooltip"
-                              >
-                                Delete
-                              </UncontrolledTooltip>
-                            </Link>
-                          </Col>
-                        </Row>
-                      </CardBody>
-                    </Card>
+                    <QuestionList
+                      question={question}
+                      key={index}
+                      index={index}
+                      handleDeleteButton={handleDeleteButton}
+                    />
                   )
                 })}
                 {!questions.length && (

@@ -46,9 +46,13 @@ function* fetchQuestions({ payload: { type, chapterId } }) {
 
 function* fetchQuestionDetail({ questionId }) {
   try {
+    yield put(updateQuestionLoadingState(true))
     const response = yield call(getQuestionsDetails, questionId)
     yield put(getQuestionDetailSuccess(response.data.data))
+    yield put(updateQuestionLoadingState(false))
   } catch (error) {
+    yield put(updateQuestionLoadingState(false))
+
     yield put(getQuestionDetailFail(error))
   }
 }
@@ -77,7 +81,7 @@ function* onUpdateQuestion({
   }
 }
 
-function* onDeleteQuestion({ payload: { questionId, testId, history } }) {
+function* onDeleteQuestion({ payload: questionId }) {
   try {
     const response = yield call(deleteQuestion, questionId)
     toastr.success("Question deleted successfully..!!")

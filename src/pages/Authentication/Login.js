@@ -155,16 +155,13 @@ const Login = props => {
                             </div>
                           </div>
 
-                          {!isAdmin && (
-                            <div className="text-end txt_forgot_psd py-1">
-                              <Link
-                                to="/auth-recoverpw-2"
-                                className="text-muted"
-                              >
-                                Forgot password?
-                              </Link>
-                            </div>
-                          )}
+                          {/* {!isAdmin && ( */}
+                          <div className="text-end txt_forgot_psd py-1">
+                            <Link to="/auth-recoverpw-2" className="text-muted">
+                              Forgot password?
+                            </Link>
+                          </div>
+                          {/* )} */}
 
                           <div className="mt-3 d-grid">
                             <button

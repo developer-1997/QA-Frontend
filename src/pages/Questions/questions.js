@@ -33,7 +33,6 @@ const Questions = props => {
   const params = useParams()
   const [editQuestion, setEditQuestion] = useState({})
   const [isEdit, setIsEdit] = useState(false)
-  const [isQuestionEdit, setIsQuestionEdit] = useState(false)
   const [questions, setQuestions] = useState([])
   const [form, setForm] = useState(true)
 
@@ -46,16 +45,17 @@ const Questions = props => {
     const currentLocation = props.router.location.pathname
     const status = currentLocation.includes("questions-edit")
     setIsEdit(status)
-    if (status && params?.id) dispatch(onGetQuestionDetail(params.id))
-    else dispatch(onGetQuestionDetailSuccess())
-  }, [setIsEdit])
+    if (status && params?.id) {
+      dispatch(onGetQuestionDetail(params.id))
+    } else dispatch(onGetQuestionDetailSuccess())
+  }, [params.id])
 
   const { loading, questionDetail } = useSelector(state => ({
     loading: state.questions.loading,
     questionDetail: state.questions?.questionDetail,
   }))
 
-  if (Object.keys(editQuestion).length === 0) {
+  if (Object.keys(editQuestion).length === 0 && !loading) {
     if (questionDetail) {
       const { question } = questionDetail
       question && setEditQuestion(JSON.parse(question))
@@ -96,7 +96,6 @@ const Questions = props => {
       answer: Yup.string().required("Please Select Question Answer"),
     }),
     onSubmit: (values, { resetForm, setFieldValue }) => {
-      console.log("type", params.type, isEdit)
       if (isEdit) {
         // dispatch(
         //   onUpdateQuestion(
@@ -129,11 +128,10 @@ const Questions = props => {
 
   const handleButtonClick = async (e, status, validation) => {
     e.preventDefault()
-    console.log("handleButtonClick")
+
     const values = validation.values
 
     await validation.handleSubmit()
-    console.log(validation)
     if (!isEdit && validation.isValid) {
       setForm(false)
       const newQuestion = {
@@ -176,6 +174,7 @@ const Questions = props => {
     questions.splice(index, 1)
     setQuestions(questions)
   }
+
   return (
     <React.Fragment>
       <div className="page-content">

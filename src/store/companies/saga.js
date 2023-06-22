@@ -78,7 +78,7 @@ function* onAddNewCompany({ payload: { company, history } }) {
     yield put(updateCompanyLoadingState(true))
     const response = yield call(addNewCompany, company)
     toastr.success("New Company Added Successfully..!!")
-    yield put(addCompanySuccess(response))
+    yield put(addCompanySuccess(response.data.data))
     yield put(updateCompanyLoadingState(false))
     setTimeout(() => {
       history("/companies-list")
