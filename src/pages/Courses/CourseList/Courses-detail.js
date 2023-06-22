@@ -42,22 +42,23 @@ const CourseDetail = props => {
   const printCourse = () => {
     window.print()
   }
-
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-          
           <Breadcrumb
             title="CourseList"
             breadcrumbItem="Course Profile"
             navigate="/courses-list"
           />
 
-            <div>
-                <CourseDetails courseDetail={courseDetail}   />
-            </div>
-            
+          <div>
+            {Object.keys(courseDetail).length !== 0 ? (
+              <CourseDetails courseDetail={courseDetail} />
+            ) : (
+              ""
+            )}
+          </div>
         </Container>
       </div>
     </React.Fragment>
