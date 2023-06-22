@@ -37,14 +37,17 @@ import Students from "pages/Students/students"
 // //Coachings
 import CoachingsList from "../pages/Coachings/CoachingList"
 import CoachingDetail from "../pages/Coachings/CoachingList/Coachings-detail"
+import Coachings from "pages/Coachings/coachings"
 
 // //Companies
 import CompaniesList from "../pages/Companies/CompaniesList"
 import CompanyDetail from "../pages/Companies/CompaniesList/Companies-detail"
+import Companies from "pages/Companies/companies"
 
 // //Colleges
 import CollegesList from "../pages/Colleges/CollegeList"
 import CollegeDetail from "../pages/Colleges/CollegeList/Colleges-detail"
+import Colleges from "pages/Colleges/colleges"
 
 // Authentication related pages
 import Home from "../pages/Home"
@@ -118,14 +121,24 @@ const authProtectedRoutes = [
   //Coaching
   { path: "/coachings-list", component: <CoachingsList /> },
   { path: "/coaching-details/:id", component: <CoachingDetail /> },
+  { path: "/coachings-create", component: <Coachings /> },
+  { path: "/coachings-edit/:id", component: <Coachings /> },
 
   //Company
   { path: "/companies-list", component: <CompaniesList /> },
   { path: "/company-details/:id", component: <CompanyDetail /> },
+  { path: "/companies-create", component: <Companies /> },
+  { path: "/companies-edit/:id", component: <Companies /> },
+
+  
 
   //College
   { path: "/colleges-list", component: <CollegesList /> },
   { path: "/college-details/:id", component: <CollegeDetail /> },
+  { path: "/colleges-create", component: <Colleges /> },
+  { path: "/colleges-edit/:id", component: <Colleges /> },
+
+  
 
   // this route should be at the end of all other routes
   // eslint-disable-next-line react/display-name

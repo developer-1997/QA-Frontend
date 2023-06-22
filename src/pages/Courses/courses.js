@@ -424,6 +424,7 @@ const Courses = props => {
                         <div
                           className="accordion-button position-relative"
                           type="button"
+                          data-bs-target={`#collapseExample${index}`}
                           data-bs-toggle="collapse"
                           aria-expanded="true"
                         >
@@ -440,6 +441,7 @@ const Courses = props => {
                         </div>
                       </div>
                       <div
+                        id={`collapseExample${index}`}
                         className="accordion-collapse collapse show"
                         data-bs-parent="#accordionExample"
                       >
@@ -532,12 +534,14 @@ const Courses = props => {
                         className="accordion-button position-relative"
                         type="button"
                         data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample"
                         aria-expanded="true"
                       >
                         <span>Module </span>
                       </div>
                     </div>
                     <div
+                      id="collapseExample"
                       className="accordion-collapse collapse show"
                       data-bs-parent="#accordionExample"
                     >

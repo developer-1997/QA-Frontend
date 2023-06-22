@@ -81,14 +81,16 @@ const Action = ({ cellProps, onClickDelete, onClickEdit }) => {
       <span
         className="text-success"
         onClick={() => {
-          const test = cellProps.row.original
-          onClickEdit(test)
+          const company = cellProps.row.original
+          onClickEdit(company)
         }}
       >
-        <i className="mdi mdi-pencil font-size-18" id="edittooltip" />
-        <UncontrolledTooltip placement="top" target="edittooltip">
-          Edit
-        </UncontrolledTooltip>
+        <Link to={`/companies-edit/${cellProps.row.original._id}`}>
+          <i className="mdi mdi-pencil font-size-18" id="edittooltip" />
+          <UncontrolledTooltip placement="top" target="edittooltip">
+            Edit
+          </UncontrolledTooltip>
+        </Link>
       </span>
       {/* <span
         className="text-danger"
