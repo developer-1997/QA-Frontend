@@ -53,7 +53,11 @@ const Register = props => {
       name: Yup.string().required("Please Enter Username"),
       phone: Yup.string().required("Please Enter Phone"),
       roleId: Yup.string().required("Please Select Role"),
-      password: Yup.string().required("Please Enter Password"),
+      password: Yup.string().min(8).required("Please Enter Password"),
+      passwordConfirm: Yup.string()
+        .label("confirm password")
+        .required()
+        .oneOf([Yup.ref("password"), null], "Passwords must match"),
     }),
     onSubmit: values => {
       dispatch(registerUser(values))
