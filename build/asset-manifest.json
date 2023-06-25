@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.522dafad.css",
-    "main.js": "/static/js/main.9039a925.js",
+    "main.css": "/static/css/main.31e8b622.css",
+    "main.js": "/static/js/main.f2ed0db0.js",
     "static/media/materialdesignicons-webfont.eot": "/static/media/materialdesignicons-webfont.52adde0de9840940801f.eot",
     "static/media/materialdesignicons-webfont.ttf?v=5.8.55": "/static/media/materialdesignicons-webfont.506bc8215df8660d8f04.ttf",
     "static/media/fa-solid-900.svg": "/static/media/fa-solid-900.18df003f90a7f1313b98.svg",
@@ -14,6 +14,7 @@
     "static/media/materialdesignicons-webfont.woff2?v=5.8.55": "/static/media/materialdesignicons-webfont.6147fc3741c622c5de2c.woff2",
     "static/media/about_banner.png": "/static/media/about_banner.6e7b6e7a2bb3cd49c892.png",
     "static/media/header_right_one.png": "/static/media/header_right_one.0ef5074b0a476630bdfc.png",
+    "static/media/img_course_details.jpg": "/static/media/img_course_details.512b209171b22f3e0444.jpg",
     "static/media/header_right_two.png": "/static/media/header_right_two.01b1d9548a6716a75e7f.png",
     "static/media/our_features1.png": "/static/media/our_features1.c99b338d264b9affda44.png",
     "static/media/our_features2.png": "/static/media/our_features2.2d065129b653e67eea15.png",
@@ -78,8 +79,10 @@
     "static/media/customizable_sol.svg": "/static/media/customizable_sol.63d66cd1f03f958133e37d45e207caf0.svg",
     "static/media/phone-icon.svg": "/static/media/phone-icon.c5eab4d9ff7d9849b209b4c5cd2a3b89.svg",
     "static/media/non_degree_program.svg": "/static/media/non_degree_program.db087306ab2607f5ab61c2c215af4cf4.svg",
+    "static/media/salary.svg": "/static/media/salary.f4be77c6b234ad6b9edde762cacdef91.svg",
     "static/media/scalable_sol.svg": "/static/media/scalable_sol.3b4e40afa7c62a97d476b31c8f772492.svg",
     "static/media/degree_program.svg": "/static/media/degree_program.8a2154689d5334c8ef2d7f60a972043a.svg",
+    "static/media/coachings.svg": "/static/media/coachings.f0a9523742e2fdb967c19924eed8e76a.svg",
     "static/media/about-icon.svg": "/static/media/about-icon.c78fb077942463f8d0a5582107a11572.svg",
     "static/media/support.svg": "/static/media/support.48e766a543c5e400c397f9f6524d0bea.svg",
     "static/media/hybrid_program.svg": "/static/media/hybrid_program.9f802bbe484af18b81d1d340916e5dd8.svg",
@@ -89,6 +92,7 @@
     "static/media/signup.svg": "/static/media/signup.e0361b6691f1cff0360f9d6e9a03bbd2.svg",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/insta.svg": "/static/media/insta.8c510162cc648504288278556520f570.svg",
+    "static/media/location.svg": "/static/media/location.b75c490fef1694076aafe320448b322e.svg",
     "static/media/right_arrow.svg": "/static/media/right_arrow.516611e6b28a607bc8f5bf087a10b76f.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/login.svg": "/static/media/login.3e9d0ca8099624e07f861a573965eb1a.svg",
@@ -101,15 +105,21 @@
     "static/media/black_arrow.svg": "/static/media/black_arrow.7af1ba9f40fc58728727ada2e2a715cc.svg",
     "index.html": "/index.html",
     "static/media/facebook.svg": "/static/media/facebook.ef6de9b02ff3a5dfc7187a8f1668b39a.svg",
+    "static/media/jobs.svg": "/static/media/jobs.7ecf0f79cb61b78385c5599bc554fa76.svg",
+    "static/media/experience.svg": "/static/media/experience.2e016ea0867a0f86d8d0a53b6259b87c.svg",
+    "static/media/tests.svg": "/static/media/tests.dd2842334452b49af9efa82db21b68e0.svg",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/onSite.svg": "/static/media/onSite.9d53be1e1d90cecdce51a7799da28e23.svg",
     "static/media/logo-light.svg": "/static/media/logo-light.96c274dae02dae215c95d0a7ef202e3a.svg",
     "static/media/logo.svg": "/static/media/logo.a0143fa8ed5f53bf9ab4425b9a374176.svg",
+    "static/media/imgClock.svg": "/static/media/imgClock.b6553e7036e634fdfbc3350fa3f7fbf9.svg",
     "static/media/rightIcon.svg": "/static/media/rightIcon.860a6aab1c192e05fd21b86979704022.svg",
-    "main.522dafad.css.map": "/static/css/main.522dafad.css.map",
-    "main.9039a925.js.map": "/static/js/main.9039a925.js.map"
+    "static/media/arrowRightColored.svg": "/static/media/arrowRightColored.81df61b45df5d2737e1197f4719d1bae.svg",
+    "main.31e8b622.css.map": "/static/css/main.31e8b622.css.map",
+    "main.f2ed0db0.js.map": "/static/js/main.f2ed0db0.js.map"
   },
   "entrypoints": [
-    "static/css/main.522dafad.css",
-    "static/js/main.9039a925.js"
+    "static/css/main.31e8b622.css",
+    "static/js/main.f2ed0db0.js"
   ]
 }
