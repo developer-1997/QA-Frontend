@@ -283,9 +283,9 @@ const Students = props => {
                           }
                         >
                           <option>Select Gender</option>
-                          <option value="Male">Male</option>
-                          <option value="Female">Female</option>
-                          <option value="Transgender">Transgender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                          <option value="transgender">Transgender</option>
                         </Input>
                         {validation.touched.gender &&
                         validation.errors.gender ? (

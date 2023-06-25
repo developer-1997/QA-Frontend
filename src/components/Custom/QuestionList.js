@@ -1,12 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { Card, CardBody, Col, Row, UncontrolledTooltip } from "reactstrap"
+import ConfirmationModal from "./ConfirmationModal"
 
 const QuestionList = props => {
   const {
     index,
     question: { question, answer, questionId },
   } = props
+
+  const [modal_backdrop, setmodal_backdrop] = useState(false)
+  const modalAction = () => {
+    props.handleDeleteButton(questionId)
+    setTimeout(() => setmodal_backdrop(false), 2000)
+  }
   return (
     <Card style={{ marginBottom: 10 }}>
       <CardBody style={{ padding: "12px 20px" }}>
@@ -32,7 +39,7 @@ const QuestionList = props => {
               </UncontrolledTooltip>
             </Link>
 
-            <Link onClick={() => props.handleDeleteButton(questionId)}>
+            <Link onClick={() => setmodal_backdrop(true)}>
               <i
                 className="mdi mdi-delete delete_red_icon font-size-15"
                 id="deletetooltip"
@@ -43,6 +50,15 @@ const QuestionList = props => {
             </Link>
           </Col>
         </Row>
+        {modal_backdrop && (
+          <ConfirmationModal
+            modal_backdrop={modal_backdrop}
+            setmodal_backdrop={setmodal_backdrop}
+            modalTitle={"Are you sure to delete this question"}
+            modalAction={modalAction}
+            loading={props.loading}
+          />
+        )}
       </CardBody>
     </Card>
   )
