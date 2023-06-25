@@ -15,7 +15,6 @@ import {
   Form,
   FormFeedback,
   Spinner,
-  UncontrolledTooltip,
 } from "reactstrap"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { CKEditor } from "@ckeditor/ckeditor5-react"
@@ -66,7 +65,6 @@ const Tests = props => {
 
   useEffect(() => {
     if (isEdit && testDetail) {
-      console.log(testDetail)
       if (testDetail.questions) {
         const ques = testDetail.questions.map(question => {
           const que = JSON.parse(question.question)
@@ -112,16 +110,15 @@ const Tests = props => {
       price: testDetail?.price || "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter Your Test Name"),
+      name: Yup.string().required("Please Enter Test Name"),
       testCategoryId: Yup.string().required("Please Select Test Category"),
-      status: Yup.string().required("Please Enter Your Status"),
+      status: Yup.string().required("Please Selet Status"),
       duration: Yup.string().required("Please Select Test Duration"),
       passingMark: Yup.string().required("Please Enter Passing Marks"),
-      type: Yup.string().required("Please Enter Your Type"),
-      price: Yup.string().required("Please Enter Your Price"),
+      type: Yup.string().required("Please Select Type"),
+      price: Yup.string().required("Please Enter Price"),
     }),
     onSubmit: values => {
-      console.log(values)
       values.questions = questions
       if (isEdit)
         dispatch(onUpdateTest(values, testDetail._id, props.router.navigate))
@@ -168,7 +165,7 @@ const Tests = props => {
                             type="text"
                             className="form-control custom_form_control"
                             id="formrow-name-Input"
-                            placeholder="Enter Your Test Name"
+                            placeholder="Enter Test Name"
                             onChange={validation.handleChange}
                             onBlur={validation.handleBlur}
                             value={validation.values.name || ""}

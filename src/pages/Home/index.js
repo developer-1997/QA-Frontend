@@ -1077,7 +1077,7 @@ const Home = () => {
                     <div className="mb-3">
                       <input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder="Enter email"
                         className="form-control home_input_field"
                         id="email"
                         aria-describedby="emailHelp"

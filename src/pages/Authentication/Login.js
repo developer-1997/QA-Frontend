@@ -36,8 +36,8 @@ const Login = props => {
       password: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().required("Please Enter Your email"),
-      password: Yup.string().required("Please Enter Your Password"),
+      email: Yup.string().required("Please Enter email"),
+      password: Yup.string().required("Please Enter Password"),
     }),
     onSubmit: values => {
       dispatch(

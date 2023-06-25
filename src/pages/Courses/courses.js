@@ -31,6 +31,7 @@ import {
 } from "../../store/actions"
 import { useSelector, useDispatch } from "react-redux"
 import withRouter from "components/Common/withRouter"
+import toastr from "toastr"
 
 const Courses = props => {
   const staticURL = process.env.REACT_APP_STATIC_URL
@@ -88,11 +89,11 @@ const Courses = props => {
       price: courseDetail?.price || "",
     },
     validationSchema: Yup.object({
-      courseName: Yup.string().required("Please Enter Your Course Name"),
-      status: Yup.string().required("Please Select Your Status"),
+      courseName: Yup.string().required("Please Enter Course Name"),
+      status: Yup.string().required("Please Select Course Status"),
       courseDuration: Yup.string().required("Please Select Course Duration"),
-      type: Yup.string().required("Please Enter Your Type"),
-      price: Yup.string().required("Please Enter Your Price"),
+      type: Yup.string().required("Please Select Course Type"),
+      price: Yup.string().required("Please Enter Price"),
     }),
     onSubmit: values => {
       if (isEdit)
@@ -110,9 +111,13 @@ const Courses = props => {
       document: [],
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter Your Module Name"),
+      name: Yup.string().required("Please Enter Module Name"),
     }),
     onSubmit: values => {
+      if (!courseDetail?._id) {
+        toastr.error("Please Add Course First")
+        return
+      }
       dispatch(
         onAddNewChapter(values, courseDetail?._id, props.router.navigate)
       )
@@ -160,7 +165,7 @@ const Courses = props => {
                             type="text"
                             className="form-control custom_form_control"
                             id="formrow-name-Input"
-                            placeholder="Enter Your Course Name"
+                            placeholder="Enter Course Name"
                             onChange={validation.handleChange}
                             onBlur={validation.handleBlur}
                             value={validation.values.courseName || ""}
@@ -187,7 +192,7 @@ const Courses = props => {
                             id="status1"
                             type="text"
                             className="form-control custom_form_control"
-                            placeholder="Enter your course Duration"
+                            placeholder="Enter course Duration"
                             onChange={validation.handleChange}
                             onBlur={validation.handleBlur}
                             value={validation.values.courseDuration || ""}
@@ -354,7 +359,7 @@ const Courses = props => {
                                 : false
                             }
                           >
-                            <option>Choose Test Type</option>
+                            <option>Select Course Type</option>
                             <option value="free">Free</option>
                             <option value="paid">Paid</option>
                           </Input>
@@ -474,7 +479,7 @@ const Courses = props => {
                                   type="file"
                                   className="form-control custom_input custom_form_control"
                                   id="document"
-                                  placeholder="Enter Your Course Name"
+                                  placeholder="Enter Course Name"
                                   multiple
                                 />
                               </div>
@@ -588,7 +593,7 @@ const Courses = props => {
                                 type="file"
                                 className="form-control custom_input custom_form_control"
                                 id="document"
-                                placeholder="Enter Your Course Name"
+                                placeholder="Enter Course Name"
                                 multiple
                                 onChange={event => {
                                   const files = Array.from(event.target.files)

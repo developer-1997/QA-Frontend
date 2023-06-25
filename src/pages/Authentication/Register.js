@@ -49,11 +49,11 @@ const Register = props => {
       passwordConfirm: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().required("Please Enter Your Email"),
-      name: Yup.string().required("Please Enter Your Username"),
-      phone: Yup.string().required("Please Enter Your Phone"),
-      roleId: Yup.string().required("Please Select Your Role"),
-      password: Yup.string().required("Please Enter Your Password"),
+      email: Yup.string().required("Please Enter Email"),
+      name: Yup.string().required("Please Enter Username"),
+      phone: Yup.string().required("Please Enter Phone"),
+      roleId: Yup.string().required("Please Select Role"),
+      password: Yup.string().required("Please Enter Password"),
     }),
     onSubmit: values => {
       dispatch(registerUser(values))
@@ -101,7 +101,7 @@ const Register = props => {
                     <div className="my-auto">
                       <div className="mb-5">
                         <h5 className="text-primary page_title">
-                          Registeration
+                          Registration
                         </h5>
                         <p className="text-muted page_description">
                           Register to continue QAPRENEUR.
