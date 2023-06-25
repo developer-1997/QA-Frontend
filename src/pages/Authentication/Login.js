@@ -138,14 +138,7 @@ const Login = props => {
                                     : false
                                 }
                               />
-                              {/* <button
-                                onClick={() => setPasswordShow(!passwordShow)}
-                                className="btn btn-light "
-                                type="button"
-                                id="password-addon"
-                              >
-                                <i className="mdi mdi-eye-outline"></i>
-                              </button> */}
+
                               {validation.touched.password &&
                               validation.errors.password ? (
                                 <FormFeedback type="invalid">
