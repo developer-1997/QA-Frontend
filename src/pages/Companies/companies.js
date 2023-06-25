@@ -72,7 +72,7 @@ const Companies = props => {
     initialValues: {
       name: companyDetail?.name || "",
       email: companyDetail?.email || "",
-      phoneNumber: companyDetail?.phoneNumber || "",
+      phone: companyDetail?.phone || "",
       address: companyDetail?.address || "",
       technology: companyDetail?.technology || "",
       city: companyDetail?.city || "",
@@ -83,7 +83,7 @@ const Companies = props => {
     validationSchema: Yup.object({
       name: Yup.string().required("Please Enter Company Name"),
       email: Yup.string().required("Please Enter Company Email"),
-      phoneNumber: Yup.string().required("Please Enter Mobile"),
+      phone: Yup.string().required("Please Enter Mobile"),
       address: Yup.string().required("Address Line 1"),
       technology: Yup.string().required("Please Select Technology"),
       city: Yup.string().required("Please Select City"),
@@ -183,25 +183,23 @@ const Companies = props => {
                           Mobile<span className="required_star">*</span>
                         </Label>
                         <Input
-                          name="phoneNumber"
+                          name="phone"
                           type="text"
                           className="form-control custom_form_control"
                           id="formrow-name-Input"
                           placeholder="Please Enter Mobile"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
-                          value={validation.values.phoneNumber || ""}
+                          value={validation.values.phone || ""}
                           invalid={
-                            validation.touched.phoneNumber &&
-                            validation.errors.phoneNumber
+                            validation.touched.phone && validation.errors.phone
                               ? true
                               : false
                           }
                         />
-                        {validation.touched.phoneNumber &&
-                        validation.errors.phoneNumber ? (
+                        {validation.touched.phone && validation.errors.phone ? (
                           <FormFeedback type="invalid">
-                            {validation.errors.phoneNumber}
+                            {validation.errors.phone}
                           </FormFeedback>
                         ) : null}
                       </div>
