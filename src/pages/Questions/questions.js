@@ -88,7 +88,7 @@ const Questions = props => {
       description: editQuestion.description,
     },
     validationSchema: Yup.object({
-      question: Yup.string().required("Please Enter Your Question question"),
+      question: Yup.string().required("Please Enter Question question"),
       A: Yup.string().required("Please Enter Question option A"),
       B: Yup.string().required("Please Enter Question option B"),
       C: Yup.string().required("Please Enter Question option C"),
@@ -234,7 +234,7 @@ const Questions = props => {
                                 type="text"
                                 className="form-control question_option_input"
                                 id="formrow-name-Input"
-                                placeholder="Enter Your Question"
+                                placeholder="Enter Question"
                                 value={question.question || ""}
                                 disabled
                                 minLength={12}
@@ -401,7 +401,7 @@ const Questions = props => {
                                     : ""
                                 }`}
                                 id="formrow-name-Input"
-                                placeholder="Enter Your Question"
+                                placeholder="Enter Question"
                                 onChange={validation.handleChange}
                                 onBlur={validation.handleBlur}
                                 value={validation.values.question || ""}

@@ -92,13 +92,13 @@ const Jobs = props => {
       salaryRange: jobDetail?.salaryRange || "",
     },
     validationSchema: Yup.object({
-      jobTitle: Yup.string().required("Please Enter Your Job Title"),
-      status: Yup.string().required("Please Enter Your Status"),
+      jobTitle: Yup.string().required("Please Enter Job Title"),
+      status: Yup.string().required("Please Enter Status"),
       type: Yup.string().required("Please Select Job Type"),
       // skillIds: Yup.string().required("Please Select skill"),
-      experience: Yup.string().required("Please Enter Your Experience"),
-      salaryRange: Yup.string().required("Please Enter Your Salary Range"),
-      location: Yup.string().required("Please Enter Your Location"),
+      experience: Yup.string().required("Please Enter Experience"),
+      salaryRange: Yup.string().required("Please Enter Salary Range"),
+      location: Yup.string().required("Please Enter Location"),
     }),
     onSubmit: values => {
       console.log(values, "values")

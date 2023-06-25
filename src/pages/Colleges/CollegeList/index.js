@@ -195,8 +195,8 @@ const CollegesList = props => {
       address: college?.address || "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter Your College Full Name"),
-      email: Yup.string().required("Please Enter Your Email"),
+      name: Yup.string().required("Please Enter College Full Name"),
+      email: Yup.string().required("Please Enter Email"),
     }),
     onSubmit: values => {
       if (collegeRoleId && collegeRoleId.length > 0 && collegeRoleId[0]?._id) {
@@ -283,7 +283,7 @@ const CollegesList = props => {
                                 type="text"
                                 className="form-control custom_form_control"
                                 id="formrow-name-Input"
-                                placeholder="Enter Your College Name"
+                                placeholder="Enter College Name"
                                 onChange={validation.handleChange}
                                 onBlur={validation.handleBlur}
                                 value={validation.values.name || ""}
@@ -310,7 +310,7 @@ const CollegesList = props => {
                                 name="email"
                                 id="status1"
                                 type="email"
-                                placeholder="Enter Your  Email"
+                                placeholder="Enter  Email"
                                 className="form-control custom_form_control"
                                 onChange={validation.handleChange}
                                 onBlur={validation.handleBlur}
@@ -336,7 +336,7 @@ const CollegesList = props => {
                                 type="text"
                                 className="form-control custom_form_control"
                                 id="formrow-name-Input"
-                                placeholder="Enter Your Address"
+                                placeholder="Enter Address"
                                 onChange={validation.handleChange}
                                 onBlur={validation.handleBlur}
                                 value={validation.values.address || ""}

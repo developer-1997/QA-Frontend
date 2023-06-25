@@ -187,8 +187,8 @@ const StudentsList = props => {
       coachingId: student && student.coachingId,
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter Your Student Name"),
-      email: Yup.string().required("Please Select Your Email"),
+      name: Yup.string().required("Please Enter Student Name"),
+      email: Yup.string().required("Please Enter Email"),
     }),
     onSubmit: values => {
       if (studentRoleId && studentRoleId.length > 0 && studentRoleId[0]?._id) {
@@ -240,7 +240,7 @@ const StudentsList = props => {
                   <h5 className="mb-0 card-title flex-grow-1"></h5>
                   <div className="flex-shrink-0">
                     <Link
-                      to="/students-create"
+                      // to="/students-create"
                       className="btn btn-primary global_btn me-1"
                       onClick={() => handleAddStudentClick()}
                     >
@@ -293,7 +293,7 @@ const StudentsList = props => {
                                 type="text"
                                 className="form-control custom_form_control"
                                 id="formrow-name-Input"
-                                placeholder="Enter Your Student Name"
+                                placeholder="Enter Student Name"
                                 onChange={validation.handleChange}
                                 onBlur={validation.handleBlur}
                                 value={validation.values.name || ""}
@@ -320,7 +320,7 @@ const StudentsList = props => {
                                 name="email"
                                 id="status1"
                                 type="email"
-                                placeholder="Enter Your Student Email"
+                                placeholder="Enter Student Email"
                                 className="form-control custom_form_control"
                                 onChange={validation.handleChange}
                                 onBlur={validation.handleBlur}

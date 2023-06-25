@@ -75,19 +75,18 @@ const Students = props => {
       country: studentDetail?.country || "",
     },
     validationSchema: Yup.object({
-      firstName: Yup.string().required("Please Enter Your First Name"),
-      lastName: Yup.string().required("Please Enter Your Last Name"),
-      email: Yup.string().required("Please Enter Your Email"),
-      phone: Yup.string().required("Please Enter Your Phone"),
+      firstName: Yup.string().required("Please Enter First Name"),
+      lastName: Yup.string().required("Please Enter Last Name"),
+      email: Yup.string().required("Please Enter Email"),
+      phone: Yup.string().required("Please Enter Phone"),
       DOB: Yup.string().required("Please Enter DOB"),
       gender: Yup.string().required("Please Select Gender"),
-      address: Yup.string().required("Please Enter Your Address"),
+      address: Yup.string().required("Please Enter Address"),
       city: Yup.string().required("Please Select City"),
       state: Yup.string().required("Please Select State"),
       country: Yup.string().required("Please Select Country"),
     }),
     onSubmit: values => {
-      console.log(values)
       if (isEdit)
         dispatch(
           onUpdateStudent(values, studentDetail._id, props.router.navigate)
@@ -129,7 +128,7 @@ const Students = props => {
                           type="text"
                           className="form-control custom_form_control"
                           id="formrow-name-Input"
-                          placeholder="Enter Your First Name"
+                          placeholder="Enter First Name"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.firstName || ""}
@@ -158,7 +157,7 @@ const Students = props => {
                           type="text"
                           className="form-control custom_form_control"
                           id="formrow-name-Input"
-                          placeholder="Enter Your Last Name"
+                          placeholder="Enter Last Name"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.lastName || ""}
@@ -190,7 +189,7 @@ const Students = props => {
                           type="text"
                           className="form-control custom_form_control"
                           id="formrow-name-Input"
-                          placeholder="Enter Your Email"
+                          placeholder="Enter Email"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.email || ""}
@@ -217,7 +216,7 @@ const Students = props => {
                           type="text"
                           className="form-control custom_form_control"
                           id="formrow-name-Input"
-                          placeholder="Enter Your Phone"
+                          placeholder="Enter Phone"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.phone || ""}
@@ -247,7 +246,7 @@ const Students = props => {
                           type="date"
                           className="form-control custom_form_control"
                           id="formrow-name-Input"
-                          placeholder="Enter Your DOB"
+                          placeholder="Enter DOB"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.DOB || ""}
@@ -309,7 +308,7 @@ const Students = props => {
                           type="text"
                           className="form-control custom_form_control"
                           id="formrow-name-Input"
-                          placeholder="Enter Your Address"
+                          placeholder="Enter Address"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.address || ""}
