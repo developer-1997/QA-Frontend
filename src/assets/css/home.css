@@ -1259,6 +1259,8 @@ body {
   .why_us_inner {
     position: unset !important;
     padding: 0 15px;
+    display: grid;
+    gap: 20px;
   }
 
   .why_us_banner {
@@ -1399,6 +1401,11 @@ body {
 
   .swiper-slide {
     background: unset !important;
+  }
+
+  .login_and_signUp{
+    display: flex;
+    flex-direction: column;
   }
 }
 
