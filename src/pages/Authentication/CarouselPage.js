@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 const CarouselPage = () => {
   return (
     <React.Fragment>
-      <Col xl={7} lg={7} md={6} sm={12}>
+      <Col xl={7} lg={7} md={12} sm={12}>
         <div className="auth-full-bg pt-lg-5 p-4 login_banner vh-sm-100">
           <div className="carousel_logo">
             <Link to="/" className="d-block auth-logo">
@@ -30,7 +30,7 @@ const CarouselPage = () => {
             {/* <div className="bg-overlay"></div> */}
 
             <div className="d-flex h-100 flex-column">
-              <div className="p-4 m-auto">
+              <div className="p-0 p-md-4 m-auto">
                 <div className="row justify-content-center">
                   <div className="col-lg-8">
                     <div className="banner_content">
