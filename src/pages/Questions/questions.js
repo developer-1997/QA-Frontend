@@ -15,6 +15,7 @@ import {
   Spinner,
 } from "reactstrap"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
+import CheckBox from "./CheckBox"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import "react-datepicker/dist/react-datepicker.css"
@@ -35,6 +36,7 @@ const Questions = props => {
   const [isEdit, setIsEdit] = useState(false)
   const [questions, setQuestions] = useState([])
   const [form, setForm] = useState(true)
+  const options = ["A", "B", "C", "D"]
 
   document.title = `${
     isEdit ? "Edit Question" : "Create New Question"
@@ -119,7 +121,8 @@ const Questions = props => {
         setQuestions([...questions, newQuestion])
         const answer = values.answer
         resetForm()
-        setFieldValue("answer", answer)
+
+        setFieldValue("answer", "")
       }
     },
   })
@@ -145,7 +148,7 @@ const Questions = props => {
       }
 
       const totalQuestion = [...questions, newQuestion]
-      console.log(questions)
+
       if (!isEdit) {
         dispatch(
           onAddNewQuestion(
@@ -431,219 +434,48 @@ const Questions = props => {
                                 </label>
                               </div>
                               <CardBody>
-                                <Row className="justify-content-center align-items-center mb-3">
-                                  <Col lg="11">
-                                    <div>
-                                      <Input
-                                        name="A"
-                                        type="text"
-                                        className="form-control question_option_input"
-                                        id="formrow-name-Input"
-                                        placeholder="Option - 1"
-                                        onChange={validation.handleChange}
-                                        onBlur={validation.handleBlur}
-                                        value={validation.values.A || ""}
-                                        invalid={
-                                          validation.touched.A &&
-                                          validation.errors.A
-                                            ? true
-                                            : false
-                                        }
-                                      />
-                                      {validation.touched.A &&
-                                      validation.errors.A ? (
-                                        <FormFeedback type="invalid">
-                                          {validation.errors.A}
-                                        </FormFeedback>
-                                      ) : null}
-                                    </div>
-                                  </Col>
-                                  <Col lg="1">
-                                    <div className="form-check mb-2">
-                                      <input
-                                        className={`form-check-input question_option_radio ${
-                                          validation.touched.answer &&
-                                          validation.errors.answer
-                                            ? "is-invalid"
-                                            : ""
-                                        }`}
-                                        type="radio"
-                                        name="answer"
-                                        value="A"
-                                        defaultChecked={
-                                          validation.values.answer === "A"
-                                        }
-                                        onChange={() =>
-                                          setFieldValue("answer", "A")
-                                        }
-                                      />
-                                    </div>
-                                  </Col>
-                                </Row>
-
-                                <Row className="justify-content-center align-items-center mb-3">
-                                  <Col lg="11">
-                                    <div>
-                                      <Input
-                                        name="B"
-                                        type="text"
-                                        className="form-control question_option_input"
-                                        id="formrow-name-Input"
-                                        placeholder="Option - 2"
-                                        onChange={validation.handleChange}
-                                        onBlur={validation.handleBlur}
-                                        value={validation.values.B || ""}
-                                        invalid={
-                                          validation.touched.B &&
-                                          validation.errors.B
-                                            ? true
-                                            : false
-                                        }
-                                      />
-                                      {validation.touched.B &&
-                                      validation.errors.B ? (
-                                        <FormFeedback type="invalid">
-                                          {validation.errors.B}
-                                        </FormFeedback>
-                                      ) : null}
-                                    </div>
-                                  </Col>
-                                  <Col lg="1">
-                                    <div className="form-check mb-3">
-                                      <input
-                                        className={`form-check-input question_option_radio ${
-                                          validation.touched.answer &&
-                                          validation.errors.answer
-                                            ? "is-invalid"
-                                            : ""
-                                        }`}
-                                        type="radio"
-                                        name="answer"
-                                        id="exampleRadios1"
-                                        value="B"
-                                        defaultChecked={
-                                          validation.values.answer === "B"
-                                        }
-                                        onChange={() =>
-                                          setFieldValue("answer", "B")
-                                        }
-                                      />
-                                    </div>
-                                  </Col>
-                                </Row>
-
-                                <Row className="justify-content-center align-items-center mb-3">
-                                  <Col lg="11">
-                                    <div>
-                                      <Input
-                                        name="C"
-                                        type="text"
-                                        className="form-control question_option_input"
-                                        id="formrow-name-Input"
-                                        placeholder="Option - 3"
-                                        onChange={validation.handleChange}
-                                        onBlur={validation.handleBlur}
-                                        value={validation.values.C || ""}
-                                        invalid={
-                                          validation.touched.C &&
-                                          validation.errors.C
-                                            ? true
-                                            : false
-                                        }
-                                      />
-                                      {validation.touched.C &&
-                                      validation.errors.C ? (
-                                        <FormFeedback type="invalid">
-                                          {validation.errors.C}
-                                        </FormFeedback>
-                                      ) : null}
-                                    </div>
-                                  </Col>
-                                  <Col lg="1">
-                                    <div className="form-check mb-3">
-                                      <input
-                                        className={`form-check-input question_option_radio ${
-                                          validation.touched.answer &&
-                                          validation.errors.answer
-                                            ? "is-invalid"
-                                            : ""
-                                        }`}
-                                        type="radio"
-                                        name="answer"
-                                        id="exampleRadios1"
-                                        value="C"
-                                        defaultChecked={
-                                          validation.values.answer === "C"
-                                        }
-                                        onChange={() =>
-                                          setFieldValue("answer", "C")
-                                        }
-                                      />
-                                    </div>
-                                  </Col>
-                                </Row>
-
-                                <Row className="justify-content-center align-items-center mb-3">
-                                  <Col lg="11">
-                                    <div>
-                                      <Input
-                                        name="D"
-                                        type="text"
-                                        className="form-control question_option_input"
-                                        id="formrow-name-Input"
-                                        placeholder="Option - 4"
-                                        onChange={validation.handleChange}
-                                        onBlur={validation.handleBlur}
-                                        value={validation.values.D || ""}
-                                        invalid={
-                                          validation.touched.D &&
-                                          validation.errors.D
-                                            ? true
-                                            : false
-                                        }
-                                      />
-                                      {validation.touched.D &&
-                                      validation.errors.D ? (
-                                        <FormFeedback type="invalid">
-                                          {validation.errors.D}
-                                        </FormFeedback>
-                                      ) : null}
-                                    </div>
-                                  </Col>
-
-                                  {/* {validation.values.answer && ( */}
-                                  <Col lg="1">
-                                    <div className="form-check mb-3">
-                                      <input
-                                        className={`form-check-input question_option_radio ${
-                                          validation.touched.answer &&
-                                          validation.errors.answer
-                                            ? "is-invalid"
-                                            : ""
-                                        }`}
-                                        type="radio"
-                                        name="answer"
-                                        id="exampleRadios1"
-                                        value="D"
-                                        defaultChecked={
-                                          validation.values.answer === "D"
-                                        }
-                                        onChange={() =>
-                                          setFieldValue("answer", "D")
-                                        }
-                                      />
-                                      <div className="">
-                                        {validation.touched.answer &&
-                                        validation.errors.answer ? (
+                                {options.map((option, index) => (
+                                  <Row
+                                    key={index}
+                                    className="justify-content-center align-items-center mb-3"
+                                  >
+                                    <Col lg="11">
+                                      <div>
+                                        <Input
+                                          name={option}
+                                          type="text"
+                                          className="form-control question_option_input"
+                                          id="formrow-name-Input"
+                                          placeholder={`Option - ${index + 1}`}
+                                          onChange={validation.handleChange}
+                                          onBlur={validation.handleBlur}
+                                          value={
+                                            validation.values[option] || ""
+                                          }
+                                          invalid={
+                                            validation.touched[option] &&
+                                            validation.errors[option]
+                                              ? true
+                                              : false
+                                          }
+                                        />
+                                        {validation.touched[option] &&
+                                        validation.errors[option] ? (
                                           <FormFeedback type="invalid">
-                                            {validation.errors.answer}
+                                            {validation.errors[option]}
                                           </FormFeedback>
                                         ) : null}
                                       </div>
-                                    </div>
-                                  </Col>
-                                  {/* )} */}
-                                </Row>
+                                    </Col>
+                                    <Col lg="1">
+                                      <CheckBox
+                                        setFieldValue={setFieldValue}
+                                        validation={validation}
+                                        option={option}
+                                      />
+                                    </Col>
+                                  </Row>
+                                ))}
                               </CardBody>
                             </Card>
 
