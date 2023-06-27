@@ -630,7 +630,7 @@ body {
 .btn_login {
   padding: 6px 15px !important;
   margin-left: 5px;
-  color: #495057 !important;
+  color: #495057;
 }
 
 .btn_login:hover .bx-user {

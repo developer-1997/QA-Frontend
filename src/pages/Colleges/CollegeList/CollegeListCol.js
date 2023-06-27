@@ -44,7 +44,8 @@ const CourseId = cell => {
 }
 
 const Address = cell => {
-  const value = cell.value
+  console.log(cell.row.id)
+  let fullAddress = cell.value
     ? cell.value.length > 25
       ? cell.value.substr(0, 25) + "..."
       : cell.value
@@ -52,10 +53,15 @@ const Address = cell => {
 
   return (
     <>
-      <span id="addresstooltip">{value}</span>
-      <UncontrolledTooltip placement="top" target="addresstooltip">
-        {cell.value}
-      </UncontrolledTooltip>
+      <span id={`addresstooltip${cell.row.id}`}>{fullAddress}</span>
+      {fullAddress != "NA" && (
+        <UncontrolledTooltip
+          placement="top"
+          target={`addresstooltip${cell.row.id}`}
+        >
+          {cell.value}
+        </UncontrolledTooltip>
+      )}
     </>
   )
 }

@@ -116,7 +116,7 @@ const CoachingsList = props => {
       address: coaching?.address || "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter College Full Name"),
+      name: Yup.string().required("Please Enter Coaching Full Name"),
       email: Yup.string().required("Please Enter Email"),
     }),
     onSubmit: values => {

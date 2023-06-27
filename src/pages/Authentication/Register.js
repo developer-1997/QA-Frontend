@@ -87,8 +87,8 @@ const Register = props => {
           <Row className="g-0">
             <CarouselPage />
 
-            <Col xl={5} lg={5} md={6} sm={12}>
-              <div className="auth-full-page-content p-md-5 p-4 overflow-auto vh-100 vh-sm-100">
+            <Col xl={5} lg={5} md={12} sm={12}>
+              <div className="auth-full-page-content p-md-5 p-4 vh-lg-100">
                 <div className="w-100 auth_content_container">
                   <div className="d-flex flex-column h-100">
                     <div className="mb-4 mb-md-5">
