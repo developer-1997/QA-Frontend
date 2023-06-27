@@ -112,10 +112,14 @@ const Tests = props => {
     validationSchema: Yup.object({
       name: Yup.string().required("Please Enter Test Name"),
       testCategoryId: Yup.string().required("Please Select Test Category"),
-      status: Yup.string().required("Please Selet Status"),
+      status: Yup.mixed()
+        .oneOf(["active", "deactive"])
+        .required("Please Select Test Status"),
       duration: Yup.string().required("Please Select Test Duration"),
       passingMark: Yup.string().required("Please Enter Passing Marks"),
-      type: Yup.string().required("Please Select Type"),
+      type: Yup.mixed()
+        .oneOf(["free", "paid"])
+        .required("Please Select Test Type"),
       price: Yup.string().required("Please Enter Price"),
     }),
     onSubmit: values => {
@@ -500,10 +504,17 @@ const Tests = props => {
                   ) : (
                     <Col className="justify-content-between d-flex">
                       <h5 className="sub_heading mb-0">Question List</h5>
-                      {/* <Link className="btn btn-outline-primary">
-                        <i className="bx bx-pencil   font-size-16 align-middle me-2"></i>
-                        Edit
-                      </Link> */}
+                      <Link
+                        to={`/questions-create/test/${testDetail?._id}`}
+                        className="btn btn-outline-primary"
+                      >
+                        <i className="bx bx-plus-circle font-size-16 align-middle me-2"></i>
+                        {loading ? (
+                          <Spinner className="ms-2" color="light" size="sm" />
+                        ) : (
+                          "Add Questions"
+                        )}
+                      </Link>
                     </Col>
                   )}
                 </Row>

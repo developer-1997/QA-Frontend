@@ -67,14 +67,14 @@ function* onUpdateQuestion({
     toastr.success("Question updated successfully..!!")
     yield put(updateQuestionLoadingState(false))
 
-    setTimeout(
-      history(
-        type == "test"
-          ? `/tests-edit/${response.data.data.testId}`
-          : "/courses-list"
-      ),
-      2000
-    )
+    // setTimeout(
+    //   history(
+    //     type == "test"
+    //       ? `/tests-edit/${response.data.data.testId}`
+    //       : "/courses-list"
+    //   ),
+    //   2000
+    // )
   } catch (error) {
     yield put(updateQuestionFail(error))
     toastr.error(error.response.data.message)
