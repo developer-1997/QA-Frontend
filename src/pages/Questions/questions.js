@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import {
   Card,
   CardBody,
@@ -28,6 +28,7 @@ import {
 
 import { useSelector, useDispatch } from "react-redux"
 import withRouter from "components/Common/withRouter"
+import arrowRight from "../../assets/images/icons/arrowRightColored.svg"
 
 const Questions = props => {
   const dispatch = useDispatch()
@@ -38,9 +39,8 @@ const Questions = props => {
   const [form, setForm] = useState(true)
   const options = ["A", "B", "C", "D"]
 
-  document.title = `${
-    isEdit ? "Edit Question" : "Create New Question"
-  } | QAPRENEUR`
+  document.title = `${isEdit ? "Edit Question" : "Create New Question"
+    } | QAPRENEUR`
 
   useEffect(() => {
     setEditQuestion({})
@@ -193,6 +193,15 @@ const Questions = props => {
               title="Questions"
               navigate="/questions-list"
               breadcrumbItem={`${isEdit ? "Edit Question" : "Create Question"}`}
+              // breadcrumbItem={(
+              //   <Link
+              //     className="btn_view_all"
+              //     to=""
+              //   >
+              //     <img src={arrowRight} height="10" width="10" /> &nbsp;
+              //     View All Jobs 
+              //   </Link>
+              // )}
             />
             <Row>
               <Col lg="12">
@@ -397,12 +406,11 @@ const Questions = props => {
                               <textarea
                                 name="question"
                                 type="text"
-                                className={`form-control custom_form_control ${
-                                  validation.touched.question &&
-                                  validation.errors.question
+                                className={`form-control custom_form_control ${validation.touched.question &&
+                                    validation.errors.question
                                     ? "is-invalid"
                                     : ""
-                                }`}
+                                  }`}
                                 id="formrow-name-Input"
                                 placeholder="Enter Question"
                                 onChange={validation.handleChange}
@@ -410,7 +418,7 @@ const Questions = props => {
                                 value={validation.values.question || ""}
                               />
                               {validation.touched.question &&
-                              validation.errors.question ? (
+                                validation.errors.question ? (
                                 <FormFeedback type="invalid">
                                   {validation.errors.question}
                                 </FormFeedback>
@@ -454,13 +462,13 @@ const Questions = props => {
                                           }
                                           invalid={
                                             validation.touched[option] &&
-                                            validation.errors[option]
+                                              validation.errors[option]
                                               ? true
                                               : false
                                           }
                                         />
                                         {validation.touched[option] &&
-                                        validation.errors[option] ? (
+                                          validation.errors[option] ? (
                                           <FormFeedback type="invalid">
                                             {validation.errors[option]}
                                           </FormFeedback>
@@ -486,12 +494,11 @@ const Questions = props => {
                               <textarea
                                 name="description"
                                 type="text"
-                                className={`form-control custom_form_control ${
-                                  validation.touched.question &&
-                                  validation.errors.question
+                                className={`form-control custom_form_control ${validation.touched.question &&
+                                    validation.errors.question
                                     ? "is-invalid"
                                     : ""
-                                }`}
+                                  }`}
                                 id="formrow-name-Input"
                                 placeholder="Answer Description"
                                 onChange={validation.handleChange}

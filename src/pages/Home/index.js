@@ -399,7 +399,7 @@ const Home = () => {
                 <img src={why_us_banner} width="770" height="470" />
               </div>
               <div className="why_us_content order-1 order-lg-2">
-                <div className="text-start mb-5">
+                <div className="text-center text-lg-start mb-5">
                   <h5 className="small_heading_title">why us</h5>
                   <h2 className="section_heading">Why Choose Us</h2>
                   <img src={title_bottom_shape} height="15" width="103" />
