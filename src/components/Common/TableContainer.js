@@ -22,10 +22,10 @@ function GlobalFilter({
 }) {
   const count = preGlobalFilteredRows.length
   const [value, setValue] = React.useState(globalFilter)
-  const onChange = useAsyncDebounce(value => {
-    setGlobalFilter(value || undefined)
+  const onChange = useAsyncDebounce(values => {
+    setGlobalFilter(values || undefined)
   }, 200)
-
+  // console.log("globalFilter", globalFilter)
   return (
     <React.Fragment>
       <Col md={4}>
@@ -72,6 +72,7 @@ const TableContainer = ({
   className,
   customPageSizeOptions,
 }) => {
+  columns[1].accessor = "name"
   const {
     getTableProps,
     getTableBodyProps,
@@ -111,6 +112,7 @@ const TableContainer = ({
     useExpanded,
     usePagination
   )
+  console.log("columns", columns)
 
   const generateSortingIndicator = column => {
     return column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : ""
@@ -124,6 +126,8 @@ const TableContainer = ({
     const page = event.target.value ? Number(event.target.value) - 1 : 0
     gotoPage(page)
   }
+  console.log("page", page)
+  console.log(state)
   return (
     <Fragment>
       <Row className="mb-2">

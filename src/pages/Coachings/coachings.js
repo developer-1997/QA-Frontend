@@ -336,6 +336,7 @@ const Coachings = props => {
                   <div className="justify-content-center d-flex col-8 col-sm-12 col-md-12">
                     <button
                       type="button"
+                      onClick={() => navigate(-1)}
                       className="btn_outline_bgwhite btn btn-primary me-3 px-4"
                     >
                       Cancel

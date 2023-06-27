@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import Dropzone from "react-dropzone"
 import {
   Card,
@@ -39,6 +39,7 @@ import { map } from "lodash"
 import withRouter from "components/Common/withRouter"
 
 const Students = props => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const params = useParams()
   const [isEdit, setIsEdit] = useState(false)
@@ -429,6 +430,7 @@ const Students = props => {
                   <div className="justify-content-center d-flex col-8 col-sm-12 col-md-12">
                     <button
                       type="button"
+                      onClick={() => navigate(-1)}
                       className="btn_outline_bgwhite btn btn-primary me-3 px-4"
                     >
                       Cancel

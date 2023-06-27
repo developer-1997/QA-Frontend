@@ -68,11 +68,12 @@ function* onUpdateQuestion({
     yield put(updateQuestionLoadingState(false))
 
     setTimeout(
-      history(
-        type == "test"
-          ? `/tests-edit/${response.data.data.testId}`
-          : "/courses-list"
-      ),
+      // history(
+      //   type == "test"
+      //     ? `/tests-edit/${response.data.data.testId}`
+      //     : "/courses-list"
+      // )
+      history(-1),
       2000
     )
   } catch (error) {
@@ -113,9 +114,10 @@ function* onAddNewQuestion({
     yield put(addQuestionSuccess(response.data))
     yield put(updateQuestionLoadingState(false))
     setTimeout(() => {
-      type == "test"
-        ? history("/tests-list")
-        : history(`/courses-edit/${courseId}`)
+      // type == "test"
+      //   ? history("/tests-list")
+      //   : history(`/courses-edit/${courseId}`)
+      history(-1)
     }, 1500)
   } catch (error) {
     toastr.error(error.response.data.message)

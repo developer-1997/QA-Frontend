@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import {
   Card,
   CardBody,
@@ -14,7 +14,7 @@ import {
   FormFeedback,
   Spinner,
 } from "reactstrap"
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/BackButtonBreadcrumb"
 import CheckBox from "./CheckBox"
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -30,6 +30,7 @@ import { useSelector, useDispatch } from "react-redux"
 import withRouter from "components/Common/withRouter"
 
 const Questions = props => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const params = useParams()
   const [editQuestion, setEditQuestion] = useState({})
@@ -153,7 +154,7 @@ const Questions = props => {
         dispatch(
           onAddNewQuestion(
             { questions: JSON.stringify(totalQuestion) },
-            props.router.navigate,
+            navigate,
             params?.id,
             params.type,
             params?.courseId,
@@ -167,7 +168,7 @@ const Questions = props => {
         onUpdateQuestion(
           { question: JSON.stringify(validation.values) },
           params.id,
-          props.router.navigate,
+          navigate,
           params.type
         )
       )
@@ -177,6 +178,17 @@ const Questions = props => {
     questions.splice(index, 1)
     setQuestions(questions)
   }
+
+  const submitQuestion = (e, submitProp, validation) => {
+    let obj = validation.values
+    let requiredFields = ["question", "A", "B", "C", "D", "answer"]
+    let isEmptyFields = requiredFields.every(field => {
+      return obj.hasOwnProperty(field) && obj[field]
+    })
+    if (isEmptyFields) handleButtonClick(e, submitProp, validation)
+  }
+
+  console.log(validation)
 
   return (
     <React.Fragment>
@@ -193,6 +205,7 @@ const Questions = props => {
               title="Questions"
               navigate="/questions-list"
               breadcrumbItem={`${isEdit ? "Edit Question" : "Create Question"}`}
+              name="Back"
             />
             <Row>
               <Col lg="12">
@@ -543,7 +556,7 @@ const Questions = props => {
                   >
                     {/* {!isEdit && ( */}
                     <Button
-                      onClick={e => handleButtonClick(e, "draft", validation)}
+                      onClick={e => navigate(-1)}
                       type="button"
                       color=""
                       disabled={loading}
@@ -553,8 +566,8 @@ const Questions = props => {
                     </Button>
                     {/* )} */}
                     <Button
-                      onClick={e => handleButtonClick(e, "submit", validation)}
-                      type="button"
+                      onClick={e => submitQuestion(e, "submit", validation)}
+                      type="submit"
                       color="primary"
                       disabled={loading}
                       className="global_btn"

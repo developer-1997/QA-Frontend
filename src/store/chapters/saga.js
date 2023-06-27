@@ -88,7 +88,7 @@ function* onAddNewChapter({ payload: { chapter, courseId, history } }) {
     yield put(getCourseDetail(courseId))
     yield put(updateChapterLoadingState(false))
     setTimeout(() => {
-      history(`/courses-edit/${courseId}`)
+      history(`/courses-edit`)
     }, 1500)
   } catch (error) {
     toastr.error(error.response.data.message)
