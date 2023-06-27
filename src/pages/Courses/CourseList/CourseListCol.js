@@ -10,28 +10,11 @@ const handleValidDate = date => {
   return date1
 }
 
-// const Name = cell => {
-//   return (
-//     <>
-//       <h5 className="text-truncate font-size-14">
-//         <Link
-//           to={`/tests-overview/${cell.row.original._id}`}
-//           className="text-dark"
-//         >
-//           {cell.value}
-//         </Link>
-//       </h5>
-//     </>
-//   )
-// }
-
 const Name = cellProps => {
-  const [src, setSrc] = useState(staticURL + cellProps.image)
-
   return (
     <>
       <div className="d-flex align-items-center">
-        {!cellProps.image ? (
+        {!cellProps.cell.row.original.image ? (
           <div>
             <img
               src={Avatar}
@@ -45,19 +28,21 @@ const Name = cellProps => {
           <div>
             <img
               className="avatar-sm tr_img"
-              src={src}
+              src={staticURL + cellProps.cell.row.original.image}
               alt=""
-              onError={() => setSrc(Avatar)}
             />
           </div>
         )}
         <div className="container">
-          <div className="ms-4 list_title_name">{cellProps?.courseName}</div>
+          <div className="ms-4 list_title_name">{cellProps?.cell.value}</div>
           <div></div>
           <div
             className="ms-4"
             dangerouslySetInnerHTML={{
-              __html: cellProps.description.substring(0, 50),
+              __html: cellProps?.cell?.row?.original?.description.substring(
+                0,
+                50
+              ),
             }}
           ></div>
         </div>
@@ -126,8 +111,8 @@ const Action = ({ cellProps, onClickDelete, onClickEdit }) => {
         }}
       >
         <Link to={`/course-details/${cellProps.row.original._id}`}>
-          <i className="mdi mdi-eye-outline font-size-18" id="edittooltip" />
-          <UncontrolledTooltip placement="top" target="edittooltip">
+          <i className="mdi mdi-eye-outline font-size-18" id="viewtooltip" />
+          <UncontrolledTooltip placement="top" target="viewtooltip">
             View
           </UncontrolledTooltip>
         </Link>

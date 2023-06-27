@@ -119,10 +119,10 @@ const CollegesList = props => {
       },
       {
         Header: "Name",
-        accessor: "image",
+        accessor: "name",
         disableFilters: true,
         filterable: true,
-        accessor: cellProps => <Name {...cellProps} />,
+        Cell: cellProps => <Name {...cellProps} />,
       },
       {
         Header: "CollegeId",

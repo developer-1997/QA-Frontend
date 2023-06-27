@@ -31,7 +31,7 @@ import {
 } from "../../store/actions"
 import { useSelector, useDispatch } from "react-redux"
 import withRouter from "components/Common/withRouter"
-import toastr from "toastr"
+import ConfirmationModal from "../../components/Custom/ConfirmationModal"
 
 const Courses = props => {
   const staticURL = process.env.REACT_APP_STATIC_URL
@@ -39,7 +39,15 @@ const Courses = props => {
   const params = useParams()
   const [isEdit, setIsEdit] = useState(false)
   const [selectedFiles, setselectedFiles] = useState([])
+  const [modal_backdrop, setmodal_backdrop] = useState(false)
+  const [deleteChapter, setDeleteChapter] = useState("")
 
+  const modalAction = () => {
+    dispatch(
+      onDeleteChapter(deleteChapter, courseDetail?._id, props.router.navigate)
+    )
+    setTimeout(() => setmodal_backdrop(false), 2000)
+  }
   document.title = `${isEdit ? "Edit Course" : "Create New Course"} | QAPRENEUR`
 
   useEffect(() => {
@@ -139,9 +147,8 @@ const Courses = props => {
   }
 
   const handleDeleteModule = chapterId => {
-    dispatch(
-      onDeleteChapter(chapterId, courseDetail?._id, props.router.navigate)
-    )
+    setDeleteChapter(chapterId)
+    setmodal_backdrop(true)
   }
 
   return (
@@ -673,6 +680,15 @@ const Courses = props => {
                   )}
                 </Col>
               </Row>
+              {modal_backdrop && (
+                <ConfirmationModal
+                  modal_backdrop={modal_backdrop}
+                  setmodal_backdrop={setmodal_backdrop}
+                  modalTitle={"Are you sure to delete this module?"}
+                  modalAction={modalAction}
+                  loading={props.loading}
+                />
+              )}
             </CardBody>
           </Card>
         </Container>

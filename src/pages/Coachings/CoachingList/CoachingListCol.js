@@ -14,11 +14,8 @@ const Name = cellProps => {
   return (
     <>
       <div className="d-flex align-items-center">
-        {!cellProps.image ? (
+        {!cellProps.cell.row.original.image ? (
           <div>
-            {/* <span className="avatar-title rounded-circle">
-                {cellProps?.name?.charAt(0)}
-              </span> */}
             <img
               src={Avatar}
               alt=""
@@ -31,16 +28,19 @@ const Name = cellProps => {
           <div>
             <img
               className="avatar-sm tr_img"
-              src={staticURL + cellProps.image}
+              src={staticURL + cellProps.cell.row.original.image}
               alt=""
             />
           </div>
         )}
-        <div className="ms-4 list_title_name">{cellProps?.name}</div>
+        <div className="container">
+          <div className="ms-4 list_title_name">{cellProps?.cell.value}</div>
+        </div>
       </div>
     </>
   )
 }
+
 const CourseId = cell => {
   return cell.value ? cell.value : "NA"
 }
