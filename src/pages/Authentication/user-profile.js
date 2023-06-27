@@ -99,7 +99,7 @@ const UserProfile = () => {
                       />
                     </div>
                     <div className="flex-grow-1 align-self-center">
-                      <div className="text-muted">
+                      <div className="text-muted ms-4">
                         <h5>{name}</h5>
                         <p className="mb-1">{email}</p>
                         <p className="mb-0">Id no: #{idx}</p>
@@ -111,7 +111,7 @@ const UserProfile = () => {
             </Col>
           </Row>
 
-          <h4 className="card-title mb-4">Change User Name</h4>
+          {/* <h4 className="card-title mb-4">Change User Name</h4> */}
 
           <Card>
             <CardBody>
@@ -123,7 +123,218 @@ const UserProfile = () => {
                   return false
                 }}
               >
-                <div className="form-group">
+
+
+                <div>
+                  <Card>
+                    <CardBody>
+                      <div className="pt-2 px-2">
+                        <Row>
+                          <Col lg="6">
+                            <div className="mb-4">
+                              <Label htmlFor="formrow-name-Input">
+                                First Name<span className="required_star">*</span>
+                              </Label>
+                              <Input
+                                name="firstName"
+                                type="text"
+                                className="form-control custom_form_control"
+                                id="formrow-name-Input"
+                                placeholder="Enter First Name"
+                                onChange={validation.handleChange}
+                                onBlur={validation.handleBlur}
+                                value={validation.values.firstName || ""}
+                                invalid={
+                                  validation.touched.firstName &&
+                                    validation.errors.firstName
+                                    ? true
+                                    : false
+                                }
+                              />
+                              {validation.touched.firstName &&
+                                validation.errors.firstName ? (
+                                <FormFeedback type="invalid">
+                                  {validation.errors.firstName}
+                                </FormFeedback>
+                              ) : null}
+                            </div>
+                          </Col>
+                          <Col lg="6">
+                            <div className="mb-4">
+                              <Label htmlFor="formrow-name-Input">
+                                Last Name<span className="required_star">*</span>
+                              </Label>
+                              <Input
+                                name="lastName"
+                                type="text"
+                                className="form-control custom_form_control"
+                                id="formrow-name-Input"
+                                placeholder="Enter Last Name"
+                                onChange={validation.handleChange}
+                                onBlur={validation.handleBlur}
+                                value={validation.values.lastName || ""}
+                                invalid={
+                                  validation.touched.lastName &&
+                                    validation.errors.lastName
+                                    ? true
+                                    : false
+                                }
+                              />
+                              {validation.touched.lastName &&
+                                validation.errors.lastName ? (
+                                <FormFeedback type="invalid">
+                                  {validation.errors.lastName}
+                                </FormFeedback>
+                              ) : null}
+                            </div>
+                          </Col>
+                        </Row>
+
+                        <Row>
+                          <Col lg="6">
+                            <div className="mb-4">
+                              <Label htmlFor="formrow-name-Input">
+                                Email<span className="required_star">*</span>
+                              </Label>
+                              <Input
+                                name="email"
+                                type="text"
+                                className="form-control custom_form_control"
+                                id="formrow-name-Input"
+                                placeholder="Enter Email"
+                                onChange={validation.handleChange}
+                                onBlur={validation.handleBlur}
+                                value={validation.values.email || ""}
+                                invalid={
+                                  validation.touched.email && validation.errors.email
+                                    ? true
+                                    : false
+                                }
+                              />
+                              {validation.touched.email && validation.errors.email ? (
+                                <FormFeedback type="invalid">
+                                  {validation.errors.email}
+                                </FormFeedback>
+                              ) : null}
+                            </div>
+                          </Col>
+                          <Col lg="6">
+                            <div className="mb-4">
+                              <Label htmlFor="formrow-name-Input">
+                                Phone<span className="required_star">*</span>
+                              </Label>
+                              <Input
+                                name="phone"
+                                type="text"
+                                className="form-control custom_form_control"
+                                id="formrow-name-Input"
+                                placeholder="Enter Phone"
+                                onChange={validation.handleChange}
+                                onBlur={validation.handleBlur}
+                                value={validation.values.phone || ""}
+                                invalid={
+                                  validation.touched.phone && validation.errors.phone
+                                    ? true
+                                    : false
+                                }
+                              />
+                              {validation.touched.phone && validation.errors.phone ? (
+                                <FormFeedback type="invalid">
+                                  {validation.errors.phone}
+                                </FormFeedback>
+                              ) : null}
+                            </div>
+                          </Col>
+                        </Row>
+
+                        <Row>
+                          <Col lg="6">
+                            <div className="mb-4">
+                              <Label htmlFor="formrow-name-Input">
+                                DOB<span className="required_star">*</span>
+                              </Label>
+                              <Input
+                                name="DOB"
+                                type="date"
+                                className="form-control custom_form_control"
+                                id="formrow-name-Input"
+                                placeholder="Enter DOB"
+                                onChange={validation.handleChange}
+                                onBlur={validation.handleBlur}
+                                value={validation.values.DOB || ""}
+                                invalid={
+                                  validation.touched.DOB && validation.errors.DOB
+                                    ? true
+                                    : false
+                                }
+                              />
+                              {validation.touched.DOB && validation.errors.DOB ? (
+                                <FormFeedback type="invalid">
+                                  {validation.errors.DOB}
+                                </FormFeedback>
+                              ) : null}
+                            </div>
+                          </Col>
+                          <Col lg="6">
+                            <div className="mb-4">
+                              <Label htmlFor="formrow-name-Input">
+                                Address<span className="required_star">*</span>
+                              </Label>
+                              <Input
+                                name="address"
+                                type="text"
+                                className="form-control custom_form_control"
+                                id="formrow-name-Input"
+                                placeholder="Enter Address"
+                                onChange={validation.handleChange}
+                                onBlur={validation.handleBlur}
+                                value={validation.values.address || ""}
+                                invalid={
+                                  validation.touched.address &&
+                                    validation.errors.address
+                                    ? true
+                                    : false
+                                }
+                              />
+                              {validation.touched.address &&
+                                validation.errors.address ? (
+                                <FormFeedback type="invalid">
+                                  {validation.errors.address}
+                                </FormFeedback>
+                              ) : null}
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+
+                      <div className="btn_outer_upsert pt-4 mt-3">
+                        <div className="justify-content-center d-flex col-8 col-sm-12 col-md-12">
+                          <button
+                            type="button"
+                            onClick={() => navigate(-1)}
+                            className="btn_outline_bgwhite btn btn-primary me-3 px-4"
+                          >
+                            Cancel
+                          </button>
+
+                          <button
+                            onClick={e => handleButtonClick(e, "submit", validation)}
+                            type="button"
+                            color="primary"
+                            // disabled={loading}
+                            className="global_btn btn btn-primary px-4"
+                          >
+                            <i className="bx bx-plus-circle font-size-16 align-middle me-2"></i>
+                            Update
+                          </button>
+                        </div>
+                      </div>
+                    </CardBody>
+                  </Card>
+                </div>
+
+
+                {/* <div className="form-group">
                   <Label className="form-label">User Name</Label>
                   <Input
                     name="username"
@@ -151,7 +362,10 @@ const UserProfile = () => {
                   <Button type="submit" color="danger">
                     Update User Name
                   </Button>
-                </div>
+                </div> */}
+
+
+
               </Form>
             </CardBody>
           </Card>

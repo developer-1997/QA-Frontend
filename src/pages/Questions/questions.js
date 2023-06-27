@@ -1,10 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
-<<<<<<< HEAD
-import { useParams, useNavigate } from "react-router-dom"
-=======
-import { Link, useParams } from "react-router-dom"
->>>>>>> 09c8396bd5bb80ca792099c19aef5ee164ffc41c
+import { Link, useParams, useNavigate } from "react-router-dom"
 import {
   Card,
   CardBody,
@@ -209,9 +205,6 @@ const Questions = props => {
               title="Questions"
               navigate="/questions-list"
               breadcrumbItem={`${isEdit ? "Edit Question" : "Create Question"}`}
-<<<<<<< HEAD
-              name="Back"
-=======
               // breadcrumbItem={(
               //   <Link
               //     className="btn_view_all"
@@ -221,7 +214,6 @@ const Questions = props => {
               //     View All Jobs 
               //   </Link>
               // )}
->>>>>>> 09c8396bd5bb80ca792099c19aef5ee164ffc41c
             />
             <Row>
               <Col lg="12">
