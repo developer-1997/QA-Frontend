@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.31e8b622.css",
-    "main.js": "/static/js/main.f2ed0db0.js",
+    "main.css": "/static/css/main.8a203c09.css",
+    "main.js": "/static/js/main.33bdc4fd.js",
     "static/media/materialdesignicons-webfont.eot": "/static/media/materialdesignicons-webfont.52adde0de9840940801f.eot",
     "static/media/materialdesignicons-webfont.ttf?v=5.8.55": "/static/media/materialdesignicons-webfont.506bc8215df8660d8f04.ttf",
     "static/media/fa-solid-900.svg": "/static/media/fa-solid-900.18df003f90a7f1313b98.svg",
@@ -115,11 +115,11 @@
     "static/media/imgClock.svg": "/static/media/imgClock.b6553e7036e634fdfbc3350fa3f7fbf9.svg",
     "static/media/rightIcon.svg": "/static/media/rightIcon.860a6aab1c192e05fd21b86979704022.svg",
     "static/media/arrowRightColored.svg": "/static/media/arrowRightColored.81df61b45df5d2737e1197f4719d1bae.svg",
-    "main.31e8b622.css.map": "/static/css/main.31e8b622.css.map",
-    "main.f2ed0db0.js.map": "/static/js/main.f2ed0db0.js.map"
+    "main.8a203c09.css.map": "/static/css/main.8a203c09.css.map",
+    "main.33bdc4fd.js.map": "/static/js/main.33bdc4fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.31e8b622.css",
-    "static/js/main.f2ed0db0.js"
+    "static/css/main.8a203c09.css",
+    "static/js/main.33bdc4fd.js"
   ]
 }

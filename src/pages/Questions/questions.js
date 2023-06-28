@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import {
   Card,
   CardBody,
@@ -505,6 +505,7 @@ const Questions = props => {
                               <textarea
                                 name="description"
                                 type="text"
+                                className="form-control question_option_input"
                                 id="formrow-name-Input"
                                 placeholder="Answer Description"
                                 onChange={validation.handleChange}
