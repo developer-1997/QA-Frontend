@@ -62,7 +62,6 @@ function* onUpdateTest({ payload: { test, testId, history } }) {
     yield put(updateTestFail(error))
     toastr.error(error.response.data.message)
   }
-  setTimeout(history("/tests-list"), 2000)
 }
 
 function* onDeleteTest({ payload: testId }) {

@@ -116,7 +116,7 @@ const CoachingsList = props => {
       address: coaching?.address || "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter College Full Name"),
+      name: Yup.string().required("Please Enter Coaching Full Name"),
       email: Yup.string().required("Please Enter Email"),
     }),
     onSubmit: values => {
@@ -147,10 +147,10 @@ const CoachingsList = props => {
       },
       {
         Header: "Name",
-        accessor: "image",
+        accessor: "name",
         disableFilters: true,
         filterable: true,
-        accessor: cellProps => <Name {...cellProps} />,
+        Cell: cellProps => <Name {...cellProps} />,
       },
       {
         Header: "CoachingId",

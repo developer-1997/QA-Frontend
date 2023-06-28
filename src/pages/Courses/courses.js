@@ -31,7 +31,7 @@ import {
 } from "../../store/actions"
 import { useSelector, useDispatch } from "react-redux"
 import withRouter from "components/Common/withRouter"
-import toastr from "toastr"
+import ConfirmationModal from "../../components/Custom/ConfirmationModal"
 
 const Courses = props => {
   const staticURL = process.env.REACT_APP_STATIC_URL
@@ -39,7 +39,15 @@ const Courses = props => {
   const params = useParams()
   const [isEdit, setIsEdit] = useState(false)
   const [selectedFiles, setselectedFiles] = useState([])
+  const [modal_backdrop, setmodal_backdrop] = useState(false)
+  const [deleteChapter, setDeleteChapter] = useState("")
 
+  const modalAction = () => {
+    dispatch(
+      onDeleteChapter(deleteChapter, courseDetail?._id, props.router.navigate)
+    )
+    setTimeout(() => setmodal_backdrop(false), 2000)
+  }
   document.title = `${isEdit ? "Edit Course" : "Create New Course"} | QAPRENEUR`
 
   useEffect(() => {
@@ -90,10 +98,14 @@ const Courses = props => {
     },
     validationSchema: Yup.object({
       courseName: Yup.string().required("Please Enter Course Name"),
-      status: Yup.string().required("Please Select Course Status"),
-      courseDuration: Yup.string().required("Please Select Course Duration"),
-      type: Yup.string().required("Please Select Course Type"),
-      price: Yup.string().required("Please Enter Price"),
+      status: Yup.mixed()
+        .oneOf(["active", "deactive"])
+        .required("Please Select Course Status"),
+      courseDuration: Yup.number().required("Please Enter Course Duration"),
+      type: Yup.mixed()
+        .oneOf(["free", "paid"])
+        .required("Please Select Course Type"),
+      price: Yup.string().required("Please Enter Course Price"),
     }),
     onSubmit: values => {
       if (isEdit)
@@ -115,7 +127,8 @@ const Courses = props => {
     }),
     onSubmit: values => {
       if (!courseDetail?._id) {
-        toastr.error("Please Add Course First")
+        // toastr.error("Please Add Course First")
+        validation.handleSubmit()
         return
       }
       dispatch(
@@ -134,9 +147,8 @@ const Courses = props => {
   }
 
   const handleDeleteModule = chapterId => {
-    dispatch(
-      onDeleteChapter(chapterId, courseDetail?._id, props.router.navigate)
-    )
+    setDeleteChapter(chapterId)
+    setmodal_backdrop(true)
   }
 
   return (
@@ -190,7 +202,7 @@ const Courses = props => {
                           <Input
                             name="courseDuration"
                             id="status1"
-                            type="text"
+                            type="number"
                             className="form-control custom_form_control"
                             placeholder="Enter course Duration"
                             onChange={validation.handleChange}
@@ -343,7 +355,7 @@ const Courses = props => {
                       <Col lg="6">
                         <div className="mb-3 mt-3">
                           <Label htmlFor="status-input" className="form-label">
-                            Select Test Type
+                            Select Course Type
                           </Label>
                           <Input
                             name="type"
@@ -374,14 +386,14 @@ const Courses = props => {
                       <Col lg="6">
                         <div className="mb-3 mt-3">
                           <Label htmlFor="formrow-passingMark-Input">
-                            Test price<span className="required_star">*</span>
+                            Course price<span className="required_star">*</span>
                           </Label>
                           <Input
                             name="price"
                             type="Number"
                             className="form-control custom_form_control"
                             id="formrow-passingMark-Input"
-                            placeholder="Enter Test Price"
+                            placeholder="Enter course Price"
                             onChange={validation.handleChange}
                             onBlur={validation.handleBlur}
                             value={validation.values.price || ""}
@@ -668,6 +680,15 @@ const Courses = props => {
                   )}
                 </Col>
               </Row>
+              {modal_backdrop && (
+                <ConfirmationModal
+                  modal_backdrop={modal_backdrop}
+                  setmodal_backdrop={setmodal_backdrop}
+                  modalTitle={"Are you sure to delete this module?"}
+                  modalAction={modalAction}
+                  loading={props.loading}
+                />
+              )}
             </CardBody>
           </Card>
         </Container>

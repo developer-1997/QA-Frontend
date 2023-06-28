@@ -399,6 +399,7 @@ const Companies = props => {
                     <button
                       type="button"
                       className="btn_outline_bgwhite btn btn-primary me-3 px-4"
+                      onClick={() => navigate(-1)}
                     >
                       Cancel
                     </button>

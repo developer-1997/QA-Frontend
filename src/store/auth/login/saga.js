@@ -49,7 +49,7 @@ function* logoutUser({ payload: { history } }) {
     localStorage.removeItem("authUser")
     localStorage.removeItem("authRole")
 
-    history("/login")
+    history("/admin/login")
   } catch (error) {
     yield put(apiError(error))
   }

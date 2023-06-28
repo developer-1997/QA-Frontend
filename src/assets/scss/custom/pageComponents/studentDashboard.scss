@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 15px 0;
 
     .title_for_total {
         font-size: 14px;
@@ -22,6 +23,65 @@
     .stat_img {
         margin-bottom: 20px;
     }
+
+}
+
+.plan_information{
+    .plan_info{
+        width: 100%;
+        background: #E9F6F4;
+        padding: 10px 10px 0 0;
+        .lbl_activeplan{
+            background-color: #1AB69D;
+            color: #fff;
+            padding: 3px 10px;
+            margin-bottom: 0;
+            font-size: 12px;
+        }
+
+        .plan_price{
+            color: #1AB69D;
+            font-size: 20px;
+            margin-bottom: 0;
+
+            .plan_dur{
+                font-size: 12px;
+                margin-bottom: 0;
+                color: #74788d;
+            }
+        }
+
+        .plan_type{
+            font-size: 16px;
+            color: #000;
+        }
+
+        .lbl_plan_remains{
+            font-size: 12px;
+            color: #000;
+        }
+
+        .lbl_remains{
+            color: #74788d;
+        }
+    }
+
+    .plan_desc{
+        color: #74788d;
+        font-size: 13px;
+        text-align: left !important;
+        margin: 15px 0;
+    }
+}
+
+.btn_upgrade_plan{
+    background: #F89752;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: inline-block;
 }
 
 .btn_bgwhite {

@@ -264,7 +264,7 @@ const Home = () => {
 
         <div id="section_about_us" className="about_us">
           <div className="row">
-            <div className="col-md-12 col-lg-8 col-sm-12 py-5">
+            <div className="col-md-12 col-lg-8 col-sm-12 py-5 order-2 order-lg-1">
               <div className="d-flex justify-content-center align-items-center ">
                 <div className="about_banner_container position-relative py-5">
                   <img src={about_banner} width="520" height="370" />
@@ -281,8 +281,8 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-12 col-lg-4 col-sm-12">
-              <div className=" about_us_content">
+            <div className="col-md-12 col-lg-4 col-sm-12 order-1 order-lg-2">
+              <div className=" about_us_content mt-lg-3">
                 <div className="about_us_header">
                   <p className="lbl_about_us mx-4 px-4">About Us</p>
                   <div className=" mx-4 px-4 mb-2">
@@ -395,11 +395,11 @@ const Home = () => {
         <div id="section_why_us" className="why_us my-5">
           <div className="home_container">
             <div className="why_us_inner">
-              <div className="why_us_banner">
+              <div className="why_us_banner order-2 order-lg-1">
                 <img src={why_us_banner} width="770" height="470" />
               </div>
-              <div className="why_us_content">
-                <div className="text-start mb-5">
+              <div className="why_us_content order-1 order-lg-2">
+                <div className="text-center text-lg-start mb-5">
                   <h5 className="small_heading_title">why us</h5>
                   <h2 className="section_heading">Why Choose Us</h2>
                   <img src={title_bottom_shape} height="15" width="103" />
@@ -1043,7 +1043,7 @@ const Home = () => {
           <div className="home_container">
             <div className="contact_us_inner">
               <div className="row">
-                <div className="col-lg-8 col-md-6">
+                <div className="col-lg-8 col-md-6 order-2 order-md-1">
                   <div className=" contact_us_banner">
                     <img
                       src={contact_us_banner}
@@ -1053,7 +1053,7 @@ const Home = () => {
                   </div>
                 </div>
 
-                <div className="col-lg-4 col-md-6">
+                <div className="col-lg-4 col-md-6 order-1 order-md-2">
                   <div className="contact_us_header">
                     <h5 className="small_heading_title">contact us</h5>
                     <h2 className="section_heading">Get In Touch</h2>

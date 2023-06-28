@@ -61,7 +61,9 @@ function* onUpdateChapter({ payload: { chapter, chapterId, history } }) {
     yield put(updateChapterFail(error))
     toastr.error(error.response.data.message)
   }
-  setTimeout(history("/courses-list"), 2000)
+  setTimeout(() => {
+    history(`/courses-edit/${courseId}`)
+  })
 }
 
 function* onDeleteChapter({ payload: { chapterId, courseId, history } }) {

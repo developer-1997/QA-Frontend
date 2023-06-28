@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import {
   Card,
   CardBody,
@@ -10,7 +10,7 @@ import {
   Row,
   Form,
 } from "reactstrap"
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/BackButtonBreadcrumb"
 import "react-datepicker/dist/react-datepicker.css"
 import {
   getQuestions as onGetQuestions,
@@ -22,6 +22,7 @@ import withRouter from "components/Common/withRouter"
 import QuestionList from "components/Custom/QuestionList"
 
 const Questions = props => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const params = useParams()
   const [isEdit, setIsEdit] = useState(false)
@@ -70,6 +71,7 @@ const Questions = props => {
                   ? `Edit Question Module - ${moduleName}`
                   : "Create Question"
               }`}
+              name="Back to Create Course"
             />
             <Card style={{ borderColor: "#CED4DA", borderWidth: 1.5 }}>
               <CardHeader style={{ backgroundColor: "#E0E5FA" }}>

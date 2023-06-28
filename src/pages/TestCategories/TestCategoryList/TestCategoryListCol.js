@@ -80,8 +80,8 @@ const Action = ({ cellProps, onClickDelete, onClickEdit }) => {
           onClickEdit(test)
         }}
       >
-        <i className="mdi mdi-eye-outline font-size-18" id="edittooltip" />
-        <UncontrolledTooltip placement="top" target="edittooltip">
+        <i className="mdi mdi-eye-outline font-size-18" id="viewtooltip" />
+        <UncontrolledTooltip placement="top" target="viewtooltip">
           View
         </UncontrolledTooltip>
       </span>

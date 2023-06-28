@@ -14,7 +14,7 @@ const Name = cellProps => {
   return (
     <>
       <div className="d-flex align-items-center">
-        {!cellProps.image ? (
+        {!cellProps.cell.row.original.image ? (
           <div>
             <img
               src={Avatar}
@@ -28,12 +28,14 @@ const Name = cellProps => {
           <div>
             <img
               className="avatar-sm tr_img"
-              src={staticURL + cellProps.image}
+              src={staticURL + cellProps.cell.row.original.image}
               alt=""
             />
           </div>
         )}
-        <div className="ms-4 list_title_name">{cellProps?.name}</div>
+        <div className="container">
+          <div className="ms-4 list_title_name">{cellProps?.cell.value}</div>
+        </div>
       </div>
     </>
   )
@@ -44,7 +46,8 @@ const CourseId = cell => {
 }
 
 const Address = cell => {
-  const value = cell.value
+  console.log(cell.row.id)
+  let fullAddress = cell.value
     ? cell.value.length > 25
       ? cell.value.substr(0, 25) + "..."
       : cell.value
@@ -52,10 +55,15 @@ const Address = cell => {
 
   return (
     <>
-      <span id="addresstooltip">{value}</span>
-      <UncontrolledTooltip placement="top" target="addresstooltip">
-        {cell.value}
-      </UncontrolledTooltip>
+      <span id={`addresstooltip${cell.row.id}`}>{fullAddress}</span>
+      {fullAddress != "NA" && (
+        <UncontrolledTooltip
+          placement="top"
+          target={`addresstooltip${cell.row.id}`}
+        >
+          {cell.value}
+        </UncontrolledTooltip>
+      )}
     </>
   )
 }

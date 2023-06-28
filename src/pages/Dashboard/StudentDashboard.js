@@ -11,6 +11,7 @@ import { getChartsData as onGetChartsData } from "../../store/actions"
 // Pages Components
 import WelcomeComp from "./WelcomeComp"
 import MonthlyEarning from "./MonthlyEarning"
+import Jobs from "components/PageComponents/jobs"
 
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
@@ -87,6 +88,21 @@ const StudentDashboard = props => {
         },
     ]
 
+    const jobDetails = [
+        {
+            "jobTitle": "QA Engineer"
+        },
+        {
+            "jobTitle": "QA Engineer"
+        },
+        {
+            "jobTitle": "QA Engineer"
+        },
+        {
+            "jobTitle": "QA Engineer"
+        }
+    ]
+
     useEffect(() => {
         setTimeout(() => {
             setSubscribemodal(true)
@@ -122,8 +138,6 @@ const StudentDashboard = props => {
                         title={props.t("Dashboards")}
                         breadcrumbItem={props.t("Dashboard")}
                     />
-
-                    <h1>this is student dashboard</h1>
 
                     <Row>
                         <Col xl="4">
@@ -162,24 +176,33 @@ const StudentDashboard = props => {
 
 
                             <Row>
-                            <Col md="3" >
+                                <Col md="3" >
                                     <Card className="mini-stats-wid">
-                                        <CardBody>
-                                            <div className="statistics_info">
-                                                <div className="stat_img">
-                                                    <img src={imgJobs} height={48} width={48} />
+                                        <CardBody style={{padding: 10}} >
+                                            <div className="plan_information">
+                                                <div className="plan_info">
+                                                    {/* <img src={imgJobs} height={48} width={48} /> */}
+                                                    <div className="d-flex justify-content-between align-items-center">
+                                                        <p className="lbl_activeplan">Active Plan</p>
+                                                        <div className="plan_price">₹27
+                                                            <label className="plan_dur">/m</label>
+                                                        </div>
+                                                    </div>
+                                                    <div className="px-3 pt-3">
+                                                        <h4 className="plan_type">Silver Plan </h4>
+                                                        <p className="mb-0 lbl_plan_remains">29 days <label className="lbl_remains">Remaining</label> </p>
+                                                    </div>
+                                                    
                                                 </div>
-                                                <div className="text-center">
-                                                    <h4 className="mb-0">Silver Plan </h4>
-                                                    <p className="title_for_total text-muted fw-medium">
-                                                    Sorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                <div>
+                                                    <p className="plan_desc">
+                                                        Sorem ipsum dolor sit amet, consectetur adipiscing elit.
                                                     </p>
                                                     <Link
-                                                        className="btn_view_all"
+                                                        className="btn_upgrade_plan"
                                                         to=""
                                                     >
-                                                        Upgrade Plan &nbsp;
-                                                        <img src={arrowRight} height="10" width="10" /> 
+                                                        Upgrade Plan
                                                     </Link>
                                                 </div>
                                             </div>
@@ -205,7 +228,7 @@ const StudentDashboard = props => {
                                                         to=""
                                                     >
                                                         View All Jobs &nbsp;
-                                                        <img src={arrowRight} height="10" width="10" /> 
+                                                        <img src={arrowRight} height="10" width="10" />
                                                     </Link>
                                                 </div>
                                             </div>
@@ -230,7 +253,7 @@ const StudentDashboard = props => {
                                                         to=""
                                                     >
                                                         View All Tests &nbsp;
-                                                        <img src={arrowRight} height="10" width="10" /> 
+                                                        <img src={arrowRight} height="10" width="10" />
                                                     </Link>
                                                 </div>
                                             </div>
@@ -255,7 +278,7 @@ const StudentDashboard = props => {
                                                         to=""
                                                     >
                                                         View All Coachings &nbsp;
-                                                        <img src={arrowRight} height="10" width="10" /> 
+                                                        <img src={arrowRight} height="10" width="10" />
                                                     </Link>
                                                 </div>
                                             </div>
@@ -332,13 +355,13 @@ const StudentDashboard = props => {
                                         <div className="section_test_course">
                                             <div className="section_header">
                                                 <h3 className="section_main_heading">Test</h3>
-                                                    <Link
-                                                        className="btn_bgwhite"
-                                                        to=""
-                                                    >
-                                                        View All Tests &nbsp;
-                                                        <img src={arrowRight} height="10" width="10" /> 
-                                                    </Link>
+                                                <Link
+                                                    className="btn_bgwhite"
+                                                    to=""
+                                                >
+                                                    View All Tests &nbsp;
+                                                    <img src={arrowRight} height="10" width="10" />
+                                                </Link>
                                             </div>
 
                                             <div>
@@ -442,13 +465,13 @@ const StudentDashboard = props => {
                                         <div className="section_test_course">
                                             <div className="section_header">
                                                 <h3 className="section_main_heading">Courses</h3>
-                                                    <Link
-                                                        className="btn_bgwhite"
-                                                        to=""
-                                                    >
-                                                        View All Courses &nbsp;
-                                                        <img src={arrowRight} height="10" width="10" /> 
-                                                    </Link>
+                                                <Link
+                                                    className="btn_bgwhite"
+                                                    to=""
+                                                >
+                                                    View All Courses &nbsp;
+                                                    <img src={arrowRight} height="10" width="10" />
+                                                </Link>
                                             </div>
 
                                             <div>
@@ -532,17 +555,22 @@ const StudentDashboard = props => {
                         <div>
                             <div className="section_header">
                                 <h3 className="section_main_heading">Latest Jobs</h3>
-                                    <Link
-                                        className="btn_bgwhite"
-                                        to=""
-                                    >
-                                        View All Jobs &nbsp;
-                                        <img src={arrowRight} height="10" width="10" /> 
-                                    </Link>
+                                <Link
+                                    className="btn_bgwhite"
+                                    to=""
+                                >
+                                    View All Jobs &nbsp;
+                                    <img src={arrowRight} height="10" width="10" />
+                                </Link>
                             </div>
 
                             <div>
-                                <Card>
+                                {jobDetails.map((job, index) => (
+                                    <Jobs key={index} />
+                                ))}
+
+
+                                {/* <Card>
                                     <CardBody>
                                         <div className="job_full_info">
                                             <div className="job_info_inner">
@@ -592,59 +620,9 @@ const StudentDashboard = props => {
                                             </div>
                                         </div>
                                     </CardBody>
-                                </Card>
+                                </Card> */}
 
-                                <Card>
-                                    <CardBody>
-                                        <div className="job_full_info">
-                                            <div className="job_info_inner">
-                                                <div className="job_short_info">
-                                                    <div className="img_job_outer">
-                                                        <img src={placeholder} width={72} height={72} />
-                                                    </div>
-                                                    <div>
-                                                        <h3 className="job_title">Candidates for QA Engineer - Vadodara <span className="job_ad_time"> &#x2022; 5 days ago</span> </h3>
-                                                        <p className="job_company_name">Foursis Technical Solutions </p>
-                                                    </div>
-                                                </div>
 
-                                                <div>
-                                                    <Link
-                                                        className="btn_apply_now"
-                                                        to=""
-                                                    >
-                                                        apply now &nbsp;
-                                                        <img src={arrowRightWhite} height="10" width="10" /> 
-                                                    </Link>
-                                                </div>
-                                            </div>
-
-                                            <p className="job_description">looking to hire a Quality Assurance Engineer who possesses a passion to test scalable apps, learning and growing quickly. Your work will directly impact millions of lives as you will be...</p>
-
-                                            <div className="jobs_additional_info">
-                                                <div className="additional_info">
-                                                    <img src={onsiteIcon} width={35} height={35} />
-                                                    <p className="mb-0 additional_info_name">On Site</p>
-                                                </div>
-
-                                                <div className="additional_info">
-                                                    <img src={salaryIcon} width={35} height={35} />
-                                                    <p className="mb-0 additional_info_name">6 - 12 Lac</p>
-                                                </div>
-
-                                                <div className="additional_info">
-                                                    <img src={experienceIcon} width={35} height={35} />
-                                                    <p className="mb-0 additional_info_name">5-8 Years</p>
-                                                </div>
-
-                                                <div className="additional_info">
-                                                    <img src={locationIcon} width={35} height={35} />
-                                                    <p className="mb-0 additional_info_name">Jamshedpur, Jharkhand, India</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </CardBody>
-                                </Card>
                             </div>
                         </div>
 

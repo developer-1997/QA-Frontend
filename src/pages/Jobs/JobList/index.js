@@ -25,6 +25,7 @@ import {
 
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import Jobs from "components/PageComponents/jobs"
 
 const JobsList = props => {
   const staticURL = process.env.REACT_APP_STATIC_URL
@@ -183,6 +184,23 @@ const JobsList = props => {
     []
   )
 
+
+
+  const jobDetails = [
+    {
+      "jobTitle": "QA Engineer"
+    },
+    {
+      "jobTitle": "QA Engineer"
+    },
+    {
+      "jobTitle": "QA Engineer"
+    },
+    {
+      "jobTitle": "QA Engineer"
+    }
+  ]
+
   columns = columns.filter(column => {
     if (column.Header != "Active/Deactive") {
       return column
@@ -206,7 +224,17 @@ const JobsList = props => {
       <div className="page-content">
         <Container fluid>
           <Breadcrumbs title="Jobs" breadcrumbItem="Jobs List" />
-          <Row>
+
+
+
+          {jobDetails.map((job, index) => (
+            <Jobs key={index} />
+          ))}
+
+
+
+
+          {/* <Row>
             <Col lg="12">
               {jobCreateActionPermission.includes(role) && (
                 <CardBody className="border-bottom">
@@ -234,7 +262,9 @@ const JobsList = props => {
                 />
               </div>
             </Col>
-          </Row>
+          </Row> */}
+
+
         </Container>
       </div>
     </React.Fragment>
