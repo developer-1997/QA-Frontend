@@ -27,8 +27,19 @@ import Breadcrumb from "../../components/Common/Breadcrumb"
 import avatar from "../../assets/images/users/avatar-1.jpg"
 // actions
 import { editProfile, resetProfileFlag } from "../../store/actions"
+import { Link, useParams, useNavigate } from "react-router-dom"
+
+import {
+  getStudentDetail as onGetStudentDetail,
+  addNewStudent as onaddNewStudent,
+  updateStudent as onUpdateStudent,
+  deleteStudent as onDeleteStudent,
+  getStudentDetailSuccess as onGetStudentDetailSuccess,
+} from "../../store/actions"
+
 
 const UserProfile = () => {
+  const navigate = useNavigate()
   //meta title
   document.title = "Profile | QAPRENEUR"
 
@@ -37,6 +48,7 @@ const UserProfile = () => {
   const [email, setemail] = useState("")
   const [name, setname] = useState("")
   const [idx, setidx] = useState(1)
+  const [User, setUser] = useState({});
 
   const { error, success } = useSelector(state => ({
     error: state.Profile.error,
@@ -50,6 +62,7 @@ const UserProfile = () => {
         process.env.REACT_APP_DEFAULTAUTH === "fake" ||
         process.env.REACT_APP_DEFAULTAUTH === "jwt"
       ) {
+        setUser(obj);
         setname(obj.username)
         setemail(obj.email)
         setidx(obj.uid)
@@ -60,6 +73,7 @@ const UserProfile = () => {
     }
   }, [dispatch, success])
 
+
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
@@ -67,14 +81,33 @@ const UserProfile = () => {
     initialValues: {
       username: name || "",
       idx: idx || "",
+      firstName: User.firstName || "",
+      lastName: User.lastName || "",
+      email: User.email || "",
+      phone: User.phone || "",
+      DOB: User.DOB || "",
+      address: User.address || ""
     },
     validationSchema: Yup.object({
       username: Yup.string().required("Please Enter UserName"),
+      firstName: Yup.string().required("Please Enter First Name"),
+      lastName: Yup.string().required("Please Enter Last Name"),
+      email: Yup.string().required("Please Enter Email"),
+      phone: Yup.string().required("Please Enter Phone"),
+      DOB: Yup.string().required("Please Enter DOB"),
+      address: Yup.string().required("Please Enter Address"),
     }),
     onSubmit: values => {
       dispatch(editProfile(values))
     },
   })
+
+
+  const handleButtonClick = (e, type, { handleSubmit, setFieldValue }) => {
+    e.preventDefault()
+    handleSubmit()
+    return false
+  }
 
   return (
     <React.Fragment>

@@ -21,6 +21,7 @@ function* loginUser({ payload: { user, history, type } }) {
       )
       localStorage.setItem("authRole", response.data.user.roleId.role)
       localStorage.setItem("authUser", JSON.stringify(response.data.user))
+      console.log("LOGGEDDDDDDDD",response.data.user);
       localStorage.setItem("authToken", response.token)
       toastr.success("You have successfully signed in!")
 
