@@ -34,7 +34,10 @@ axiosApi.interceptors.response.use(
       toastr.error("Session expired.Please login again...!!!")
       setTimeout(() => {
         window.location =
-          window.location.protocol + "//" + window.location.host + "/login"
+          window.location.protocol +
+          "//" +
+          window.location.host +
+          "/admin/login"
         localStorage.clear()
       }, 1500)
     }
@@ -42,7 +45,7 @@ axiosApi.interceptors.response.use(
 
     if (islogin && error.response?.status === 401) {
       window.location =
-        window.location.protocol + "//" + window.location.host + "/login"
+        window.location.protocol + "//" + window.location.host + "/admin/login"
       localStorage.clear()
     }
 

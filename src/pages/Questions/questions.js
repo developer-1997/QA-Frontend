@@ -1,10 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
-<<<<<<< HEAD
-import { Link, useParams, useNavigate } from "react-router-dom"
-=======
 import { Link, useParams } from "react-router-dom"
->>>>>>> 67175ba310ae472e743d8acac5500c05adee3a3e
 import {
   Card,
   CardBody,
