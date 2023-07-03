@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import {
   Card,
   CardBody,
@@ -39,6 +39,8 @@ const Questions = props => {
   const [questions, setQuestions] = useState([])
   const [form, setForm] = useState(true)
   const options = ["A", "B", "C", "D"]
+
+  console.log("param", params)
 
   document.title = `${
     isEdit ? "Edit Question" : "Create New Question"
@@ -164,7 +166,7 @@ const Questions = props => {
         )
       }
     } else {
-      // console.log(validation.values)
+      console.log("pupdate", params)
       dispatch(
         onUpdateQuestion(
           { question: JSON.stringify(validation.values) },

@@ -81,7 +81,7 @@ function* onAddNewCourse({ payload: { test, history } }) {
     yield put(addCourseSuccess(response.data.data))
     yield put(updateCourseLoadingState(false))
     setTimeout(() => {
-      setTimeout(history(`/courses-edit/${response.data.data._id}`), 2000)
+      setTimeout(history("/courses-list"), 2000)
     }, 1500)
   } catch (error) {
     toastr.error(error.response.data.message)

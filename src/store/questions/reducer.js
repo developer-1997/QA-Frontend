@@ -41,7 +41,9 @@ const questions = (state = INIT_STATE, action) => {
     case ADD_QUESTION_SUCCESS:
       return {
         ...state,
-        questions: [...state.questions, action.payload],
+        questions: action.payload
+          ? [...state.questions, action.payload]
+          : [...state.questions],
       }
 
     case ADD_QUESTION_FAIL:
